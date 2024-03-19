@@ -1,3 +1,4 @@
 # ProjektPrz
 Projekt Politechnika Rzeszowska
-coœ tam
+coï¿½ tam
+cos od siebie
