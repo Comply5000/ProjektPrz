@@ -1,0 +1,2 @@
+# ProjektPrz
+Projekt Politechnika Rzeszowska
