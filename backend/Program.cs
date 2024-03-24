@@ -21,6 +21,7 @@ app.UseSwaggerUI(c =>
 });
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthorization();
 
