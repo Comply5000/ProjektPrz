@@ -1,3 +1,5 @@
+# Etap 1: Zbuduj aplikację
+FROM node:20 as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
