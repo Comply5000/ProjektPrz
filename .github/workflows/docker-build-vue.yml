@@ -20,6 +20,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile
+          file: ./frontend/Dockerfile
           push: true
           tags: comply5000/projektprz-vue:latest
