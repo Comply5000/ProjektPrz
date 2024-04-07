@@ -9,6 +9,9 @@ public class Question : Entity
     public string Message { get; set; }
     public string Answer { get; set; }
     
+    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset? AnsweredAt { get; set; }
+    
     public Guid UserId { get; set; }
     public User User { get; set; }
     
