@@ -8,6 +8,7 @@ public class Comment : Entity
 {
     public string Message { get; set; }
     public int Rating { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }
     
     public Guid UserId { get; set; }
     public User User { get; set; }
