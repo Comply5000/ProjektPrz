@@ -6,6 +6,6 @@ namespace API.Features.Identity.Commands.SingUp
         string? UserName,
         string? Email,
         string? Password,
-        string? ConfirmPassword
+        string? ConfirmedPassword
         ):IRequest;
 }
