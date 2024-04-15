@@ -1,18 +1,21 @@
 ﻿using API.Database.Context;
+using API.Features.Identity.Config;
 using API.Features.Identity.Entities;
-using Docker.DotNet.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace API.Extensions
 {
-    public class IdentityExtension
+    public static class IdentityExtension
     {
         public static IServiceCollection AddIdentityConfig(this IServiceCollection services, IConfiguration configuration)
         {
             var authConfig = new AuthConfig();
             configuration.GetSection("Authentication").Bind(authConfig);
             services.AddSingleton(authConfig);
-
+            
             ////Configure identity
             services.AddIdentity<User, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<EFContext>()
@@ -36,10 +39,10 @@ namespace API.Extensions
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
-                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedEmail = false;
 
                 // Email confirm
-                options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+                //options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
             });
 
 
@@ -49,24 +52,23 @@ namespace API.Extensions
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddCookie(cfg => cfg.SlidingExpiration = true)
-                .AddJwtBearer(cfg =>
+            })    
+            .AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    cfg.RequireHttpsMetadata = false;
-                    cfg.SaveToken = true;
-                    cfg.TokenValidationParameters = new TokenValidationParameters()
-                    {
-                        ValidIssuer = authConfig.JwtIssuer,
-                        ValidAudience = authConfig.JwtIssuer,
-                        ValidateAudience = true,
-                        ValidateIssuer = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authConfig.JwtKey)),
-                        ClockSkew = TimeSpan.Zero
-                    };
-                });
+                    ValidIssuer = authConfig.JwtIssuer,
+                    ValidAudience = authConfig.JwtIssuer,
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authConfig.JwtKey)),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
 
             //Configure SecurityStamp object
             services.Configure<SecurityStampValidatorOptions>(options =>
@@ -76,10 +78,10 @@ namespace API.Extensions
                 options.OnRefreshingPrincipal = (context) => Task.CompletedTask;
             });
 
-            services.Configure<DataProtectionTokenProviderOptions>(options =>
+            /*services.Configure<DataProtectionTokenProviderOptions>(options =>
             {
                 options.TokenLifespan = TimeSpan.FromHours(2); // Set the token lifespan to 2 days
-            });
+            });*/
 
 
             return services;

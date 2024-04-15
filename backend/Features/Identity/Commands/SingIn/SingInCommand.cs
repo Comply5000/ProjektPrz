@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿/*using MediatR;
 using Microsoft.AspNetCore.Identity;
 namespace API.Features.Identity.Commands.SingIn
 {
@@ -8,3 +8,4 @@ namespace API.Features.Identity.Commands.SingIn
         public string Password { get; set; }
     }
 }
+*/

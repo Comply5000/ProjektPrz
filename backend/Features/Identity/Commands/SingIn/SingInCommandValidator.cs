@@ -1,4 +1,4 @@
-﻿using FluentValidation;
+﻿/*using FluentValidation;
 
 namespace API.Features.Identity.Commands.SingIn
 {
@@ -11,3 +11,4 @@ namespace API.Features.Identity.Commands.SingIn
         }
     }
 }
+*/

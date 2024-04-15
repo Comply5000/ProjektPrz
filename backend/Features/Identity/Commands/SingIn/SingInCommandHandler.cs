@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿/*using MediatR;
 using Microsoft.AspNetCore.Identity;
 
 namespace API.Features.Identity.Commands.SingIn
@@ -12,10 +12,11 @@ namespace API.Features.Identity.Commands.SingIn
             _signInManager = signInManager;
         }
 
-        public async Task<SignInResult> Handle(SingInCommand request, CancellationToken cancellationToken)
+        public async Task<SignInResult*//**//*> Handle(SingInCommand request, CancellationToken cancellationToken)
         {
             var result = await _signInManager.PasswordSignInAsync(request.Email, request.Password, false, false);
             return result;
         }
     }
 }
+*/

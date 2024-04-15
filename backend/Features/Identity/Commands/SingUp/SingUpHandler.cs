@@ -1,30 +1,51 @@
-﻿using AutoMapper;
+﻿using API.Database.Context;
+using API.Features.Identity.Entities;
+using API.Features.Identity.Exeptions;
+using API.Features.Identity.Static;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
 
 namespace API.Features.Identity.Commands.SingUp
 {
     public class SignUpCommandHandler : IRequestHandler<SingUpCommand>
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
+        private readonly EFContext _context;
 
-        public SignUpCommandHandler(UserManager<IdentityUser> userManager, IMapper mapper)
+        public SignUpCommandHandler(UserManager<User> userManager,EFContext context)
         {
             _userManager = userManager;
-            _mapper = mapper;
+            _context = context;
         }
 
         public async Task Handle(SingUpCommand request, CancellationToken cancellationToken)
-                {
-            var user = new IdentityUser { UserName = request.Email, Email = request.Email };
-            var result = await _userManager.CreateAsync(user, request.Password);
-
-            if (!result.Succeeded)
+        {
+            var isUserExists = await _userManager.Users.AnyAsync(x => x.Email == request.Email);
+            if (isUserExists)
             {
-                throw new Exception("Failed to create user");
+                throw new UserWithEmailExistsExaptions();
             }
+
+            var user = new User
+            {
+                Email = request.Email,
+                UserName = request.Email,
+            };
+
+            var createdUser = await _userManager.CreateAsync(user, request.Password);
+
+            if (!createdUser.Succeeded) {
+                throw new CreateUserException(createdUser.Errors);
+            }
+
+            var addRoleResult = await _userManager.AddToRoleAsync(user, UserRoles.User);
+            /*if (addRoleResult.Succeeded)
+            {
+                throw new //todo
+            }*/
+
 
             //return Unit.Value;
         }

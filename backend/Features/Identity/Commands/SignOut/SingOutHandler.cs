@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿/*using MediatR;
 using Microsoft.AspNetCore.Identity;
 
 namespace API.Features.Identity.Commands.SignOut
@@ -18,3 +18,4 @@ namespace API.Features.Identity.Commands.SignOut
         }
     }
 }
+*/

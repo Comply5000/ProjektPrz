@@ -1,5 +1,6 @@
 using System.Reflection;
 using API.Database;
+using API.Extensions;
 using API.Filters;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -8,7 +9,8 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddIdentityConfig(builder.Configuration);
+
+
 builder.Services
     .AddControllers(options =>
     {
@@ -18,7 +20,7 @@ builder.Services
 builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
+builder.Services.AddIdentityConfig(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDatabase(builder.Configuration);

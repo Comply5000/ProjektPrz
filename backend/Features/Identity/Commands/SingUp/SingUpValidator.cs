@@ -5,7 +5,6 @@ namespace API.Features.Identity.Commands.SingUp
     public class SingUpValidator:AbstractValidator<SingUpCommand>
     {
         public SingUpValidator() {
-            RuleFor(x => x.UserName).NotEmpty().WithMessage("User name is required");
             RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required");
             RuleFor(x => x.Email).EmailAddress().WithMessage("Invalid email address");
             RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required");
