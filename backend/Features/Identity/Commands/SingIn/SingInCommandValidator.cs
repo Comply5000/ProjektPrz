@@ -1,8 +1,8 @@
-﻿/*using FluentValidation;
+﻿using FluentValidation;
 
 namespace API.Features.Identity.Commands.SingIn
 {
-    public class SingInCommandValidator:AbstractValidator<SingInCommand>
+    public class SingInCommandValidator : AbstractValidator<SingInCommand>
     {
         public SingInCommandValidator()
         {
@@ -11,4 +11,3 @@ namespace API.Features.Identity.Commands.SingIn
         }
     }
 }
-*/

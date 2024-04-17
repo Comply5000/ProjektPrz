@@ -1,4 +1,5 @@
-﻿/*using MediatR;
+﻿/*using API.Features.Identity.Exeptions;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 
 namespace API.Features.Identity.Commands.SingIn
@@ -12,10 +13,22 @@ namespace API.Features.Identity.Commands.SingIn
             _signInManager = signInManager;
         }
 
-        public async Task<SignInResult*//**//*> Handle(SingInCommand request, CancellationToken cancellationToken)
+        public async Task<SignInResult> Handle(SingInCommand request, CancellationToken cancellationToken)
         {
-            var result = await _signInManager.PasswordSignInAsync(request.Email, request.Password, false, false);
-            return result;
+            //sprawdzenie czy user jest w bazie
+            var isUserExists = await _signInManager.UserManager.FindByEmailAsync(request.Email);
+            if (isUserExists == null)
+            {
+                throw new UserNotFoundExeption();
+            }
+            //sprawdzenie czy hasło jest poprawne
+            var signInResult = await _signInManager.PasswordSignInAsync(isUserExists, request.Password, false, false);
+            if (!signInResult.Succeeded)
+            {
+                throw new UserPasswordExeption();
+            }
+            //sprawa tokenu JWT
+            return signInResult;
         }
     }
 }

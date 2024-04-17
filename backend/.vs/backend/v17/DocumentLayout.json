@@ -3,68 +3,16 @@
   "WorkspaceRootPath": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\controllers\\areas\\auth\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:controllers\\areas\\auth\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\signout\\singoutcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\signout\\singoutcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\signout\\singouthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\signout\\singouthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singin\\singincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singin\\singincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singup\\singuphandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singup\\singuphandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\createuserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\createuserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\userwithemailexistsexaptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\userwithemailexistsexaptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singup\\singupcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -75,8 +23,80 @@
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:extensions\\identityextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singin\\singincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\userpasswordexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\userpasswordexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\usernotfoundexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\usernotfoundexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\userwithemailexistsexaptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\userwithemailexistsexaptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\createuserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\createuserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\exeptions\\addusertoroleexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\exeptions\\addusertoroleexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\config\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\config\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\signout\\singoutcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\signout\\singoutcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\features\\identity\\commands\\signout\\singouthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\signout\\singouthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|d:\\studia\\4_semestr\\!projekt baza-inzynieria\\projektprz\\backend\\database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,102 +106,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Controllers\\Areas\\Auth\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Areas\\Auth\\AccountController.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Controllers\\Areas\\Auth\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\Areas\\Auth\\AccountController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBMAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:27:31.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SingOutCommand.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAACAAAA",
+              "Title": "SingUpHandler.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
+              "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAAC4AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:27:18.561Z",
+              "WhenOpened": "2024-04-17T12:53:48.167Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SingOutHandler.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:27:14.967Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SingInCommandValidator.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:27:09.283Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SingInCommandHandler.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInCommandHandler.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandHandler.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SingIn\\SingInCommandHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:27:04.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "SingInCommand.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "RelativeToolTip": "Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAACAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T18:26:59.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ExceptionFilter.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Filters\\ExceptionFilter.cs",
-              "RelativeDocumentMoniker": "Filters\\ExceptionFilter.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Filters\\ExceptionFilter.cs",
-              "RelativeToolTip": "Filters\\ExceptionFilter.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAcwBAAAAA+AAAA",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Features\\Identity\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:08:53.85Z",
+              "WhenOpened": "2024-04-15T18:27:31.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:10:12.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SingUpCommand.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
+              "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T08:16:15.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IdentityExtension.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IdentityExtension.cs",
+              "RelativeDocumentMoniker": "Extensions\\IdentityExtension.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IdentityExtension.cs",
+              "RelativeToolTip": "Extensions\\IdentityExtension.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:12:32.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserNotFoundExeption.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
+              "RelativeToolTip": "Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T09:45:29.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SingInCommandValidator.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
+              "RelativeToolTip": "Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T09:57:48.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserPasswordExeption.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
+              "RelativeToolTip": "Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T09:50:07.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "CreateUserException.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\CreateUserException.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Exeptions\\CreateUserException.cs",
@@ -194,124 +240,135 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "UserWithEmailExistsExaptions.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
               "RelativeToolTip": "Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:55:39.607Z",
+              "WhenOpened": "2024-04-17T08:54:37.559Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SingUpHandler.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAQwC8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:46:59.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "EFContext.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Context\\EFContext.cs",
-              "RelativeDocumentMoniker": "Database\\Context\\EFContext.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Context\\EFContext.cs",
-              "RelativeToolTip": "Database\\Context\\EFContext.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:50:50.587Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SingUpValidator.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:46:32.478Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAABsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:10:12.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Static\\UserRoles.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Static\\UserRoles.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Static\\UserRoles.cs",
               "RelativeToolTip": "Features\\Identity\\Static\\UserRoles.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAmAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAiwBYAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T18:14:21.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DatabaseInitializer.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
-              "RelativeDocumentMoniker": "Database\\Initializer\\DatabaseInitializer.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
-              "RelativeToolTip": "Database\\Initializer\\DatabaseInitializer.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "DocumentIndex": 12,
+              "Title": "AddUserToRoleExeption.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
+              "RelativeToolTip": "Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:17:15.891Z",
+              "WhenOpened": "2024-04-17T07:27:01.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserRolesSeeder.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
-              "RelativeDocumentMoniker": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
-              "RelativeToolTip": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "DocumentIndex": 13,
+              "Title": "SingUpValidator.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
+              "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:22:39.738Z",
+              "WhenOpened": "2024-04-16T21:02:42.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Entities\\User.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Entities\\User.cs",
+              "RelativeToolTip": "Features\\Identity\\Entities\\User.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T07:15:24.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AuthConfig.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Config\\AuthConfig.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
+              "RelativeToolTip": "Features\\Identity\\Config\\AuthConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T08:31:59.749Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "SingUpCommand.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
-              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
-              "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAnAAAA",
+              "Title": "EFContext.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Context\\EFContext.cs",
+              "RelativeDocumentMoniker": "Database\\Context\\EFContext.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Context\\EFContext.cs",
+              "RelativeToolTip": "Database\\Context\\EFContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:45:10.378Z",
+              "WhenOpened": "2024-04-15T17:50:50.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ExceptionFilter.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Filters\\ExceptionFilter.cs",
+              "RelativeDocumentMoniker": "Filters\\ExceptionFilter.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Filters\\ExceptionFilter.cs",
+              "RelativeToolTip": "Filters\\ExceptionFilter.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAmwDEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:08:53.85Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-16T20:47:22.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DatabaseInitializer.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "Database\\Initializer\\DatabaseInitializer.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
+              "RelativeToolTip": "Database\\Initializer\\DatabaseInitializer.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAUwBkAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:17:15.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -319,21 +376,43 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-15T17:27:13.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T17:27:13.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IdentityExtension.cs",
-              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IdentityExtension.cs",
-              "RelativeDocumentMoniker": "Extensions\\IdentityExtension.cs",
-              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IdentityExtension.cs",
-              "RelativeToolTip": "Extensions\\IdentityExtension.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAgwE8AAAAAAAAA",
+              "DocumentIndex": 22,
+              "Title": "SingOutHandler.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
+              "RelativeToolTip": "Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:12:32.279Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T18:27:14.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SingOutCommand.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
+              "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
+              "RelativeToolTip": "Features\\Identity\\Commands\\SignOut\\SingOutCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:27:18.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserRolesSeeder.cs",
+              "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "RelativeDocumentMoniker": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "RelativeToolTip": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T18:22:39.738Z"
             }
           ]
         }

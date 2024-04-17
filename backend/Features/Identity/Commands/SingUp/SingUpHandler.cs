@@ -14,7 +14,7 @@ namespace API.Features.Identity.Commands.SingUp
         private readonly UserManager<User> _userManager;
         private readonly EFContext _context;
 
-        public SignUpCommandHandler(UserManager<User> userManager,EFContext context)
+        public SignUpCommandHandler(UserManager<User> userManager, EFContext context)
         {
             _userManager = userManager;
             _context = context;
@@ -36,15 +36,16 @@ namespace API.Features.Identity.Commands.SingUp
 
             var createdUser = await _userManager.CreateAsync(user, request.Password);
 
-            if (!createdUser.Succeeded) {
+            if (!createdUser.Succeeded)
+            {
                 throw new CreateUserException(createdUser.Errors);
             }
 
             var addRoleResult = await _userManager.AddToRoleAsync(user, UserRoles.User);
-            /*if (addRoleResult.Succeeded)
+            if (!addRoleResult.Succeeded)
             {
-                throw new //todo
-            }*/
+                throw new AddUserToRoleExeption();
+            }
 
 
             //return Unit.Value;
