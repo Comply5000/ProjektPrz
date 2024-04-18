@@ -1,6 +1,7 @@
 using System.Reflection;
 using API.Database;
 using API.Extensions;
+using API.Features;
 using API.Filters;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -24,6 +25,8 @@ builder.Services.AddIdentityConfig(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddFeatures();
+
 
 var app = builder.Build();
 

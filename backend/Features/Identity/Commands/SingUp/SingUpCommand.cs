@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace API.Features.Identity.Commands.SingUp
 {

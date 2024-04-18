@@ -5,6 +5,7 @@ using API.Features.Identity.Static;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using System.Security.Principal;
 
 namespace API.Features.Identity.Commands.SingUp
@@ -47,8 +48,15 @@ namespace API.Features.Identity.Commands.SingUp
                 throw new AddUserToRoleExeption();
             }
 
+            var addEmailClaimResult = await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Email, user.Email));
+            if (!addEmailClaimResult.Succeeded)
+                throw new AddClaimException();
 
-            //return Unit.Value;
+            var addNameClaimResult = await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+            if (!addNameClaimResult.Succeeded)
+                throw new AddClaimException();
+
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
