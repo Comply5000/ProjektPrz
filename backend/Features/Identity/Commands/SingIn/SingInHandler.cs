@@ -1,5 +1,6 @@
 ﻿using API.Database.Context;
 using API.Features.Identity.Entities;
+using API.Features.Identity.Exeptions;
 using API.Features.Identity.Models;
 using API.Features.Identity.Services;
 using MediatR;
@@ -16,6 +17,7 @@ namespace API.Features.Identity.Commands.SingIn
         private readonly ITokenService _tokenService;
         private readonly UserManager<User> _userManager;
 
+        // Konstruktor do wstrzykiwania zależności.
         public SingInHandler(SignInManager<User> signInManager, EFContext context, ITokenService tokenService, UserManager<User> userManager)
         {
             _signInManager = signInManager;
@@ -26,19 +28,19 @@ namespace API.Features.Identity.Commands.SingIn
 
         public async Task<JsonWebToken> Handle(SingInCommand request, CancellationToken cancellationToken)
         {
-            //check email
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
-                //?? throw new InvalidCredentials();
-
+            //sprawdzenie uzytkownika czy jest w bazie
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == request.Email)
+                ?? throw new InvalidCredentials(); // Rzuca wyjątek, jeśli użytkownik nie zostanie znaleziony.
+            //sprawdzenie poprawności hasła
             var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, true);
+            // Jeśli sprawdzanie hasła nie powiedzie się, rzuca wyjątek.
+            if (!result.Succeeded)
+                throw new InvalidCredentials();
 
-            //if (!result.Succeeded)
-                //throw new InvalidCredentials();
-
-
+            // Pobiera role i oświadczenia użytkownika.
             var userRoles = await _userManager.GetRolesAsync(user);
             var userClaims = await _userManager.GetClaimsAsync(user);
-
+            // generowanie JSON Web Token dla uzytkownika
             var jwt = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
 
             return jwt;
