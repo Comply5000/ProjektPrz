@@ -2,14 +2,14 @@
 
 namespace API.Features.Identity.Commands.SingIn
 {
-    public class SingInCommandValidator : AbstractValidator<SingInCommand>
+    public class SingInValidator : AbstractValidator<SingInCommand>
     {
         //wprowadzenie reguł walidacji dla SingIn feature
-        public SingInCommandValidator()
+        public SingInValidator()
         {
             //pole email i hasło nie może być puste
             RuleFor(x => x.Email).NotEmpty().EmailAddress();
-            RuleFor(x => x.Password).NotEmpty().MinimumLength(8);
+            RuleFor(x => x.Password).NotEmpty();
         }
     }
 }

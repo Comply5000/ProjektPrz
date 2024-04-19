@@ -1,5 +1,7 @@
 ﻿using API.Database.Context;
+using API.Database.Initializer.Admin;
 using API.Database.Initializer.Roles;
+using API.Features.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,12 +22,14 @@ public sealed class DatabaseInitializer : IHostedService
         var context = scope.ServiceProvider.GetService(typeof(EFContext)) as EFContext;
 
         var roleManager = scope.ServiceProvider.GetService(typeof(RoleManager<IdentityRole<Guid>>)) as RoleManager<IdentityRole<Guid>>;
+        var userManager = scope.ServiceProvider.GetService(typeof(UserManager<User>)) as UserManager<User>;
 
         if (context is not null)
         {
             await context.Database.MigrateAsync(cancellationToken);
 
             await UserRolesSeeder.SeedAsync(roleManager, context, cancellationToken);
+            await AdminSeeder.SeedAsync(userManager, context, cancellationToken);
         }
 
     }
