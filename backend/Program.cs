@@ -1,4 +1,5 @@
 using System.Reflection;
+using API.API.Extensions;
 using API.Database;
 using API.Extensions;
 using API.Features;
@@ -18,6 +19,7 @@ builder.Services
         options.Filters.Add(new ExceptionFilter());
     });
 
+builder.Services.AddCorsPolicy(builder.Configuration);
 builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
