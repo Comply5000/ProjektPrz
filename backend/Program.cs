@@ -43,10 +43,10 @@ app.UseSwaggerUI(c =>
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-app.UseCors("CorsPolicy");
