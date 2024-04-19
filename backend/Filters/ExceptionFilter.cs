@@ -1,4 +1,5 @@
 ﻿using API.Common.Exceptions;
+using API.Features.Identity.Exeptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -13,6 +14,7 @@ public class ExceptionFilter : ExceptionFilterAttribute
         _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
         {
             { typeof(NotFoundException), HandleNotFoundException },
+            { typeof(CreateUserException), HandleCreateUserException },
         };
     }
     
@@ -46,7 +48,21 @@ public class ExceptionFilter : ExceptionFilterAttribute
         
         HandleUnknownException(context);
     }
-    
+    private void HandleCreateUserException(ExceptionContext context)
+    {
+        var exception = context.Exception as CreateUserException;
+
+
+        var details = new ValidationProblemDetails(exception?.Errors)
+        {
+            Title = exception?.Message
+        };
+
+        context.Result = new BadRequestObjectResult(details);
+
+        context.ExceptionHandled = true;
+    }
+
     private void HandleNotFoundException(ExceptionContext context)
     {
         context.Result = new NotFoundResult();
