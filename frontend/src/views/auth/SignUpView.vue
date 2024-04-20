@@ -15,7 +15,12 @@
           <label for="confirmedPassword">Potwierdź hasło:</label>
           <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
         </div>
-        <button type="submit">Zarejestruj się</button>
+        <button type="button" @click="submitForm">Zarejestruj się</button>
+
+        <div v-if="formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
+        <div v-if="formErrors.PasswordRequiresDigit" class="error">{{ formErrors.PasswordRequiresDigit[0] }}</div>
+        <div v-if="formErrors.PasswordRequiresUpper" class="error">{{ formErrors.PasswordRequiresUpper[0] }}</div>
+
       </div>
       </form>
     </div>
@@ -31,89 +36,109 @@
           email: '',
           password: '',
           confirmedPassword: ''
-        }
+        },
+        formErrors: {}
       };
     },
     methods: {
       submitForm() {
+        console.log("qwer")
+
         axios.post('/user-identity/sign-up', this.form)
           .then(response => {
             alert('Rejestracja zakończona sukcesem!');
+            this.formErrors = {};
           })
           .catch(error => {
-            console.error('Wystąpił błąd podczas rejestracji', error);
-            alert('Wystąpił błąd podczas rejestracji: ' + error.response.data.message);
+            if (error.response && error.response.status === 400) {
+              this.formErrors = error.response.data.errors; // Zapisz błędy w stanie komponentu
+            } else {
+              console.error('Wystąpił błąd podczas rejestracji', error);
+              this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
+            }
           });
       }
     }
   };
   </script>
   <style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    background: rgb(78, 138, 250);
-    /* background: linear-gradient(90deg, rgb(37, 37, 40) 26%, rgb(19, 121, 9) 78%, rgb(8, 198, 113) 100%); */
-    min-height: 100vh;
-    display: flex;
-    font-weight: 400;
-  }
-  body,
-  html,
-  .App,
-  .vue-template{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150%;
-    height: 150%;
-    /* transform: scale(1.1); */
-  }
-  .vertical-center {
-    width: 100%;
-    height: 100%;
-  }
-  .card{
-    padding: 30px;
-  }
-  .vertical-center {
-    display: flex;
-    text-align: left;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;    
-  }
-  .inner-block {
-    width: 450px;
-    margin: auto;
-    background: #ffffff;
-    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
-    transition: all .3s;
-  }
-  .vertical-center .form-control:focus {
-    border-color: #252528;
-    box-shadow: none;
-  }
-  .vertical-center h3 {
-    text-align: center;
-    margin: 0;
-    line-height: 1;
-    padding-bottom: 20px;
-  }
-  label {
-    font-weight: 500;
-  }
-  .forgot-password,
-  .forgot-password a {
-    text-align: right;
-    font-size: 13px;
-    padding-top: 10px;
-    color: #7a7a7a;
-    margin: 0;
-  }
+/* Globalne ustawienia */
+body, html {
+  background: rgb(78, 138, 250);
+  min-height: 100vh;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stylowanie formularza */
+.vue-template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 450px; /* Zdefiniowanie szerokości karty */
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  margin: auto; /* Wyśrodkowanie w kontenerze flex */
+}
+
+.form-control {
+  width: 100%; /* Pełna szerokość w kontekście rodzica */
+  margin-bottom: 20px; /* Odległość między polami formularza */
+}
+
+.form-control:focus {
+  border-color: #252528;
+  box-shadow: none;
+}
+
+/* Nagłówek w formularzu */
+.card h3 {
+  text-align: center;
+  margin: 0 0 20px 0; /* Usunięcie marginesu dolnego */
+  line-height: 1;
+}
+
+/* Etykiety */
+label {
+  display: block; /* Etykiety w nowej linii */
+  font-weight: 500;
+  margin-bottom: 5px; /* Margines dla lepszej czytelności */
+}
+
+/* Przyciski i linki */
+button {
+  width: 100%; /* Pełna szerokość */
+  padding: 10px; /* Wygodniejsze klikanie */
+  margin-top: 10px; /* Odległość od ostatniego elementu formularza */
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  color: #7a7a7a;
+  margin: 10px 0 0 0; /* Usunięcie domyślnego marginesu */
+}
+
+/* Usunięcie niepotrzebnych klas */
+.vertical-center, .inner-block {
+  display: none;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}
 
 </style>
   
