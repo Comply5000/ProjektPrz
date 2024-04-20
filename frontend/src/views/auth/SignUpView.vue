@@ -53,8 +53,8 @@
     box-sizing: border-box;
   }
   body {
-    background: rgb(37,37,40);
-    background: linear-gradient(90deg, rgb(37, 37, 40) 26%, rgb(19, 121, 9) 78%, rgb(8, 198, 113) 100%);
+    background: rgb(78, 138, 250);
+    /* background: linear-gradient(90deg, rgb(37, 37, 40) 26%, rgb(19, 121, 9) 78%, rgb(8, 198, 113) 100%); */
     min-height: 100vh;
     display: flex;
     font-weight: 400;
@@ -66,10 +66,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 150%;
+    height: 150%;
+    /* transform: scale(1.1); */
   }
   .vertical-center {
     width: 100%;
     height: 100%;
+  }
+  .card{
+    padding: 30px;
   }
   .vertical-center {
     display: flex;
