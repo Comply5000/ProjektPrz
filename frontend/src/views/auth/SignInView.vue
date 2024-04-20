@@ -12,6 +12,10 @@
         <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
       </div>
       <button type="submit">Zaloguj się</button>
+      <p>
+        Załóż konto 
+      <RouterLink to="/sign-up" class = "link">tutaj</RouterLink>
+      </p>
     </div>
     </form>
   </div>
@@ -36,9 +40,34 @@ export default {
           alert('Logowanie zakończona sukcesem!');
         })
         .catch(error => {
-          console.error('Wystąpił błąd podczas rejestracji', error);
-          alert('Wystąpił błąd podczas rejestracji: ' + error.response.data.message);
-        });
+    if (error.response && error.response.status === 400) {
+        const responseData = error.response.data;
+
+        if (responseData.title === "user istnieje") {
+            // Jeśli użytkownik już istnieje
+            console.error('Użytkownik już istnieje', responseData);
+            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
+        } else if (
+            responseData.errors &&
+            (responseData.errors.PasswordTooShort ||
+             responseData.errors.PasswordRequiresLower ||
+             responseData.errors.PasswordRequiresUpper ||
+             responseData.errors.ConfirmedPassword)
+        ) {
+            // Jeśli wystąpiły błędy walidacji hasła
+            console.error('Błąd walidacji hasła', responseData);
+            this.formErrors = responseData.errors;
+        } else {
+            // Jeśli inne błędy
+            console.error('Błąd podczas rejestracji', responseData);
+            this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
+        }
+    } else {
+        // Jeśli błąd nie jest odpowiedzią z serwera
+        console.error('Wystąpił błąd podczas rejestracji', error);
+        this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
+    }
+});
     }
   }
 };
@@ -46,7 +75,7 @@ export default {
 <style>
 /* Globalne ustawienia */
 body, html {
-background: rgb(78, 138, 250);
+background: rgb(56, 160, 96);
 min-height: 100vh;
 font-weight: 400;
 display: flex;
@@ -59,6 +88,9 @@ align-items: center;
 display: flex;
 justify-content: center;
 align-items: center;
+}
+.link{
+  color: rgb(56, 160, 96);
 }
 
 .card {

@@ -8,6 +8,10 @@
           <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required>
         </div>
         <div class="mb-3">
+          <label for="companyName"> Podaj nazwę swojej firmy:</label>
+          <input type="companyName" id="companyName" class="form-control form-control-lg" v-model="form.companyName" required>
+        </div>
+        <div class="mb-3">
           <label for="password"> Podaj Hasło:</label>
           <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
         </div>
@@ -16,22 +20,19 @@
           <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
         </div>
         <button type="button" @click="submitForm">Zarejestruj się</button>
-          <p>
-            Jesteś posiadaczem firmy? Załóż konto   
-            <RouterLink to="/sign-up-company" class = "link">tutaj</RouterLink>
-          </p>
-          <p>
-          Masz już konto? Zaloguj się  
-          <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
-          </p>
+        <p>
+        Masz już konto? Zaloguj się  
+      <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
+      </p>
 
-        <div v-if="formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
+      <div v-if="formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
         <div v-if="formErrors.PasswordRequiresDigit" class="error">{{ formErrors.PasswordRequiresDigit[0] }}</div>
         <div v-if="formErrors.PasswordRequiresUpper" class="error">{{ formErrors.PasswordRequiresUpper[0] }}</div>
         <div v-if="formErrors.PasswordRequiresLower" class="error">{{ formErrors.PasswordRequiresLower[0] }}</div>
         <div v-if="formErrors.ConfirmedPassword" class="error">{{ formErrors.ConfirmedPassword[0] }}</div>
         <div v-if="formErrors.UserAlreadyExists" class="error">{{ formErrors.UserAlreadyExists[0] }}</div>
         <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
+        <div v-if="formErrors && formErrors.CompanyName" class="error">{{ formErrors.CompanyName[0] }}</div>
       </div>
       </form>
     </div>
@@ -45,6 +46,7 @@
       return {
         form: {
           email: '',
+          companyName: "string",
           password: '',
           confirmedPassword: ''
         },
@@ -55,7 +57,7 @@
       submitForm() {
         console.log("qwer")
 
-        axios.post('/user-identity/sign-up', this.form)
+        axios.post('/user-identity/sign-up-company', this.form)
           .then(response => {
             alert('Rejestracja zakończona sukcesem!');
             this.formErrors = {};
@@ -65,7 +67,7 @@
         const responseData = error.response.data;
 
         if (responseData.title === "user istnieje") {
-            // Jeśli użytkownik już istnieje
+            // Obsługa istnienia użytkownika
             console.error('Użytkownik już istnieje', responseData);
             this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
         } else if (
@@ -74,19 +76,24 @@
              responseData.errors.PasswordRequiresLower ||
              responseData.errors.PasswordRequiresUpper ||
              responseData.errors.ConfirmedPassword ||
-             responseData.errors.Email)
+             responseData.errors.Email ||
+             responseData.errors.CompanyName)
         ) {
-            // Jeśli wystąpiły błędy walidacji hasła lub e-maila
+            // Obsługa błędów walidacji
             console.error('Błąd walidacji', responseData);
             this.formErrors = responseData.errors;
         } else {
-            // Jeśli inne błędy
+            // Obsługa innych błędów
             console.error('Błąd podczas rejestracji', responseData);
             this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
         }
+    } else if (error.response && error.response.status === 500) {
+        // Obsługa ogólnego błędu serwera
+        console.error('Błąd serwera', error.response.data);
+        this.formErrors = { general: ['Wystąpił błąd serwera podczas rejestracji.'] };
     } else {
-        // Jeśli błąd nie jest odpowiedzią z serwera
-        console.error('Wystąpił błąd podczas rejestracji', error);
+        // Obsługa innych błędów
+        console.error('Wystąpił nieoczekiwany błąd podczas rejestracji', error);
         this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
     }
 });
