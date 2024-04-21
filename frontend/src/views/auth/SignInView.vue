@@ -11,7 +11,11 @@
         <label for="password"> Podaj Hasło:</label>
         <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
       </div>
-      <button type="submit">Zaloguj się</button>
+      <p>
+        Zapomniałeś hasła? Kliknij 
+      <RouterLink to="/forgot-password" class = "link">tutaj</RouterLink>
+      </p>
+      <button type="button" @click="submitForm">Zaloguj się</button>
       <p>
         Załóż konto 
       <RouterLink to="/sign-up" class = "link">tutaj</RouterLink>

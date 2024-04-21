@@ -31,6 +31,7 @@
         <div v-if="formErrors.PasswordRequiresLower" class="error">{{ formErrors.PasswordRequiresLower[0] }}</div>
         <div v-if="formErrors.ConfirmedPassword" class="error">{{ formErrors.ConfirmedPassword[0] }}</div>
         <div v-if="formErrors.UserAlreadyExists" class="error">{{ formErrors.UserAlreadyExists[0] }}</div>
+        <div v-if="formErrors.CompanyAlreadyExists" class="error">{{ formErrors.CompanyAlreadyExists[0] }}</div>
         <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
         <div v-if="formErrors && formErrors.CompanyName" class="error">{{ formErrors.CompanyName[0] }}</div>
       </div>
@@ -46,7 +47,7 @@
       return {
         form: {
           email: '',
-          companyName: "string",
+          companyName: '',
           password: '',
           confirmedPassword: ''
         },
@@ -66,34 +67,51 @@
     if (error.response && error.response.status === 400) {
         const responseData = error.response.data;
 
-        if (responseData.title === "user istnieje") {
-            // Obsługa istnienia użytkownika
-            console.error('Użytkownik już istnieje', responseData);
-            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
-        } else if (
+        if (
             responseData.errors &&
             (responseData.errors.PasswordTooShort ||
              responseData.errors.PasswordRequiresLower ||
              responseData.errors.PasswordRequiresUpper ||
-             responseData.errors.ConfirmedPassword ||
-             responseData.errors.Email ||
-             responseData.errors.CompanyName)
+             responseData.errors.ConfirmedPassword)
         ) {
-            // Obsługa błędów walidacji
-            console.error('Błąd walidacji', responseData);
+            // Jeśli wystąpiły błędy walidacji hasła
+            console.error('Błąd walidacji hasła', responseData);
+            this.formErrors = responseData.errors;
+        } else if (
+            responseData.errors &&
+            responseData.errors.Email
+        ) {
+            // Jeśli wystąpił błąd walidacji adresu email
+            console.error('Błąd walidacji adresu email', responseData);
+            this.formErrors = responseData.errors;
+        } else if (
+            responseData.title === "user istnieje"
+        ) {
+            // Jeśli użytkownik już istnieje
+            console.error('Użytkownik już istnieje', responseData);
+            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
+        } else if (
+            responseData.title === "firma o takiej nazwie już istnieje"
+        ) {
+            // Jeśli firma o takiej nazwie już istnieje
+            console.error('Firma o takiej nazwie już istnieje', responseData);
+            this.formErrors = { CompanyAlreadyExists: ['Firma o podanej nazwie już istnieje.'] };
+        } else if (
+            responseData.title === "One or more validation errors occurred." &&
+            responseData.errors &&
+            responseData.errors.CompanyName
+        ) {
+            // Jeśli błąd dotyczy pustego pola CompanyName
+            console.error('Pole nazwy firmy jest wymagane', responseData);
             this.formErrors = responseData.errors;
         } else {
-            // Obsługa innych błędów
-            console.error('Błąd podczas rejestracji', responseData);
+            // Jeśli inne błędy
+            console.error('Inny błąd podczas rejestracji', responseData);
             this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
         }
-    } else if (error.response && error.response.status === 500) {
-        // Obsługa ogólnego błędu serwera
-        console.error('Błąd serwera', error.response.data);
-        this.formErrors = { general: ['Wystąpił błąd serwera podczas rejestracji.'] };
     } else {
-        // Obsługa innych błędów
-        console.error('Wystąpił nieoczekiwany błąd podczas rejestracji', error);
+        // Jeśli błąd nie jest odpowiedzią z serwera
+        console.error('Wystąpił błąd podczas rejestracji', error);
         this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
     }
 });
