@@ -8,6 +8,10 @@
           <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required>
         </div>
         <div class="mb-3">
+          <label for="companyName"> Podaj nazwę swojej firmy:</label>
+          <input type="companyName" id="companyName" class="form-control form-control-lg" v-model="form.companyName" required>
+        </div>
+        <div class="mb-3">
           <label for="password"> Podaj Hasło:</label>
           <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
         </div>
@@ -16,22 +20,20 @@
           <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
         </div>
         <button type="button" @click="submitForm">Zarejestruj się</button>
-          <p>
-            Jesteś posiadaczem firmy? Załóż konto   
-            <RouterLink to="/sign-up-company" class = "link">tutaj</RouterLink>
-          </p>
-          <p>
-          Masz już konto? Zaloguj się  
-          <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
-          </p>
+        <p>
+        Masz już konto? Zaloguj się  
+      <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
+      </p>
 
-        <div v-if="formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
+      <div v-if="formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
         <div v-if="formErrors.PasswordRequiresDigit" class="error">{{ formErrors.PasswordRequiresDigit[0] }}</div>
         <div v-if="formErrors.PasswordRequiresUpper" class="error">{{ formErrors.PasswordRequiresUpper[0] }}</div>
         <div v-if="formErrors.PasswordRequiresLower" class="error">{{ formErrors.PasswordRequiresLower[0] }}</div>
         <div v-if="formErrors.ConfirmedPassword" class="error">{{ formErrors.ConfirmedPassword[0] }}</div>
         <div v-if="formErrors.UserAlreadyExists" class="error">{{ formErrors.UserAlreadyExists[0] }}</div>
+        <div v-if="formErrors.CompanyAlreadyExists" class="error">{{ formErrors.CompanyAlreadyExists[0] }}</div>
         <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
+        <div v-if="formErrors && formErrors.CompanyName" class="error">{{ formErrors.CompanyName[0] }}</div>
       </div>
       </form>
     </div>
@@ -45,6 +47,7 @@
       return {
         form: {
           email: '',
+          companyName: '',
           password: '',
           confirmedPassword: ''
         },
@@ -55,7 +58,7 @@
       submitForm() {
         console.log("qwer")
 
-        axios.post('/user-identity/sign-up', this.form)
+        axios.post('/user-identity/sign-up-company', this.form)
           .then(response => {
             alert('Rejestracja zakończona sukcesem!');
             this.formErrors = {};
@@ -64,24 +67,46 @@
     if (error.response && error.response.status === 400) {
         const responseData = error.response.data;
 
-        if (responseData.title === "user istnieje") {
-            // Jeśli użytkownik już istnieje
-            console.error('Użytkownik już istnieje', responseData);
-            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
-        } else if (
+        if (
             responseData.errors &&
             (responseData.errors.PasswordTooShort ||
              responseData.errors.PasswordRequiresLower ||
              responseData.errors.PasswordRequiresUpper ||
-             responseData.errors.ConfirmedPassword ||
-             responseData.errors.Email)
+             responseData.errors.ConfirmedPassword)
         ) {
-            // Jeśli wystąpiły błędy walidacji hasła lub e-maila
-            console.error('Błąd walidacji', responseData);
+            // Jeśli wystąpiły błędy walidacji hasła
+            console.error('Błąd walidacji hasła', responseData);
+            this.formErrors = responseData.errors;
+        } else if (
+            responseData.errors &&
+            responseData.errors.Email
+        ) {
+            // Jeśli wystąpił błąd walidacji adresu email
+            console.error('Błąd walidacji adresu email', responseData);
+            this.formErrors = responseData.errors;
+        } else if (
+            responseData.title === "user istnieje"
+        ) {
+            // Jeśli użytkownik już istnieje
+            console.error('Użytkownik już istnieje', responseData);
+            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
+        } else if (
+            responseData.title === "firma o takiej nazwie już istnieje"
+        ) {
+            // Jeśli firma o takiej nazwie już istnieje
+            console.error('Firma o takiej nazwie już istnieje', responseData);
+            this.formErrors = { CompanyAlreadyExists: ['Firma o podanej nazwie już istnieje.'] };
+        } else if (
+            responseData.title === "One or more validation errors occurred." &&
+            responseData.errors &&
+            responseData.errors.CompanyName
+        ) {
+            // Jeśli błąd dotyczy pustego pola CompanyName
+            console.error('Pole nazwy firmy jest wymagane', responseData);
             this.formErrors = responseData.errors;
         } else {
             // Jeśli inne błędy
-            console.error('Błąd podczas rejestracji', responseData);
+            console.error('Inny błąd podczas rejestracji', responseData);
             this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
         }
     } else {
