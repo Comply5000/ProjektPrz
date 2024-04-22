@@ -1,4 +1,6 @@
 <template>
+    <NavBar />
+    <Space />
     <div class="offer-container">
       <!-- Formularz wyszukiwania -->
       <div class="search-form">
@@ -52,7 +54,14 @@
   </template>
   
   <script>
+  import NavBar from '@/components/NavBar.vue';
+  import Space from '@/components/Space.vue';
+
   export default {
+    components: {
+      NavBar,
+      Space
+    },
     data() {
       return {
         currentPage: 1,

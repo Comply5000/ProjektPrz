@@ -14,8 +14,6 @@
   </div>
 </template>
 <script>
-
-  
   export default {
     name: 'RegisterForm',
     data() {
@@ -28,12 +26,12 @@
       const token = localStorage.getItem('jwt');
       if(token==null || token=='')
       {
-        islogin=true;
-      }else
-      {
-        islogin=true;
+        this.islogin=true;
       }
-
+      else
+      {
+        this.islogin=true;
+      }
     }
   };
 </script>
@@ -44,6 +42,13 @@
   align-items: center;
   background-color: #f0f0f0; /* szary kolor */
   padding: 10px 20px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Upewnij się, że navbar jest na wierzchu innych elementów */
+
 }
 
 .left {

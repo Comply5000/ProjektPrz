@@ -1,4 +1,6 @@
 <template>
+  <NavBar />
+  <Space />
     <div class="vue-template">
       <form>
       <div class="card">
@@ -38,9 +40,15 @@
   </template>
   <script>
    import axios from '../../../config.js';
+   import NavBar from '@/components/NavBar.vue';
+ import Space from '@/components/Space.vue';
   
   export default {
     name: 'RegisterForm',
+    components: {
+      NavBar,
+      Space
+    },
     data() {
       return {
         form: {
@@ -96,21 +104,13 @@
   </script>
   <style>
 /* Globalne ustawienia */
-body, html {
+.vue-template {
   background: rgb(56, 160, 96);
   min-height: 100vh;
   font-weight: 400;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 20px;
 }
 
-/* Stylowanie formularza */
-.vue-template {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .link{
   color: rgb(56, 160, 96);
 }
