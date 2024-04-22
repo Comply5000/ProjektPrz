@@ -25,14 +25,14 @@ public sealed class SignUpCompanyHandler : IRequestHandler<SignUpCompanyCommand>
     public async Task Handle(SignUpCompanyCommand request, CancellationToken cancellationToken)
     {
         // Sprawdza, czy użytkownik o podanym adresie e-mail już istnieje.
-        var isUserExists = await _userManager.Users.AnyAsync(x => x.Email.Equals(request.Email, StringComparison.OrdinalIgnoreCase), cancellationToken);
+        var isUserExists = await _userManager.Users.AnyAsync(x => x.Email == request.Email, cancellationToken);
         if (isUserExists)
         {
             // Jeśli tak, rzuca wyjątek.
             throw new UserWithEmailExistsExaptions();
         }
 
-        var isCompanyExists = await _context.Companies.AnyAsync(x => x.Name == request.CompanyName, cancellationToken);
+        var isCompanyExists = await _context.Companies.AnyAsync(x => EF.Functions.ILike(x.Name, request.CompanyName), cancellationToken);
         if (isCompanyExists)
             throw new CompanyWithNameExistsException();
 
