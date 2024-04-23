@@ -133,7 +133,7 @@
   background: rgb(56, 160, 96);
   min-height: 100vh;
   font-weight: 400;
-  padding-top: 20px;
+  padding-top:50px;
 }
 
 .link{
