@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Security.Principal;
+using API.Common.MessageBroker.Services;
+using API.Features.Identity.Events;
+using API.Features.Identity.Events.SendConfirmAccountEmail;
 
 namespace API.Features.Identity.Commands.SingUp
 {
@@ -14,12 +17,14 @@ namespace API.Features.Identity.Commands.SingUp
     {
         private readonly UserManager<User> _userManager;
         private readonly EFContext _context;
+        private readonly IEventBus _eventBus;
 
         // Konstruktor do wstrzykiwania zależności.
-        public SignUpCommandHandler(UserManager<User> userManager, EFContext context)
+        public SignUpCommandHandler(UserManager<User> userManager, EFContext context, IEventBus eventBus)
         {
             _userManager = userManager;
             _context = context;
+            _eventBus = eventBus;
         }
 
         public async Task Handle(SingUpCommand request, CancellationToken cancellationToken)
@@ -66,9 +71,18 @@ namespace API.Features.Identity.Commands.SingUp
             var addNameClaimResult = await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
             if (!addNameClaimResult.Succeeded)
                 throw new AddClaimException();
+
+            var confirmToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             
             // Zapisuje zmiany w bazie danych.
             await _context.SaveChangesAsync(cancellationToken);
+
+            await _eventBus.PublishAsync(new SendConfirmAccountEmailEvent
+            {
+                Email = request.Email,
+                Token = confirmToken,
+                UserId = user.Id
+            }, cancellationToken);
         }
     }
 }
