@@ -17,8 +17,8 @@ services:
     volumes:
       - minio_data:/data
     environment:
-      - MINIO_ROOT_USER=${S3Service__AccessKey}
-      - MINIO_ROOT_PASSWORD=${S3Service__SecretKey}
+      - MINIO_ROOT_USER=qwerty
+      - MINIO_ROOT_PASSWORD=1qazxsw@
     command: server --console-address ":9001" --address ":9000" /data
 
 

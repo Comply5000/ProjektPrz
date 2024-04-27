@@ -6,6 +6,5 @@ public class S3Config
     public string AccessKey { get; set; }
     public string SecretKey { get; set; }
     public string BucketName { get; set; }
-    public TimeSpan UrlExpires { get; set; }
 }
 

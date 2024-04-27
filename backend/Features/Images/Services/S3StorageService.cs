@@ -4,6 +4,7 @@ using Amazon.S3.Model;
 using Microsoft.AspNetCore.Http;
 using Amazon.Util;
 using API.Features.Images.Configuration;
+using API.Features.Images.Exceptions;
 
 
 namespace API.Features.Images.Services;
@@ -80,7 +81,7 @@ public class S3StorageService : IS3StorageService
             {
                 BucketName = _s3Config.BucketName,
                 Key = fileKey,
-                Expires = DateTime.UtcNow.Add(_s3Config.UrlExpires),
+                Expires = DateTime.MaxValue,
                 ResponseHeaderOverrides = new ResponseHeaderOverrides
                 {
                     ContentDisposition = $"attachment; filename=\"{fileName}\""
