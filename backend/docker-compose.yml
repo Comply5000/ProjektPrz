@@ -1,4 +1,6 @@
-﻿services:
+﻿version: '3.9'
+
+services:
   api:
     image: api
     build:
@@ -6,3 +8,22 @@
       dockerfile: Dockerfile
     ports:
       - '5000:80'
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - minio_data:/data
+    environment:
+      - MINIO_ROOT_USER=${S3Service__AccessKey}
+      - MINIO_ROOT_PASSWORD=${S3Service__SecretKey}
+    command: server --console-address ":9001" --address ":9000" /data
+
+
+volumes:
+  minio_data:
+    driver: local
+ 
+
