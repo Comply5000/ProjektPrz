@@ -1,4 +1,6 @@
-﻿using API.Features.Comments.Entities;
+﻿using API.Common.Entities;
+using API.Common.Enums;
+using API.Features.Comments.Entities;
 using API.Features.Companies.Entities;
 using API.Features.Identity.Entities;
 using API.Features.Images.Entities;
@@ -25,5 +27,26 @@ public class EFContext : IdentityDbContext<User, IdentityRole<Guid>, Guid, Ident
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfiguration(new UserConfiguration());
+    }
+    
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+    {
+        foreach (var entry in ChangeTracker.Entries())
+        {
+            if(entry.Entity is Entity)
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.CurrentValues["EntryStatus"] = EntryStatus.Active;
+                        break;
+                    
+                    case EntityState.Deleted:
+                        entry.CurrentValues["EntryStatus"] = EntryStatus.Deleted;
+                        entry.State = EntityState.Modified;
+                        break;
+                }
+        }
+
+        return base.SaveChangesAsync(cancellationToken);
     }
 }
