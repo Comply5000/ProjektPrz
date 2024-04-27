@@ -9,6 +9,7 @@ using API.Attributes;
 using API.Features.Identity.Commands.SignUpCompany;
 using API.Features.Identity.Static;
 using Microsoft.AspNetCore.Authorization;
+using API.Features.Images.Commands;
 
 namespace API.Features.Identity.Controllers
 {
