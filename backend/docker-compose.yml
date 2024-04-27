@@ -21,6 +21,29 @@ services:
       - "5672:5672"    # Port dla AMQP
       - "15672:15672"  # Port dla Management UI
     
-      
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:80'
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - minio_data:/data
+    environment:
+      - MINIO_ROOT_USER=qwerty
+      - MINIO_ROOT_PASSWORD=1qazxsw@
+    command: server --console-address ":9001" --address ":9000" /data
+
+
 volumes:
-  rabbitmq-data:  
+  minio_data:
+    driver: local
+  rabbitmq-data:
+ 

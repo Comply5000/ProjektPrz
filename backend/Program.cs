@@ -30,7 +30,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerConfig();
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddCommon(builder.Configuration);
-builder.Services.AddFeatures();
+builder.Services.AddFeatures(builder.Configuration);
 
 
 var app = builder.Build();
