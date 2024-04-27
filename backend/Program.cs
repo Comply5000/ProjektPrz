@@ -1,5 +1,6 @@
 using System.Reflection;
 using API.API.Extensions;
+using API.Common;
 using API.Database;
 using API.Extensions;
 using API.Features;
@@ -24,9 +25,11 @@ builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.Get
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 builder.Services.AddIdentityConfig(builder.Configuration);
+builder.Services.AddMessageBroker(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerConfig();
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddCommon(builder.Configuration);
 builder.Services.AddFeatures();
 
 
