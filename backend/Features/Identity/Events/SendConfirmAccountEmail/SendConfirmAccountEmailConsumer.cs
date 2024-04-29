@@ -1,4 +1,5 @@
-﻿using API.Common.SMTP.Services;
+﻿using API.Common;
+using API.Common.SMTP.Services;
 using MassTransit;
 
 namespace API.Features.Identity.Events.SendConfirmAccountEmail;
@@ -22,6 +23,6 @@ public sealed class SendConfirmAccountEmailConsumer : IConsumer<SendConfirmAccou
     
     private string SetUrl(SendConfirmAccountEmailEvent notification)
     {
-        return $"/confirm-account?token={notification.Token}&userId={notification.UserId}";
+        return $"{Globals.ApplicationUrl}/confirm-account?token={notification.Token}&userId={notification.UserId}";
     }
 }

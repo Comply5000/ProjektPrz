@@ -32,6 +32,7 @@ builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddCommon(builder.Configuration);
 builder.Services.AddFeatures(builder.Configuration);
 
+Globals.ApplicationUrl = builder.Configuration.GetValue<string>("ApplicationConfig:ApplicationUrl");
 
 var app = builder.Build();
 

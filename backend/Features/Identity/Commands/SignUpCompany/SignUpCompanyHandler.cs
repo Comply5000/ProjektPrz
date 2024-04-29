@@ -1,8 +1,11 @@
 ﻿using System.Security.Claims;
+using API.Common.MessageBroker.Services;
 using API.Database.Context;
 using API.Features.Companies.Entities;
 using API.Features.Companies.Exceptions;
 using API.Features.Identity.Entities;
+using API.Features.Identity.Events.SendConfirmAccountEmail;
+using API.Features.Identity.Exceptions;
 using API.Features.Identity.Exeptions;
 using API.Features.Identity.Static;
 using MediatR;
@@ -15,11 +18,13 @@ public sealed class SignUpCompanyHandler : IRequestHandler<SignUpCompanyCommand>
 {
     private readonly UserManager<User> _userManager;
     private readonly EFContext _context;
+    private readonly IEventBus _eventBus;
 
-    public SignUpCompanyHandler(UserManager<User> userManager, EFContext context)
+    public SignUpCompanyHandler(UserManager<User> userManager, EFContext context, IEventBus eventBus)
     {
         _userManager = userManager;
         _context = context;
+        _eventBus = eventBus;
     }
     
     public async Task Handle(SignUpCompanyCommand request, CancellationToken cancellationToken)
@@ -90,8 +95,17 @@ public sealed class SignUpCompanyHandler : IRequestHandler<SignUpCompanyCommand>
         var addCompanyIdClaimResult = await _userManager.AddClaimAsync(user, new Claim("CompanyId", company.Id.ToString()));
         if (!addNameClaimResult.Succeeded)
             throw new AddClaimException();
+        
+        var confirmToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
         // Zapisuje zmiany w bazie danych.
         await _context.SaveChangesAsync(cancellationToken);
+        
+        await _eventBus.PublishAsync(new SendConfirmAccountEmailEvent
+        {
+            Email = request.Email,
+            Token = confirmToken,
+            UserId = user.Id
+        }, cancellationToken);
     }
 }

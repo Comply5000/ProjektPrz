@@ -10,6 +10,7 @@ using System.Security.Principal;
 using API.Common.MessageBroker.Services;
 using API.Features.Identity.Events;
 using API.Features.Identity.Events.SendConfirmAccountEmail;
+using API.Features.Identity.Exceptions;
 
 namespace API.Features.Identity.Commands.SingUp
 {
