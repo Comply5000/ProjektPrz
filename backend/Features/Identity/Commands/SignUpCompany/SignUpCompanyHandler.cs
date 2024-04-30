@@ -92,7 +92,7 @@ public sealed class SignUpCompanyHandler : IRequestHandler<SignUpCompanyCommand>
             throw new AddClaimException();
         
         // Dodaje użytkownikowi oświadczenie identyfikatora.
-        var addCompanyIdClaimResult = await _userManager.AddClaimAsync(user, new Claim("CompanyId", company.Id.ToString()));
+        var addCompanyIdClaimResult = await _userManager.AddClaimAsync(user, new Claim(UserClaims.CompanyId, company.Id.ToString()));
         if (!addNameClaimResult.Succeeded)
             throw new AddClaimException();
         

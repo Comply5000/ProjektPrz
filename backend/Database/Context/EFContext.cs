@@ -26,7 +26,12 @@ public class EFContext : IdentityDbContext<User, IdentityRole<Guid>, Guid, Ident
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.ApplyConfiguration(new CommentConfiguration());
+        modelBuilder.ApplyConfiguration(new CompanyConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new ImageConfiguration());
+        modelBuilder.ApplyConfiguration(new OfferConfiguration());
+        modelBuilder.ApplyConfiguration(new QuestionConfiguration());
     }
     
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
