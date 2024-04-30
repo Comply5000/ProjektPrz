@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <Space />
+  <!-- <Space /> -->
   <div class="vue-template">
     <form>
     <div class="card">
@@ -92,7 +92,7 @@ export default {
   background: rgb(56, 160, 96);
   min-height: 100vh;
   font-weight: 400;
-  padding-top: 20px;
+  padding-top: 80px;
 }
 
 .link{

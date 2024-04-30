@@ -1,6 +1,6 @@
 <template>
     <NavBar />
-    <Space />
+    <!-- <Space /> -->
     <div class="offer-container">
       <!-- Formularz wyszukiwania -->
       <div class="search-form">
@@ -106,11 +106,12 @@
   
   <style scoped>
   .offer-container {
-    background-color: #28a745;
+    background-color: rgb(40, 167, 69);
     height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 80px;
   }
   
   .search-form {
