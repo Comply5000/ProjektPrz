@@ -6,9 +6,14 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using API.Attributes;
+using API.Features.Identity.Commands.ConfirmEmail;
+using API.Features.Identity.Commands.ResetPassword;
+using API.Features.Identity.Commands.ResetPasswordRequest;
 using API.Features.Identity.Commands.SignUpCompany;
 using API.Features.Identity.Static;
 using Microsoft.AspNetCore.Authorization;
+using API.Features.Images.Commands;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace API.Features.Identity.Controllers
 {
@@ -37,7 +42,7 @@ namespace API.Features.Identity.Controllers
         [HttpPost("sign-up-company")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> SignUp(SignUpCompanyCommand command)
+        public async Task<IActionResult> SignUpCompany(SignUpCompanyCommand command)
         {
             await _mediator.Send(command);
             return Created();
@@ -51,6 +56,36 @@ namespace API.Features.Identity.Controllers
         {
             var result = await _mediator.Send(command, cancellationToken);
             return Ok(result);
+        }
+        
+        //ConfirmAccount
+        [HttpPost("confirm-account")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ConfirmAccount(ConfirmAccountCommand command, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(command, cancellationToken);
+            return Ok();
+        }
+        
+        //ResetPasswordRequest
+        [HttpPost("reset-password-request")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ResetPasswordRequest(ResetPasswordRequestCommand command, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(command, cancellationToken);
+            return Ok();
+        }
+        
+        //ResetPassword
+        [HttpPost("reset-password")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ResetPassword(ResetPasswordCommand command, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(command, cancellationToken);
+            return Ok();
         }
     }
 }

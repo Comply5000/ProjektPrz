@@ -7,6 +7,8 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
+using Amazon.Runtime;
+using API.Features.Identity.Exceptions;
 
 namespace API.Features.Identity.Commands.SingIn
 {
@@ -35,7 +37,7 @@ namespace API.Features.Identity.Commands.SingIn
             var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, true);
             // Jeśli sprawdzanie hasła nie powiedzie się, rzuca wyjątek.
             if (!result.Succeeded)
-                throw new InvalidCredentials();
+                throw new SignInException(result);
 
             // Pobiera role i oświadczenia użytkownika.
             var userRoles = await _userManager.GetRolesAsync(user);

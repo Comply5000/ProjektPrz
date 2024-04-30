@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using API.Database.Context;
 using API.Features.Identity.Entities;
+using API.Features.Identity.Exceptions;
 using API.Features.Identity.Exeptions;
 using API.Features.Identity.Static;
 using MediatR;

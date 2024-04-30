@@ -1,6 +1,6 @@
 ﻿using API.Common.Exceptions;
 
-namespace API.Features.Identity.Exeptions
+namespace API.Features.Identity.Exceptions
 {
     public class UserNotFoundExeption : BaseException
     {

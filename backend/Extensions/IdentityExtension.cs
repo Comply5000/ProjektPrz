@@ -39,10 +39,10 @@ namespace API.Extensions
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
-                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedEmail = true;
 
                 // Email confirm
-                //options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+                options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
             });
 
 
@@ -78,10 +78,10 @@ namespace API.Extensions
                 options.OnRefreshingPrincipal = (context) => Task.CompletedTask;
             });
 
-            /*services.Configure<DataProtectionTokenProviderOptions>(options =>
+            services.Configure<DataProtectionTokenProviderOptions>(options =>
             {
-                options.TokenLifespan = TimeSpan.FromHours(2); // Set the token lifespan to 2 days
-            });*/
+                options.TokenLifespan = TimeSpan.FromDays(1); // Set the token lifespan to 2 days
+            });
 
 
             return services;

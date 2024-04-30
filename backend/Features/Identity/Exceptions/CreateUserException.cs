@@ -1,7 +1,7 @@
 ﻿using API.Common.Exceptions;
 using Microsoft.AspNetCore.Identity;
 
-namespace API.Features.Identity.Exeptions
+namespace API.Features.Identity.Exceptions
 {
     public class CreateUserException:BaseException
     {

@@ -1,4 +1,5 @@
 ﻿using API.Common.Exceptions;
+using API.Features.Identity.Exceptions;
 using API.Features.Identity.Exeptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -15,6 +16,7 @@ public class ExceptionFilter : ExceptionFilterAttribute
         {
             { typeof(NotFoundException), HandleNotFoundException },
             { typeof(CreateUserException), HandleCreateUserException },
+            { typeof(ChangePasswordException), HandleChangePasswordException },
         };
     }
     
@@ -87,6 +89,20 @@ public class ExceptionFilter : ExceptionFilterAttribute
     private void HandleInvalidModelStateException(ExceptionContext context)
     {
         var details = new ValidationProblemDetails(context.ModelState);
+
+        context.Result = new BadRequestObjectResult(details);
+
+        context.ExceptionHandled = true;
+    }
+    
+    private void HandleChangePasswordException(ExceptionContext context)
+    {
+        var exception = context.Exception as ChangePasswordException;
+        
+        var details = new ValidationProblemDetails(exception?.Errors)
+        {
+            Title = exception?.Message
+        };
 
         context.Result = new BadRequestObjectResult(details);
 

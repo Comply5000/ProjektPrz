@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <Space />
+  <!-- <Space /> -->
   <div class="vue-template">
     <form>
     <div class="card">
@@ -22,10 +22,6 @@
         Załóż konto 
       <RouterLink to="/sign-up" class = "link">tutaj</RouterLink>
       </p>
-      <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
-<div v-if="formErrors && formErrors.Password" class="error">{{ formErrors.Password[0] }}</div>
-<div v-if="formErrors && formErrors.general" class="error">{{ formErrors.general[0] }}</div>
-<div v-if="formErrors && formErrors['nieprawidłowe dane']" class="error">{{ formErrors['nieprawidłowe dane'][0] }}</div>
     </div>
     </form>
   </div>
@@ -34,7 +30,6 @@
  import NavBar from '@/components/NavBar.vue';
  import Space from '@/components/Space.vue';
 import axios from '../../../config.js';
-import {SaveUserRoles, CheckUserRole} from '../../services/UserService.js';
 
 export default {
   name: 'RegisterForm',
@@ -47,51 +42,42 @@ export default {
       form: {
         email: '',
         password: '',
-      },
-      formErrors: {}
+      }
     };
   },
   methods: {
     submitForm() {
       axios.post('/user-identity/sign-in', this.form)
         .then(response => {
-
-          console.log(response)
-          SaveUserRoles(response.data.roles);
-          console.log(CheckUserRole('abcd'))
-          alert('Logowanie zakończone sukcesem!');
+          alert('Logowanie zakończona sukcesem!');
         })
         .catch(error => {
     if (error.response && error.response.status === 400) {
         const responseData = error.response.data;
 
-        if (responseData.errors) {
-            if (responseData.errors.Email) {
-                // Jeśli pole email jest puste lub niepoprawne
-                console.error('Błąd walidacji adresu email', responseData);
-                this.formErrors = responseData.errors;
-            } else if (responseData.errors.Password) {
-                // Jeśli pole hasła jest puste lub niepoprawne
-                console.error('Błąd walidacji hasła', responseData);
-                this.formErrors = responseData.errors;
-            } else {
-                // Jeśli inne błędy walidacji
-                console.error('Inny błąd walidacji', responseData);
-                this.formErrors = { general: ['Wystąpił błąd walidacji.'] };
-            }
-        } else if (responseData.title === "nieprawidłowe dane") {
-            // Jeśli podano nieprawidłowe dane
-            console.error('Nieprawidłowe dane logowania', responseData);
-            this.formErrors = { general: ['Podane dane logowania są nieprawidłowe.'] };
+        if (responseData.title === "user istnieje") {
+            // Jeśli użytkownik już istnieje
+            console.error('Użytkownik już istnieje', responseData);
+            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
+        } else if (
+            responseData.errors &&
+            (responseData.errors.PasswordTooShort ||
+             responseData.errors.PasswordRequiresLower ||
+             responseData.errors.PasswordRequiresUpper ||
+             responseData.errors.ConfirmedPassword)
+        ) {
+            // Jeśli wystąpiły błędy walidacji hasła
+            console.error('Błąd walidacji hasła', responseData);
+            this.formErrors = responseData.errors;
         } else {
             // Jeśli inne błędy
-            console.error('Inny błąd podczas logowania', responseData);
-            this.formErrors = { general: ['Wystąpił błąd podczas logowania.'] };
+            console.error('Błąd podczas rejestracji', responseData);
+            this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
         }
     } else {
         // Jeśli błąd nie jest odpowiedzią z serwera
-        console.error('Wystąpił błąd podczas logowania', error);
-        this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas logowania.'] };
+        console.error('Wystąpił błąd podczas rejestracji', error);
+        this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
     }
 });
     }
@@ -106,7 +92,7 @@ export default {
   background: rgb(56, 160, 96);
   min-height: 100vh;
   font-weight: 400;
-  padding-top: 50px;
+  padding-top: 80px;
 }
 
 .link{
@@ -168,10 +154,6 @@ display: none;
 
 h3 {
 font-weight: bold;
-}
-
-.error {
-  color: red;
 }
 
 </style>
