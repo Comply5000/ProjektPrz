@@ -87,6 +87,16 @@ namespace API.Features.Identity.Controllers
             await _mediator.Send(command, cancellationToken);
             return Ok();
         }
+        
+        //ResetPassword
+        [HttpPost("upload")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ResetPassword(IFormFile file, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(new UploadImageCommand(file), cancellationToken);
+            return Ok();
+        }
     }
 }
 

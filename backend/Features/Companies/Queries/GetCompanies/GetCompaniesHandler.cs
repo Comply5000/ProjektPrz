@@ -26,10 +26,12 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
                 EF.Functions.ILike(v.Localization, $"%{request.Search}%"));
 
         var companies = await query
+            .Include(x => x.Image)
             .Select(x => new CompanyListModel
             {
                 Name = x.Name,
-                Localization = x.Localization
+                Localization = x.Localization,
+                ImageUrl = x.Image.Url
             })
             .ToPaginatedListAsync(request, cancellationToken);
 
