@@ -36,4 +36,10 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Offers\Commands\DeleteOffer\" />
+      <Folder Include="Features\Offers\Commands\UpdateOffer\" />
+      <Folder Include="Features\Offers\Queries\GetOffer\" />
+    </ItemGroup>
+
 </Project>
