@@ -6,4 +6,5 @@ namespace API.Features.Companies.Commands.Update;
 public sealed record UpdateCompanyCommand(
     string Name,
     string Description,
-    string Localization) : IRequest<CreateOrUpdateResponse>;
+    string Localization,
+    IFormFile Image) : IRequest<CreateOrUpdateResponse>;

@@ -27,6 +27,7 @@ internal static class AdminSeeder
         {
             Email = Email,
             UserName = Email,
+            EmailConfirmed = true
         };
 
         // Tworzy użytkownika w systemie uwierzytelniania.
