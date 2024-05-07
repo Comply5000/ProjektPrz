@@ -23,7 +23,7 @@ public class CompaniesController : ControllerBase
     [ApiAuthorize(UserRoles.CompanyOwner)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> SignUp(UpdateCompanyCommand command)
+    public async Task<IActionResult> SignUp([FromForm] UpdateCompanyCommand command)
     {
         var result = await _mediator.Send(command);
         return Ok(result);

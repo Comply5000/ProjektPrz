@@ -2,6 +2,7 @@
 using API.Database.Context;
 using API.Features.Companies.Exceptions;
 using API.Features.Identity.Services;
+using API.Features.Images.Commands;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,11 +12,13 @@ public sealed class UpdateCompanyHandler : IRequestHandler<UpdateCompanyCommand,
 {
     private readonly EFContext _context;
     private readonly ICurrentUserService _currentUserService;
+    private readonly IMediator _mediator;
 
-    public UpdateCompanyHandler(EFContext context, ICurrentUserService currentUserService)
+    public UpdateCompanyHandler(EFContext context, ICurrentUserService currentUserService, IMediator mediator)
     {
         _context = context;
         _currentUserService = currentUserService;
+        _mediator = mediator;
     }
     
     public async Task<CreateOrUpdateResponse> Handle(UpdateCompanyCommand request, CancellationToken cancellationToken)
@@ -31,6 +34,13 @@ public sealed class UpdateCompanyHandler : IRequestHandler<UpdateCompanyCommand,
         company.Name = request.Name;
         company.Description = request.Description;
         company.Localization = request.Localization;
+        company.ImageId = null;
+
+        if (request.Image is not null)
+        {
+            var uploadResult = await _mediator.Send(new UploadImageCommand(request.Image), cancellationToken);
+            company.ImageId = uploadResult;
+        }
 
         var result = _context.Update(company);
         await _context.SaveChangesAsync(cancellationToken);
