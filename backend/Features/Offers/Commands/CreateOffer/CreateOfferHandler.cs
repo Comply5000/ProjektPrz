@@ -22,6 +22,9 @@ namespace API.Features.Offers.Commands.CreateOffer
 
         public async Task<CreateOrUpdateResponse> Handle(CreateOfferCommand request, CancellationToken cancellationToken)
         {
+            //TODO
+            //ADD czy oferta taka już istnieje ??
+
             var offer = new Offer
             {
                 Name = request.Name,
