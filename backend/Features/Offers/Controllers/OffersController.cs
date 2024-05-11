@@ -1,7 +1,8 @@
 ﻿using API.Features.Companies.Queries.GetCompanies;
 using API.Features.Offers.Commands.CreateOffer;
+using API.Features.Offers.Commands.UpdateOffer;
 using API.Features.Offers.Queries.GetOffer;
-using MassTransit.Mediator;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,7 +32,19 @@ namespace API.Features.Offers.Controllers
             //fix this
             //add await
         }
+
+
         //Update Offer
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateOffer([FromForm] UpdateOfferCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+
         //Get Offer paginated list
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -42,6 +55,9 @@ namespace API.Features.Offers.Controllers
             return Ok(result);
             //same probles as with create offer
         }
+        
+        
         //Delete Offer
+        
     }
 }
