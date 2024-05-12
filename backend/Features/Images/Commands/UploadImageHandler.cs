@@ -19,6 +19,7 @@ public class UploadImageHandler : IRequestHandler<UploadImageCommand, Guid>
     public async Task<Guid> Handle(UploadImageCommand request, CancellationToken cancellationToken)
     {
         var uploadResult = await _s3StorageService.UploadFileAsync(request.Image, cancellationToken);
+        var url = _s3StorageService.GetFileUrl(uploadResult);
 
         var image = new Image
         {
@@ -26,7 +27,7 @@ public class UploadImageHandler : IRequestHandler<UploadImageCommand, Guid>
             ContentType = request.Image.ContentType,
             TotalBytes = request.Image.Length,
             S3Key = uploadResult,
-            Url = string.Empty
+            Url = url
         };
 
         var result = await _context.AddAsync(image, cancellationToken);

@@ -4,7 +4,7 @@ using API.Common.SMTP.Services;
 
 namespace API.Common;
 
-public static class Extensions
+public static class CommonExtensions
 {
     public static IServiceCollection AddCommon(this IServiceCollection services, IConfiguration configuration)
     {

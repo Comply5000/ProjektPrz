@@ -73,7 +73,7 @@ public class S3StorageService : IS3StorageService
         return uniqueFileName;
     }
 
-    public string GetFileUrl(string fileKey, string fileName)
+    public string GetFileUrl(string fileKey)
     {
         try
         {
@@ -81,16 +81,10 @@ public class S3StorageService : IS3StorageService
             {
                 BucketName = _s3Config.BucketName,
                 Key = fileKey,
-                Expires = DateTime.MaxValue,
-                ResponseHeaderOverrides = new ResponseHeaderOverrides
-                {
-                    ContentDisposition = $"attachment; filename=\"{fileName}\""
-                }
+                Expires = DateTime.MaxValue
             };
 
             var url = _s3Client.GetPreSignedURL(request);
-            url = url.Replace("https", "http");
-
             return url;
         }
         catch (AmazonS3Exception e)

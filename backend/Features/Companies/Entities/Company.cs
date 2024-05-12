@@ -1,4 +1,5 @@
 ﻿using API.Common.Entities;
+using API.Common.Enums;
 using API.Features.Identity.Entities;
 using API.Features.Images.Entities;
 using API.Features.Offers.Entities;
@@ -21,5 +22,13 @@ public class Company : Entity
     
     public List<Offer> Offers { get;set; }
     public List<User> Followers { get; set; }
+}
+
+public class CompanyConfiguration : IEntityTypeConfiguration<Company>
+{
+    public void Configure(EntityTypeBuilder<Company> builder)
+    {
+        builder.HasQueryFilter(x => x.EntryStatus != EntryStatus.Deleted);
+    }
 }
 

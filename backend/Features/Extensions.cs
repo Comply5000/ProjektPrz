@@ -15,7 +15,8 @@ namespace API.Features
             var s3Config = new S3Config();
             configuration.GetSection("S3Service").Bind(s3Config);
             services.AddSingleton(s3Config);
-
+            
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IS3StorageService, S3StorageService>();
 
