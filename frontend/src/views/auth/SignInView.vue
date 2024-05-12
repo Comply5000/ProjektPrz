@@ -22,6 +22,11 @@
         Załóż konto 
       <RouterLink to="/sign-up" class = "link">tutaj</RouterLink>
       </p>
+      <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
+      <div v-if="formErrors && formErrors.Password" class="error">{{ formErrors.Password[0] }}</div>
+      <div v-if="formErrors && formErrors.general" class="error">{{ formErrors.general[0] }}</div>
+      <div v-if="formErrors && formErrors.UnauthorizedAccount" class="error">{{ formErrors.UnauthorizedAccount[0] }}</div>
+      <div v-if="formErrors && formErrors['nieprawidłowe dane']" class="error">{{ formErrors['nieprawidłowe dane'][0] }}</div>
     </div>
     </form>
   </div>
@@ -42,14 +47,30 @@ export default {
       form: {
         email: '',
         password: '',
-      }
+      },
+      formErrors: {}
     };
   },
   methods: {
     submitForm() {
       axios.post('/user-identity/sign-in', this.form)
         .then(response => {
-          alert('Logowanie zakończona sukcesem!');
+          this.$router.push('/offers-list');
+          console.log(response);
+          localStorage.setItem('jwt', response.data.accessToken);
+          SaveUserRoles(response.data.roles);
+          console.log(CheckUserRole('abcd'))
+          alert('Logowanie zakończone sukcesem!');
+          let loginAttempts = 0;
+          let blockedUntil = null;
+          function isLoginBlocked() {
+            return blockedUntil && blockedUntil > new Date();
+        }
+        if (isLoginBlocked()) {
+            // Wyświetl komunikat informujący użytkownika o blokadzie możliwości logowania
+            console.log('Możliwość logowania jest zablokowana. Spróbuj ponownie za minutę.');
+            return;
+}
         })
         .catch(error => {
     if (error.response && error.response.status === 400) {
@@ -64,15 +85,20 @@ export default {
             (responseData.errors.PasswordTooShort ||
              responseData.errors.PasswordRequiresLower ||
              responseData.errors.PasswordRequiresUpper ||
-             responseData.errors.ConfirmedPassword)
+             responseData.errors.ConfirmedPassword ||
+             responseData.errors.Email)
         ) {
-            // Jeśli wystąpiły błędy walidacji hasła
-            console.error('Błąd walidacji hasła', responseData);
+            // Jeśli wystąpiły błędy walidacji hasła lub e-maila
+            console.error('Błąd walidacji', responseData);
             this.formErrors = responseData.errors;
+        } else if (responseData.title === "Unable to log in to unauthorized account.") {
+            // Jeśli próbowano zalogować się na nieautoryzowane konto
+            console.error('Nieautoryzowane konto', responseData);
+            this.formErrors = { UnauthorizedAccount: ['Nie można zalogować się na nieautoryzowane konto.'] };
         } else {
-            // Jeśli inne błędy
-            console.error('Błąd podczas rejestracji', responseData);
-            this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
+            // Tutaj przekierowanie do innego okna, jeśli logowanie się powiodło
+            console.log('Logowanie powiodło się, przekierowanie do innego okna...');
+            this.$router.push('/sciezka/do/docelowego/okna');
         }
     } else {
         // Jeśli błąd nie jest odpowiedzią z serwera
