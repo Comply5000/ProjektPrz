@@ -64,6 +64,22 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/auth/NewPassword.vue')
+    },
+    {
+      path: '/update-company',
+        name: 'update-company',
+        // route level code-splitting
+        // this generates a separate chunk (About.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import('../views/companies/CompanyFormView.vue')
+    },
+    {
+      path: '/offer',
+        name: 'offer',
+        // route level code-splitting
+        // this generates a separate chunk (About.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import('../views/offers/OfferView.vue')
     }
   ]
 })
