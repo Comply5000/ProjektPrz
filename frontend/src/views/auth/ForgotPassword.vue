@@ -56,10 +56,11 @@
   
   /* Stylowanie formularza */
   .vue-template {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
+  background: rgb(56, 160, 96);
+  min-height: 100vh;
+  font-weight: 400;
+  padding-top: 80px;
+}
   .link{
     color: rgb(56, 160, 96);
   }

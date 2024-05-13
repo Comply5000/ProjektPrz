@@ -65,7 +65,8 @@
 
         axios.post('/user-identity/sign-up', this.form)
           .then(response => {
-            alert('Rejestracja zakończona sukcesem!');
+            alert('Na twój adres mailowy został wysłany link aktywacyjny. Aktywuj swoje konto by móc korzystać z platformy.');
+            this.$router.push('/sign-in');
             this.formErrors = {};
           })
           .catch(error => {
@@ -88,9 +89,10 @@
             console.error('Błąd walidacji', responseData);
             this.formErrors = responseData.errors;
         } else {
-            // Jeśli inne błędy
+            // Tutaj możemy użyć router push do przekierowania użytkownika
             console.error('Błąd podczas rejestracji', responseData);
             this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
+            this.$router.push('/sciezka/do/docelowego/okna');
         }
     } else {
         // Jeśli błąd nie jest odpowiedzią z serwera
