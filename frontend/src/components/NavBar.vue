@@ -3,34 +3,48 @@
     <div class="left">
       <span class="offer">Oferty</span>
       <span class="company">Firmy</span>
-      <span class="company" v-if="islogin">Moja Firma</span>
-      <span class="company" v-if="islogin">Moje Oferty</span>
+      <span class="company" v-if="isCompany()">Moja Firma</span>
+      <span class="company" v-if="isCompany()">Moje Oferty</span>
     </div>
     <div class="right">
-      <span class="login" v-if="!islogin">Zaloguj</span>
-      <span class="register" v-if="!islogin">Zarejestruj</span>
-      <span class="profile" v-if="islogin">Maciek</span>
+      <router-link to="/sign-in" class="login" v-if="!islogin">Zaloguj</router-link>
+      <router-link to="/sign-up" class="register" v-if="!islogin">Zarejestruj</router-link>
+      <span class="profile" v-if="islogin">{{ this.email }}</span>
     </div>
   </div>
 </template>
 <script>
+  import { CheckUserRole } from '../services/UserService.js';
+
+
   export default {
     name: 'RegisterForm',
     data() {
       return {
-       islogin: true
+       islogin: false,
+       email: ''
       };
+    },
+    methods: {
+      isCompany()
+      {
+        return CheckUserRole('CompanyOwner');
+      }
     },
     mounted()
     {
+      this.email = localStorage.getItem('email');
+
+      console.log(this.islogin);
+
       const token = localStorage.getItem('jwt');
       if(token==null || token=='')
       {
-        this.islogin=true;
+        this.islogin = false;
       }
       else
       {
-        this.islogin=true;
+        this.islogin = true;
       }
     }
   };

@@ -35,6 +35,7 @@
  import NavBar from '@/components/NavBar.vue';
  import Space from '@/components/Space.vue';
 import axios from '../../../config.js';
+import {SaveUserRoles} from '../../services/UserService.js';
 
 export default {
   name: 'RegisterForm',
@@ -55,57 +56,42 @@ export default {
     submitForm() {
       axios.post('/user-identity/sign-in', this.form)
         .then(response => {
-          this.$router.push('/offers-list');
-          console.log(response);
           localStorage.setItem('jwt', response.data.accessToken);
+          localStorage.setItem('email', response.data.email);
           SaveUserRoles(response.data.roles);
-          console.log(CheckUserRole('abcd'))
+          this.$router.push('/');
           alert('Logowanie zakończone sukcesem!');
-          let loginAttempts = 0;
-          let blockedUntil = null;
-          function isLoginBlocked() {
-            return blockedUntil && blockedUntil > new Date();
-        }
-        if (isLoginBlocked()) {
-            // Wyświetl komunikat informujący użytkownika o blokadzie możliwości logowania
-            console.log('Możliwość logowania jest zablokowana. Spróbuj ponownie za minutę.');
-            return;
-}
         })
         .catch(error => {
-    if (error.response && error.response.status === 400) {
-        const responseData = error.response.data;
+          if (error.response && error.response.status === 400) {
+              const responseData = error.response.data;
 
-        if (responseData.title === "user istnieje") {
-            // Jeśli użytkownik już istnieje
-            console.error('Użytkownik już istnieje', responseData);
-            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
-        } else if (
-            responseData.errors &&
-            (responseData.errors.PasswordTooShort ||
-             responseData.errors.PasswordRequiresLower ||
-             responseData.errors.PasswordRequiresUpper ||
-             responseData.errors.ConfirmedPassword ||
-             responseData.errors.Email)
-        ) {
-            // Jeśli wystąpiły błędy walidacji hasła lub e-maila
-            console.error('Błąd walidacji', responseData);
-            this.formErrors = responseData.errors;
-        } else if (responseData.title === "Unable to log in to unauthorized account.") {
-            // Jeśli próbowano zalogować się na nieautoryzowane konto
-            console.error('Nieautoryzowane konto', responseData);
-            this.formErrors = { UnauthorizedAccount: ['Nie można zalogować się na nieautoryzowane konto.'] };
-        } else {
-            // Tutaj przekierowanie do innego okna, jeśli logowanie się powiodło
-            console.log('Logowanie powiodło się, przekierowanie do innego okna...');
-            this.$router.push('/sciezka/do/docelowego/okna');
-        }
-    } else {
-        // Jeśli błąd nie jest odpowiedzią z serwera
-        console.error('Wystąpił błąd podczas rejestracji', error);
-        this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
-    }
-});
+              if (responseData.title === "user istnieje") {
+                  // Jeśli użytkownik już istnieje
+                  console.error('Użytkownik już istnieje', responseData);
+                  this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
+              } else if (
+                  responseData.errors &&
+                  (responseData.errors.PasswordTooShort ||
+                  responseData.errors.PasswordRequiresLower ||
+                  responseData.errors.PasswordRequiresUpper ||
+                  responseData.errors.ConfirmedPassword ||
+                  responseData.errors.Email)
+              ) {
+                  // Jeśli wystąpiły błędy walidacji hasła lub e-maila
+                  console.error('Błąd walidacji', responseData);
+                  this.formErrors = responseData.errors;
+              } else if (responseData.title === "Unable to log in to unauthorized account.") {
+                  // Jeśli próbowano zalogować się na nieautoryzowane konto
+                  console.error('Nieautoryzowane konto', responseData);
+                  this.formErrors = { UnauthorizedAccount: ['Nie można zalogować się na nieautoryzowane konto.'] };
+              } 
+          } else {
+              // Jeśli błąd nie jest odpowiedzią z serwera
+              console.error('Wystąpił błąd podczas rejestracji', error);
+              this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
+          }
+      });
     }
   }
 };
@@ -180,6 +166,10 @@ display: none;
 
 h3 {
 font-weight: bold;
+}
+
+.error {
+  color: red;
 }
 
 </style>
