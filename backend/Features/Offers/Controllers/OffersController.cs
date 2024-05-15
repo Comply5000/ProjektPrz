@@ -20,13 +20,13 @@ namespace API.Features.Offers.Controllers
         }
 
         //Create Offer
-        [HttpPost]
+        [HttpPost("create-offer")]
         //based on author?
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateOffer([FromForm] CreateOfferCommand command)
         {
-            var result = _mediator.Send(command);
+            var result = await _mediator.Send(command);
             return Ok(result);
             //TODO
             //fix this
@@ -35,7 +35,7 @@ namespace API.Features.Offers.Controllers
 
 
         //Update Offer
-        [HttpPut]
+        [HttpPut("update-offer-by-id")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateOffer([FromForm] UpdateOfferCommand command)
@@ -46,18 +46,25 @@ namespace API.Features.Offers.Controllers
 
 
         //Get Offer paginated list
-        [HttpGet]
+        [HttpGet("get-offers")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetPaginatedListOffers([FromQuery] GetOfferQuery query)
         {
-            var result = _mediator.Send(query);
+            var result = await _mediator.Send(query);
             return Ok(result);
             //same probles as with create offer
         }
-        
-        
+
+
         //Delete Offer
-        
+        /*[HttpDelete("delete-offer")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public Task<IActionResult> DeleteOffer()
+        {
+            //delete endpoint
+        }
+*/
     }
 }
