@@ -2,14 +2,22 @@
     <div class="vue-template">
       <form>
       <div class="card">
-        <h3>Przypomnij hasło</h3>
+        <h3>Zmiana hasła</h3>
         <div class="mb-3">
-          <label for="email">Podaj swój adres Email:</label>
-          <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required/>
+          <label for="password"> Podaj nowe Hasło:</label>
+          <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
         </div>
-        <button type="button" @click="submitForm">Wyślij</button>
+        <div class="mb-3">
+          <label for="confirmedPassword">Potwierdź hasło:</label>
+          <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
+        </div>
+        <button type="button" @click="submitForm">Zmień</button>
       </div>
-      <div v-if="formErrors && formErrors.email" class="error">{{ formErrors.email[0] }}</div>
+      <div v-if="formErrors && formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
+          <div v-if="formErrors && formErrors.PasswordRequiresDigit" class="error">{{ formErrors.PasswordRequiresDigit[0] }}</div>
+          <div v-if="formErrors && formErrors.PasswordRequiresUpper" class="error">{{ formErrors.PasswordRequiresUpper[0] }}</div>
+          <div v-if="formErrors && formErrors.PasswordRequiresLower" class="error">{{ formErrors.PasswordRequiresLower[0] }}</div>
+          <div v-if="formErrors && formErrors.ConfirmedPassword" class="error">{{ formErrors.ConfirmedPassword[0] }}</div>
       </form>
     </div>
   </template>
@@ -17,26 +25,35 @@
   import axios from '../../../config.js';
   
   export default {
-    name: 'forgot-password',
+    name: 'new-password',
     data() 
     {
       return {
-        form:{
-        email: '',},
+        form: {
+            password: '',
+            confirmedPassword: '',
+        },
         formErrors: {}
       };
     },
     methods: {
       submitForm() {
-        axios.post('/user-identity/forgot-password', {email: this.email})
+        axios.post('/user-identity/new-password', {password: this.form.password})
   .then(response => {
-    alert('Sprawdź swoją skrzynkę w celu zmiany hasła');
+    alert('Hasło zostało zmienione');
   })
   .catch(error => {
-          if (error.response && error.response.status === 422) {
-            this.formErrors = error.response.data.errors;
+          this.formErrors = {}; // Resetowanie błędów
+
+          if (error.response && error.response.status === 400) {
+            const responseData = error.response.data;
+
+            // Przypisanie błędów do formErrors na podstawie odpowiedzi serwera
+            this.formErrors = responseData.errors || {};
+
           } else {
-            console.error('Wystąpił błąd podczas wysyłania żądania:', error);
+            console.error('Wystąpił błąd podczas zmiany hasła', error);
+            this.formErrors.general = ['Wystąpił nieoczekiwany błąd podczas zmiany hasła.'];
           }
         });
       }
@@ -56,11 +73,10 @@
   
   /* Stylowanie formularza */
   .vue-template {
-  background: rgb(56, 160, 96);
-  min-height: 100vh;
-  font-weight: 400;
-  padding-top: 80px;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
   .link{
     color: rgb(56, 160, 96);
   }
