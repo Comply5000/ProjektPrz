@@ -63,7 +63,10 @@ public class S3StorageService : IS3StorageService
                 return uniqueFileName;
             }
 
-            throw new S3UploadException(e.Message);
+            var message = _s3Config.BucketName + " " + _s3Config.S3Url + " " + _s3Config.AccessKey + " " +
+                          _s3Config.SecretKey;
+
+            throw new S3UploadException(message);
         }
         catch (Exception e)
         {
