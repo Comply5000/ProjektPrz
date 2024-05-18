@@ -63,7 +63,7 @@ public class S3StorageService : IS3StorageService
                 return uniqueFileName;
             }
 
-            throw new S3UploadException(e.ErrorCode);
+            throw new S3UploadException(e.Message);
         }
         catch (Exception e)
         {
@@ -89,7 +89,7 @@ public class S3StorageService : IS3StorageService
         }
         catch (AmazonS3Exception e)
         {
-            throw new S3GetUrlException(e.ErrorCode);
+            throw new S3GetUrlException(e.Message);
         }
         catch (Exception e)
         {
@@ -121,7 +121,7 @@ public class S3StorageService : IS3StorageService
         }
         catch (AmazonS3Exception e)
         {
-            throw new S3GetUrlException(e.ErrorCode);
+            throw new S3GetUrlException(e.Message);
         }
         catch (Exception e)
         {
