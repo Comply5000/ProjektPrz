@@ -63,7 +63,7 @@ public class S3StorageService : IS3StorageService
                 return uniqueFileName;
             }
             
-            throw new S3UploadException(e.StackTrace);
+            throw new S3UploadException(e.ErrorCode);
         }
         catch (Exception e)
         {
