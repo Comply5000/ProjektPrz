@@ -3,7 +3,7 @@
     <div class="left">
       <router-link to="/" class="offer">Oferty</router-link>
       <span class="company element">Firmy</span>
-      <span class="company element" v-if="isCompany()">Moja Firma</span>
+      <router-link to="/update-company" class="company element" v-if="isCompany()">Moja Firma</router-link>
       <span class="company" v-if="isCompany()">Moje Oferty</span>
     </div>
     <div class="right">
