@@ -62,11 +62,8 @@ public class S3StorageService : IS3StorageService
 
                 return uniqueFileName;
             }
-
-            var message = _s3Config.BucketName + " " + _s3Config.S3Url + " " + _s3Config.AccessKey + " " +
-                          _s3Config.SecretKey;
-
-            throw new S3UploadException(message);
+            
+            throw new S3UploadException(e.ErrorCode);
         }
         catch (Exception e)
         {
@@ -92,7 +89,7 @@ public class S3StorageService : IS3StorageService
         }
         catch (AmazonS3Exception e)
         {
-            throw new S3GetUrlException(e.Message);
+            throw new S3GetUrlException(e.ErrorCode);
         }
         catch (Exception e)
         {
@@ -124,7 +121,7 @@ public class S3StorageService : IS3StorageService
         }
         catch (AmazonS3Exception e)
         {
-            throw new S3GetUrlException(e.Message);
+            throw new S3GetUrlException(e.ErrorCode);
         }
         catch (Exception e)
         {
