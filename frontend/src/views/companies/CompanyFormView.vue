@@ -136,8 +136,8 @@ export default {
         })
         .then(response => {
             this.form.name = response.data.name;
-            this.form.description = response.data.description;
-            this.form.localization = response.data.localization;
+            this.form.description = response.data.description ?? '';
+            this.form.localization = response.data.localization ?? '';
 
             const imageUrl = response.data.imageUrl;
             if (imageUrl) {
