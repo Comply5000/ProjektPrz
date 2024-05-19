@@ -1,4 +1,5 @@
 <template>
+    <NavBar />
     <div class="vue-template">
       <form>
       <div class="card">
@@ -12,20 +13,30 @@
           <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
         </div>
         <button type="button" @click="submitForm">Zmień</button>
+
+        <div v-if="errors">
+            <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
+              <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+                <div class="error">
+                    {{ errorMsg }}
+                </div>
+              </li>
+            </ul>
+        </div>
       </div>
-      <div v-if="formErrors && formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
-          <div v-if="formErrors && formErrors.PasswordRequiresDigit" class="error">{{ formErrors.PasswordRequiresDigit[0] }}</div>
-          <div v-if="formErrors && formErrors.PasswordRequiresUpper" class="error">{{ formErrors.PasswordRequiresUpper[0] }}</div>
-          <div v-if="formErrors && formErrors.PasswordRequiresLower" class="error">{{ formErrors.PasswordRequiresLower[0] }}</div>
-          <div v-if="formErrors && formErrors.ConfirmedPassword" class="error">{{ formErrors.ConfirmedPassword[0] }}</div>
       </form>
     </div>
   </template>
   <script>
   import axios from '../../../config.js';
+  import NavBar from '@/components/NavBar.vue';
+  import { handleErrors } from '../../../errorHandler.js';
   
   export default {
     name: 'new-password',
+    components: {
+      NavBar
+    },
     data() 
     {
       return {
@@ -33,28 +44,29 @@
             password: '',
             confirmedPassword: '',
         },
-        formErrors: {}
+        errors: [],
       };
     },
     methods: {
       submitForm() {
-        axios.post('/user-identity/new-password', {password: this.form.password})
-  .then(response => {
-    alert('Hasło zostało zmienione');
-  })
-  .catch(error => {
-          this.formErrors = {}; // Resetowanie błędów
+        this.errors = [];
 
-          if (error.response && error.response.status === 400) {
-            const responseData = error.response.data;
-
-            // Przypisanie błędów do formErrors na podstawie odpowiedzi serwera
-            this.formErrors = responseData.errors || {};
-
-          } else {
-            console.error('Wystąpił błąd podczas zmiany hasła', error);
-            this.formErrors.general = ['Wystąpił nieoczekiwany błąd podczas zmiany hasła.'];
-          }
+        const token = this.$route.query.token;
+        const userId = this.$route.query.userId;
+        axios.post(`/user-identity/reset-password`, {
+            password: this.form.password,
+            confirmedPassword: this.form.confirmedPassword,
+            token: token.replace(/\s/g, '+'),
+            userId: userId
+        })
+        .then(response => {
+          alert('Hasło zostało zmienione');
+          this.$router.push('/sign-in');
+        })
+        .catch(error => {
+          const errors = [];
+          handleErrors(error, errors);
+          this.errors = this.errors.concat(errors);
         });
       }
     }
@@ -73,10 +85,11 @@
   
   /* Stylowanie formularza */
   .vue-template {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
+  background: rgb(56, 160, 96);
+  min-height: 100vh;
+  font-weight: 400;
+  padding-top: 80px;
+}
   .link{
     color: rgb(56, 160, 96);
   }
@@ -135,7 +148,11 @@
   }
   
   h3 {
-  font-weight: bold;
+    font-weight: bold;
+  }
+
+  .error {
+    color: red;
   }
   
   </style>
