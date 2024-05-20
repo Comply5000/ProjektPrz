@@ -1,6 +1,5 @@
 <template>
   <NavBar />
-  <!-- <Space /> -->
   <div class="offer-container">
     <!-- Formularz wyszukiwania -->
     <div class="search-form">
@@ -17,9 +16,9 @@
     </div>
     <!-- Filtr: Ulubione firmy -->
     <div class="favorite-companies">
-      <label>Ulubione firmy:</label>
+      <label>Filtruj tylko ulubione: </label>
       <input type="checkbox" id="favoriteCompany" v-model="favoriteCompany">
-      <label for="favoriteCompany">Tylko ulubione</label>
+      <label for="favoriteCompany"></label>
     </div>
     <!-- Filtr: Firma konkretna -->
     <div class="specific-company">
@@ -45,7 +44,7 @@
                 </div>
               </div>
               <div class="offer-image">
-                <img :src= "offer.image" :alt="'Offer Image ' + (index + 1)">
+                <img :src="offer.image" :alt="'Offer Image ' + (index + 1)">
               </div>
             </div>
           </li>
@@ -78,12 +77,10 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
-import Space from '@/components/Space.vue';
 
 export default {
   components: {
-    NavBar,
-    Space
+    NavBar
   },
   data() {
     return {
@@ -160,11 +157,12 @@ export default {
 <style scoped>
 .offer-container {
   background-color: rgb(40, 167, 69);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 80px;
+  overflow: auto; /* Pozwala na przewijanie całej strony */
 }
 
 .search-form {
@@ -174,15 +172,21 @@ export default {
 }
 
 .filter-separator {
-  height: 0px; /* Przerwa między polem wyszukiwania a filtrami */
+  height: 10px; /* Przerwa między polem wyszukiwania a filtrami */
 }
 
 .date-filter, .favorite-companies, .specific-company {
-  margin-bottom: 10px; /* Odstęp między filtrami */
+  margin-bottom: 5px; /* Odstęp między filtrami */
 }
 
+input[type="checkbox"] {
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+
 .offer-list-container {
-  overflow-y: auto;
   width: 100%;
 }
 
@@ -241,6 +245,14 @@ export default {
   height: 110px;
   margin-top: -4px;
   border-radius: 10px;
-  border: 5px solid #28a745; /* Zielona ramka o szerokości 2px */
+  border: 5px solid #28a745; /* Zielona ramka o szerokości 5px */
+}
+
+.offer-per-page {
+  margin: 5px 0 5px; /* Dodatkowy odstęp między elementami */
+}
+
+.pagination {
+ margin-bottom: 10px
 }
 </style>
