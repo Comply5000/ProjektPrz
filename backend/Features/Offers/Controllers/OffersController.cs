@@ -1,4 +1,6 @@
-﻿using API.Features.Companies.Queries.GetCompanies;
+﻿using API.Attributes;
+using API.Features.Companies.Queries.GetCompanies;
+using API.Features.Identity.Static;
 using API.Features.Offers.Commands.CreateOffer;
 using API.Features.Offers.Commands.UpdateOffer;
 using API.Features.Offers.Queries.GetOffer;
@@ -14,7 +16,7 @@ namespace API.Features.Offers.Controllers
     {
         private readonly IMediator _mediator;
 
-        public OffersController(IMediator mediator)
+        public OffersController(IMediator mediator, ILogger<OffersController> logger)
         {
             _mediator = mediator;
         }
@@ -22,15 +24,14 @@ namespace API.Features.Offers.Controllers
         //Create Offer
         [HttpPost("create-offer")]
         //based on author?
+        //[ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateOffer([FromForm] CreateOfferCommand command)
         {
+            
             var result = await _mediator.Send(command);
             return Ok(result);
-            //TODO
-            //fix this
-            //add await
         }
 
 
@@ -53,7 +54,6 @@ namespace API.Features.Offers.Controllers
         {
             var result = await _mediator.Send(query);
             return Ok(result);
-            //same probles as with create offer
         }
 
 

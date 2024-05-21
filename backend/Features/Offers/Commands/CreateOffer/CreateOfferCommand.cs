@@ -1,4 +1,5 @@
 ﻿using API.Common.Responses;
+using API.Features.Companies.Entities;
 using MassTransit.Futures.Contracts;
 using MediatR;
 
@@ -9,5 +10,6 @@ public record class CreateOfferCommand(
     string Description,
     DateTimeOffset DateFrom,
     DateTimeOffset DateTo,
-    IFormFile Image
+    IFormFile Image,
+    int Type
     ) : IRequest<CreateOrUpdateResponse>;

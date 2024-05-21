@@ -34,5 +34,20 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
     public void Configure(EntityTypeBuilder<Offer> builder)
     {
         builder.HasQueryFilter(x => x.EntryStatus != EntryStatus.Deleted);
+
+        //relacje z innymi tabelami
+        //id
+        /*builder
+            .HasOne(x => x.Questions);*/
+        //images
+        /*builder
+            .HasOne(x => x.Image)
+            .WithMany(x=>x.)  //?
+            .HasForeignKey(x => x.ImageId);*/
+        //Company
+        /*builder
+            .HasOne(x => x.Company)
+            .WithMany(x=>x.Offers)
+            .HasForeignKey(x => x.CompanyId);*/
     }
 }

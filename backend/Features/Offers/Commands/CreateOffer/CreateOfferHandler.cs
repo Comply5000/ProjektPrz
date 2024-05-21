@@ -12,6 +12,7 @@ namespace API.Features.Offers.Commands.CreateOffer
         private readonly EFContext _context;
         private readonly ICurrentUserService _currentUserService;
         private readonly IMediator _mediator;
+        private readonly ILogger _logger;
 
         public CreateOfferHandler(EFContext context, ICurrentUserService currentUserService, IMediator mediator)
         {
@@ -24,20 +25,29 @@ namespace API.Features.Offers.Commands.CreateOffer
         {
             //TODO
             //ADD czy oferta taka już istnieje ??
-
-            var offer = new Offer
+            try
             {
-                Name = request.Name,
-                Description = request.Description,
-                DateFrom = request.DateFrom,
-                DateTo = request.DateTo
-            };
+                var offer = new Offer
+                {
+                    Name = request.Name,
+                    Description = request.Description,
+                    DateFrom = request.DateFrom,
+                    DateTo = request.DateTo,
+                    ImageId =null,
+                    //CompanyId = 
+                };
 
-            var result = _context.Offers.Add(offer);
-            
-            await _context.SaveChangesAsync(cancellationToken);
+                var result = _context.Offers.Add(offer);
 
-            return new CreateOrUpdateResponse(result.Entity.Id);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                return new CreateOrUpdateResponse(result.Entity.Id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while saving the entity changes. Inner exception: {InnerException}", ex.InnerException?.Message);
+                throw;
+            }
         }
     }
 }
