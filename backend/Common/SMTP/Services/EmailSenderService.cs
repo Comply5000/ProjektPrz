@@ -34,7 +34,8 @@ public class EmailSenderService : IEmailSenderService
         
         var bodyBuilder = new BodyBuilder
         {
-            TextBody = textBody
+            TextBody = textBody,
+            HtmlBody = textBody
         };
         emailMessage.Body = bodyBuilder.ToMessageBody();
 

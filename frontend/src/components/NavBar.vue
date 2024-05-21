@@ -1,15 +1,15 @@
 <template>
   <div class="header">
     <div class="left">
-      <span class="offer">Oferty</span>
-      <span class="company">Firmy</span>
-      <span class="company" v-if="isCompany()">Moja Firma</span>
+      <router-link to="/" class="offer">Oferty</router-link>
+      <span class="company element">Firmy</span>
+      <router-link to="/update-company" class="company element" v-if="isCompany()">Moja Firma</router-link>
       <span class="company" v-if="isCompany()">Moje Oferty</span>
     </div>
     <div class="right">
-      <router-link to="/sign-in" class="login" v-if="!islogin">Zaloguj</router-link>
-      <router-link to="/sign-up" class="register" v-if="!islogin">Zarejestruj</router-link>
-      <span class="profile" v-if="islogin">{{ this.email }}</span>
+      <router-link to="/sign-in" class="login element" v-if="!islogin">Zaloguj</router-link>
+      <router-link to="/sign-up" class="register element" v-if="!islogin">Zarejestruj</router-link>
+      <span class="profile element" v-if="islogin" @click="signOut()">{{ this.email }}</span>
     </div>
   </div>
 </template>
@@ -29,6 +29,12 @@
       isCompany()
       {
         return CheckUserRole('CompanyOwner');
+      },
+      signOut()
+      {
+        localStorage.removeItem('jwt');
+        localStorage.removeItem('roles');
+        location.reload();
       }
     },
     mounted()
@@ -49,7 +55,7 @@
     }
   };
 </script>
-<style scoped>
+<style>
 .header {
   display: flex;
   justify-content: space-between;
@@ -62,7 +68,6 @@
   left: 0;
   width: 100%;
   z-index: 100; /* Upewnij się, że navbar jest na wierzchu innych elementów */
-
 }
 
 .left {
@@ -82,7 +87,12 @@
 }
 
 .offer,
-.company {
+.element {
   color: #008000; /* zielony kolor */
+}
+
+a {
+  text-decoration: none;
+  color: #008000;
 }
 </style>

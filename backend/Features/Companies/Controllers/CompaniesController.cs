@@ -1,6 +1,7 @@
 ﻿using API.Attributes;
 using API.Features.Companies.Commands.Update;
 using API.Features.Companies.Queries.GetCompanies;
+using API.Features.Companies.Queries.GetCompanyForUpdate;
 using API.Features.Identity.Static;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,21 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> SignUp([FromForm] UpdateCompanyCommand command)
     {
         var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+    
+    //UpdateCompany
+    [HttpGet("update")]
+    [ApiAuthorize(UserRoles.CompanyOwner)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> SignUp()
+    {
+        var result = await _mediator.Send(new GetCompanyForUpdateQuery());
+
+        if (result is null)
+            NotFound();
+        
         return Ok(result);
     }
     

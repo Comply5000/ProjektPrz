@@ -1,47 +1,62 @@
 <template>
+    <NavBar />
     <div class="vue-template">
       <form>
       <div class="card">
         <h3>Przypomnij hasło</h3>
         <div class="mb-3">
           <label for="email">Podaj swój adres Email:</label>
-          <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required/>
+          <input type="email" id="email" class="form-control form-control-lg" v-model="email" required/>
         </div>
         <button type="button" @click="submitForm">Wyślij</button>
+
+        <div v-if="errors">
+            <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
+              <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+                <div class="error">
+                    {{ errorMsg }}
+                </div>
+              </li>
+            </ul>
+        </div>
       </div>
-      <div v-if="formErrors && formErrors.email" class="error">{{ formErrors.email[0] }}</div>
       </form>
     </div>
   </template>
   <script>
   import axios from '../../../config.js';
+  import NavBar from '@/components/NavBar.vue';
+  import { handleErrors } from '../../../errorHandler.js';
   
   export default {
     name: 'forgot-password',
+    components: {
+      NavBar
+    },
     data() 
     {
       return {
-        form:{
-        email: '',},
-        formErrors: {}
+        email: '',
+        errors: [],
       };
     },
     methods: {
       submitForm() {
-        axios.post('/user-identity/forgot-password', {email: this.email})
-  .then(response => {
-    alert('Sprawdź swoją skrzynkę w celu zmiany hasła');
-  })
-  .catch(error => {
-          if (error.response && error.response.status === 422) {
-            this.formErrors = error.response.data.errors;
-          } else {
-            console.error('Wystąpił błąd podczas wysyłania żądania:', error);
-          }
-        });
-      }
+        this.errors = [];
+
+        axios.post('/user-identity/reset-password-request', {email: this.email})
+      .then(response => {
+        alert('Sprawdź swoją skrzynkę w celu zmiany hasła');
+        this.$router.push('/');
+      })
+      .catch(error => {
+          const errors = [];
+          handleErrors(error, errors);
+          this.errors = this.errors.concat(errors);
+      });
     }
-  };
+  }
+};
   </script>
   <style>
   /* Globalne ustawienia */
@@ -120,6 +135,10 @@
   
   h3 {
   font-weight: bold;
+  }
+
+  .error {
+    color: red;
   }
   
   </style>
