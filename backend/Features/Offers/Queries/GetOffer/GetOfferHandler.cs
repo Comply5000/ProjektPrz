@@ -19,7 +19,13 @@ namespace API.Features.Offers.Queries.GetOffer
 
         public async Task<PaginatedList<OffersListModel>> Handle(GetOfferQuery request, CancellationToken cancellationToken)
         {
-            var query = _context.Offers.AsNoTracking();
+            //check data
+            var query = _context.Offers.AsNoTracking()
+                .Where(x => x.DateFrom < DateTime.Today && x.DateTo > DateTime.UtcNow);
+
+            
+            //check by name
+            //check by type
 
             var offers = await query
                 .Include(x => x.Image)
