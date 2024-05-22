@@ -24,13 +24,9 @@ namespace API.Features.Offers.Commands.UpdateOffer
         public async Task<CreateOrUpdateResponse> Handle(UpdateOfferCommand request, CancellationToken cancellationToken)
         {
             //czy taka oferta isntnieje
-            var offer = await _context.Offers.FirstOrDefaultAsync(x => x.Id == _currentUserService.CompanyId, cancellationToken)
+            var offer = await _context.Offers.FirstOrDefaultAsync(x => x.Id == request.Id && x.CompanyId==_currentUserService.CompanyId, cancellationToken)
                 ?? throw new OfferNorFoundExeption();
-            //czy taka nazwa oferty już istnieje - do rozważenia
-            var ifOfferExists = await _context.Offers.AnyAsync(x => EF.Functions.Like(x.Name, request.Name)
-                && x.Id == _currentUserService.CompanyId, cancellationToken);
-            if (ifOfferExists)
-                throw new OfferWithNameExistsExeption();
+            
 
             //update danych
             offer.Name = request.Name;

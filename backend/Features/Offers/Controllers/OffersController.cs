@@ -24,7 +24,7 @@ namespace API.Features.Offers.Controllers
         //Create Offer
         [HttpPost("create-offer")]
         //based on author?
-        //[ApiAuthorize(UserRoles.CompanyOwner)]
+        [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateOffer([FromForm] CreateOfferCommand command)
@@ -36,11 +36,12 @@ namespace API.Features.Offers.Controllers
 
 
         //Update Offer
-        [HttpPut("update-offer-by-id")]
+        [HttpPut("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateOffer([FromForm] UpdateOfferCommand command)
+        public async Task<IActionResult> UpdateOffer([FromForm] UpdateOfferCommand command, [FromRoute] Guid id)
         {
+            command.Id = id;
             var result = await _mediator.Send(command);
             return Ok(result);
         }
