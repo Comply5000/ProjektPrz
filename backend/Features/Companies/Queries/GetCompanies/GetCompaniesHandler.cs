@@ -31,6 +31,7 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
             {
                 Name = x.Name,
                 Localization = x.Localization,
+                Description = x.Description.Substring(0, 150),
                 ImageUrl = x.Image.Url
             })
             .ToPaginatedListAsync(request, cancellationToken);
