@@ -1,0 +1,5 @@
+﻿@API_HostAddress = https://localhost:7226
+
+GET {{API_HostAddress}}/api/companies/{id:guid}
+
+###

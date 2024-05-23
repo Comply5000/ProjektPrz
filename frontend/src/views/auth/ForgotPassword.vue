@@ -1,62 +1,64 @@
 <template>
-    <NavBar />
     <div class="vue-template">
       <form>
       <div class="card">
-        <h3>Przypomnij hasło</h3>
+        <h3>Zmiana hasła</h3>
         <div class="mb-3">
           <label for="email">Podaj swój adres Email:</label>
-          <input type="email" id="email" class="form-control form-control-lg" v-model="email" required/>
+          <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required>
         </div>
         <button type="button" @click="submitForm">Wyślij</button>
-
-        <div v-if="errors">
-            <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
-              <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
-                <div class="error">
-                    {{ errorMsg }}
-                </div>
-              </li>
-            </ul>
-        </div>
       </div>
       </form>
     </div>
   </template>
   <script>
-  import axios from '../../../config.js';
-  import NavBar from '@/components/NavBar.vue';
-  import { handleErrors } from '../../../errorHandler.js';
+   import axios from '../../../config.js';
   
   export default {
-    name: 'forgot-password',
-    components: {
-      NavBar
-    },
-    data() 
-    {
+    data() {
       return {
         email: '',
-        errors: [],
       };
     },
     methods: {
       submitForm() {
-        this.errors = [];
-
-        axios.post('/user-identity/reset-password-request', {email: this.email})
-      .then(response => {
-        alert('Sprawdź swoją skrzynkę w celu zmiany hasła');
-        this.$router.push('/');
-      })
-      .catch(error => {
-          const errors = [];
-          handleErrors(error, errors);
-          this.errors = this.errors.concat(errors);
-      });
+        axios.post('/user-identity/forgot-password', this.form)
+          .then(response => {
+            alert('Sprawdź swoją skrzynkę w celu zmiany hasła');
+          })
+          .catch(error => {
+      if (error.response && error.response.status === 400) {
+          const responseData = error.response.data;
+  
+          if (responseData.title === "user istnieje") {
+              // Jeśli użytkownik już istnieje
+              console.error('Użytkownik już istnieje', responseData);
+              this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
+          } else if (
+              responseData.errors &&
+              (responseData.errors.PasswordTooShort ||
+               responseData.errors.PasswordRequiresLower ||
+               responseData.errors.PasswordRequiresUpper ||
+               responseData.errors.ConfirmedPassword)
+          ) {
+              // Jeśli wystąpiły błędy walidacji hasła
+              console.error('Błąd walidacji hasła', responseData);
+              this.formErrors = responseData.errors;
+          } else {
+              // Jeśli inne błędy
+              console.error('Błąd podczas rejestracji', responseData);
+              this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
+          }
+      } else {
+          // Jeśli błąd nie jest odpowiedzią z serwera
+          console.error('Wystąpił błąd podczas rejestracji', error);
+          this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
+      }
+  });
+      }
     }
-  }
-};
+  };
   </script>
   <style>
   /* Globalne ustawienia */
@@ -71,11 +73,10 @@
   
   /* Stylowanie formularza */
   .vue-template {
-  background: rgb(56, 160, 96);
-  min-height: 100vh;
-  font-weight: 400;
-  padding-top: 80px;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
   .link{
     color: rgb(56, 160, 96);
   }
@@ -135,10 +136,6 @@
   
   h3 {
   font-weight: bold;
-  }
-
-  .error {
-    color: red;
   }
   
   </style>

@@ -1,62 +1,41 @@
 <template>
   <div class="header">
     <div class="left">
-      <router-link to="/" class="offer">Oferty</router-link>
-      <router-link to="/company-list" class="company element">Firmy</router-link>
-      
-      <router-link to="/update-company" class="company element" v-if="isCompany()">Moja Firma</router-link>
-      <span class="company" v-if="isCompany()">Moje Oferty</span>
+      <span class="offer">Oferty</span>
+      <span class="company">Firmy</span>
+      <span class="company" v-if="islogin">Moja Firma</span>
+      <span class="company" v-if="islogin">Moje Oferty</span>
     </div>
     <div class="right">
-      <router-link to="/sign-in" class="login element" v-if="!islogin">Zaloguj</router-link>
-      <router-link to="/sign-up" class="register element" v-if="!islogin">Zarejestruj</router-link>
-      <span class="profile element" v-if="islogin" @click="signOut()">{{ this.email }}</span>
+      <span class="login" v-if="!islogin">Zaloguj</span>
+      <span class="register" v-if="!islogin">Zarejestruj</span>
+      <span class="profile" v-if="islogin">Maciek</span>
     </div>
   </div>
 </template>
 <script>
-  import { CheckUserRole } from '../services/UserService.js';
-
-
   export default {
     name: 'RegisterForm',
     data() {
       return {
-       islogin: false,
-       email: ''
+       islogin: true
       };
-    },
-    methods: {
-      isCompany()
-      {
-        return CheckUserRole('CompanyOwner');
-      },
-      signOut()
-      {
-        localStorage.removeItem('jwt');
-        localStorage.removeItem('roles');
-        location.reload();
-      }
     },
     mounted()
     {
-      this.email = localStorage.getItem('email');
-
-      console.log(this.islogin);
-
       const token = localStorage.getItem('jwt');
       if(token==null || token=='')
       {
-        this.islogin = false;
+        this.islogin=true;
       }
       else
       {
-        this.islogin = true;
+        this.islogin=true;
       }
     }
   };
 </script>
-<style>
+<style scoped>
 .header {
   display: flex;
   justify-content: space-between;
@@ -69,6 +48,7 @@
   left: 0;
   width: 100%;
   z-index: 100; /* Upewnij się, że navbar jest na wierzchu innych elementów */
+
 }
 
 .left {
@@ -88,12 +68,7 @@
 }
 
 .offer,
-.element {
+.company {
   color: #008000; /* zielony kolor */
-}
-
-a {
-  text-decoration: none;
-  color: #008000;
 }
 </style>
