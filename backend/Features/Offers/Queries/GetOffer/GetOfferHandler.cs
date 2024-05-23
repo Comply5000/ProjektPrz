@@ -23,9 +23,18 @@ namespace API.Features.Offers.Queries.GetOffer
             var query = _context.Offers.AsNoTracking()
                 .Where(x => x.DateFrom < DateTime.Today && x.DateTo > DateTime.UtcNow);
 
-            
             //check by name
+            if (!string.IsNullOrEmpty(request.Search))
+            {
+                query = query.Where(x => x.Name.Contains(request.Search));
+            }
+
             //check by type
+            /*if (!string.IsNullOrEmpty(request.Search))
+            {
+                query = query.Where(x => x.CompanyId==request.Search);
+            }*/
+
 
             var offers = await query
                 .Include(x => x.Image)

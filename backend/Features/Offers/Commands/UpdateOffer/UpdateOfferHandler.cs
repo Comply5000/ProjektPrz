@@ -32,7 +32,6 @@ namespace API.Features.Offers.Commands.UpdateOffer
             offer.Name = request.Name;
             offer.Description = request.Description;
             offer.Image = null;
-            offer.DateFrom = (DateTimeOffset)request.DateFrom;
             offer.DateTo = request.DateTo;
 
             if(request.Image != null)
