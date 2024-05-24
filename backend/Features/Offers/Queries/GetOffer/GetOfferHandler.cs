@@ -3,6 +3,7 @@ using API.Common.Models;
 using API.Database.Context;
 using API.Features.Companies.Models;
 using API.Features.Offers.Models;
+using MassTransit.SagaStateMachine;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,12 +29,15 @@ namespace API.Features.Offers.Queries.GetOffer
             {
                 query = query.Where(x => x.Name.Contains(request.Search));
             }
-
             //check by type
-            /*if (!string.IsNullOrEmpty(request.Search))
-            {
-                query = query.Where(x => x.CompanyId==request.Search);
-            }*/
+            if (request.Type != null)
+                query = query.Where(x=>x.Type == request.Type);
+
+            //check by id company
+            if (request.CompanyId != Guid.Empty)
+                query = query.Where(x => x.CompanyId == request.CompanyId);
+
+
 
 
             var offers = await query
@@ -42,7 +46,9 @@ namespace API.Features.Offers.Queries.GetOffer
                 {
                     Name = x.Name,
                     Description = x.Description,
-                    ImageUrl = x.Image.Url,
+                    Type = x.Type,
+                    ImageUrl = x.Image,
+                    CompanyId = x.CompanyId,
                 })
                 .ToPaginatedListAsync(request, cancellationToken);
             return offers;
