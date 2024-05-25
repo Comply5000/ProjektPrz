@@ -1,6 +1,7 @@
 ﻿using API.Attributes;
 using API.Features.Companies.Commands.Update;
 using API.Features.Companies.Queries.GetCompanies;
+using API.Features.Companies.Queries.GetCompanyById;
 using API.Features.Companies.Queries.GetCompanyForUpdate;
 using API.Features.Identity.Static;
 using MediatR;
@@ -52,6 +53,15 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> GetPaginatedList([FromQuery] GetCompaniesQuery query)
     {
         var result = await _mediator.Send(query);
+        return Ok(result);
+    }
+    //GetCompanyById
+    [HttpGet("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetPaginatedList([FromRoute] Guid id)
+    {
+        var result = await _mediator.Send(new GetCompanyByIdQuery(id));
         return Ok(result);
     }
 }

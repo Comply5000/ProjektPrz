@@ -1,121 +1,137 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\",
+  "WorkspaceRootPath": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\questions\\controllers\\qustioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\companies\\queries\\getcompanybyid\\getcompanybyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\companies\\queries\\getcompanybyid\\getcompanybyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\companies\\queries\\getcompanybyid\\getcompanybyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\companies\\queries\\getcompanybyid\\getcompanybyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\companies\\models\\companyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\companies\\models\\companyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\questions\\controllers\\qustioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\controllers\\qustioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\questions\\commands\\validatoranswerquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\questions\\commands\\validatoranswerquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\validatoranswerquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\questions\\commands\\answerquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\questions\\commands\\answerquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\answerquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\questions\\commands\\answerquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\questions\\commands\\answerquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\answerquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\questions\\commands\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\questions\\commands\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\questions\\commands\\createquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\questions\\commands\\createquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\createquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\commands\\singup\\singupcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\commands\\singup\\singupcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singup\\singupcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\commands\\singup\\singuphandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\commands\\singup\\singuphandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singup\\singuphandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singup\\singupvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\commands\\singin\\singinhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\commands\\singin\\singinhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\commands\\singin\\singinhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\database\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\database\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\models\\jsonwebtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\models\\jsonwebtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\models\\jsonwebtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\extensions\\identityextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\extensions\\identityextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:extensions\\identityextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\static\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\features\\identity\\config\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\features\\identity\\config\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\identity\\config\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:filters\\exceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_question_500\\backend\\database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_zwracanie_firmy\\backend\\database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\roles\\userrolesseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -156,41 +172,91 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ValidatorAnswerQuestion.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
-              "RelativeToolTip": "Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "CompaniesController.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Controllers\\CompaniesController.cs",
+              "RelativeDocumentMoniker": "Features\\Companies\\Controllers\\CompaniesController.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Controllers\\CompaniesController.cs",
+              "RelativeToolTip": "Features\\Companies\\Controllers\\CompaniesController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAkwDEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T17:05:06.604Z",
+              "WhenOpened": "2024-05-25T17:49:48.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetCompanyByIdHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdHandler.cs",
+              "RelativeToolTip": "Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdHandler.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAApwBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T17:45:09.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AnswerQuestionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
-              "RelativeToolTip": "Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAIwDEAAAAAAAAA",
+              "Title": "GetCompanyByIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdQuery.cs",
+              "RelativeDocumentMoniker": "Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdQuery.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdQuery.cs",
+              "RelativeToolTip": "Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T17:04:28.621Z",
+              "WhenOpened": "2024-05-25T17:44:41.497Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "CompanyViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Models\\CompanyViewModel.cs",
+              "RelativeDocumentMoniker": "Features\\Companies\\Models\\CompanyViewModel.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Companies\\Models\\CompanyViewModel.cs",
+              "RelativeToolTip": "Features\\Companies\\Models\\CompanyViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T17:43:49.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ValidatorAnswerQuestion.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
+              "RelativeToolTip": "Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T17:05:06.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AnswerQuestionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
+              "RelativeToolTip": "Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAIwDEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T17:04:28.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "QustionController.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
               "RelativeDocumentMoniker": "Features\\Questions\\Controllers\\QustionController.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
               "RelativeToolTip": "Features\\Questions\\Controllers\\QustionController.cs",
               "ViewState": "AQIAACYAAAAAAAAAAIAwwDcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -199,63 +265,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "AnswerQuestionCommand.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
               "RelativeDocumentMoniker": "Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
               "RelativeToolTip": "Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T17:04:04.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T17:04:04.691Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "CreateQuestionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\CreateQuestionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionHandler.cs",
               "RelativeDocumentMoniker": "Features\\Questions\\Commands\\CreateQuestionHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\CreateQuestionHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionHandler.cs",
               "RelativeToolTip": "Features\\Questions\\Commands\\CreateQuestionHandler.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAswCQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T16:51:54.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateQuestionCommand.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\CreateQuestionCommand.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\CreateQuestionCommand.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Questions\\Commands\\CreateQuestionCommand.cs",
-              "RelativeToolTip": "Features\\Questions\\Commands\\CreateQuestionCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T16:51:18.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AQIAABYAAAAAAAAAAADwvwgAAABrAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-18T08:49:53.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T16:51:54.414Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "CreateQuestionCommand.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionCommand.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\CreateQuestionCommand.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionCommand.cs",
+              "RelativeToolTip": "Features\\Questions\\Commands\\CreateQuestionCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T16:51:18.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAABYAAAAAAAAAAADwvwgAAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-18T08:49:53.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "SingUpHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
               "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -263,11 +325,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "DatabaseInitializer.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
               "RelativeDocumentMoniker": "Database\\Initializer\\DatabaseInitializer.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
               "RelativeToolTip": "Database\\Initializer\\DatabaseInitializer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -275,20 +337,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "SingUpCommand.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
               "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAkAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T08:16:15.812Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T08:16:15.812Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "SingOutHandler.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
@@ -298,11 +359,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "SingInCommand.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "RelativeToolTip": "Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAUAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -310,7 +371,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "SingInCommandValidator.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
@@ -320,11 +381,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "SingInHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
               "RelativeToolTip": "Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAcwCwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -332,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "InvalidCredentials.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\InvalidCredentials.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\InvalidCredentials.cs",
@@ -342,11 +403,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "SingUpValidator.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
               "RelativeToolTip": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -354,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "UserWithEmailExistsExaptions.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
@@ -364,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "UserPasswordExeption.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
@@ -374,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "UserNotFoundExeption.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
@@ -384,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "CreateUserException.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\CreateUserException.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\CreateUserException.cs",
@@ -394,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 40,
               "Title": "AddUserToRoleExeption.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
@@ -404,7 +465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 41,
               "Title": "AddClaimException.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddClaimException.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddClaimException.cs",
@@ -414,11 +475,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "TokenService.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Services\\TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Services\\TokenService.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Services\\TokenService.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Services\\TokenService.cs",
               "RelativeToolTip": "Features\\Identity\\Services\\TokenService.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAQwAoAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -426,11 +487,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "ITokenService.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Services\\ITokenService.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Services\\ITokenService.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Services\\ITokenService.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Services\\ITokenService.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Services\\ITokenService.cs",
               "RelativeToolTip": "Features\\Identity\\Services\\ITokenService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -438,11 +499,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "Extensions.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Extensions.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Extensions.cs",
               "RelativeDocumentMoniker": "Features\\Extensions.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Extensions.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Extensions.cs",
               "RelativeToolTip": "Features\\Extensions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -450,11 +511,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "Extensions.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Extensions.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Extensions.cs",
               "RelativeDocumentMoniker": "Database\\Extensions.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Extensions.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Extensions.cs",
               "RelativeToolTip": "Database\\Extensions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -462,11 +523,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "JsonWebToken.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Models\\JsonWebToken.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Models\\JsonWebToken.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Models\\JsonWebToken.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Models\\JsonWebToken.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Models\\JsonWebToken.cs",
               "RelativeToolTip": "Features\\Identity\\Models\\JsonWebToken.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -474,11 +535,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Program.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAAABsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -486,7 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 42,
               "Title": "IIdentityService.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IIdentityService.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IIdentityService.cs",
@@ -496,11 +557,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Features\\Identity\\Controllers\\AccountController.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAgwCkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -508,11 +569,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "EFContext.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Context\\EFContext.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Context\\EFContext.cs",
               "RelativeDocumentMoniker": "Database\\Context\\EFContext.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Context\\EFContext.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Context\\EFContext.cs",
               "RelativeToolTip": "Database\\Context\\EFContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -520,11 +581,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "IdentityExtension.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Extensions\\IdentityExtension.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Extensions\\IdentityExtension.cs",
               "RelativeDocumentMoniker": "Extensions\\IdentityExtension.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Extensions\\IdentityExtension.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Extensions\\IdentityExtension.cs",
               "RelativeToolTip": "Extensions\\IdentityExtension.cs",
               "ViewState": "AQIAADQAAAAAAAAAAAAQwAQAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -532,11 +593,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "UserRoles.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Static\\UserRoles.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Static\\UserRoles.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Static\\UserRoles.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Static\\UserRoles.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Static\\UserRoles.cs",
               "RelativeToolTip": "Features\\Identity\\Static\\UserRoles.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAiwBYAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -544,11 +605,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Entities\\User.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Entities\\User.cs",
               "RelativeToolTip": "Features\\Identity\\Entities\\User.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -556,11 +617,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "AuthConfig.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Config\\AuthConfig.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
               "RelativeToolTip": "Features\\Identity\\Config\\AuthConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -568,11 +629,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "ExceptionFilter.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Filters\\ExceptionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Filters\\ExceptionFilter.cs",
               "RelativeDocumentMoniker": "Filters\\ExceptionFilter.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Filters\\ExceptionFilter.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Filters\\ExceptionFilter.cs",
               "RelativeToolTip": "Filters\\ExceptionFilter.cs",
               "ViewState": "AQIAAFQAAAAAAAAAAAAmwDEAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -580,11 +641,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\.gitignore",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\.gitignore",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\.gitignore",
               "RelativeToolTip": ".gitignore",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
@@ -592,11 +653,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\appsettings.json",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -604,11 +665,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "UserRolesSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
               "RelativeDocumentMoniker": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_question_500\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
               "RelativeToolTip": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
