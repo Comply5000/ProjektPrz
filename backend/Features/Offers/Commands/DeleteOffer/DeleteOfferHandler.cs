@@ -26,7 +26,7 @@ namespace API.Features.Offers.Commands.DeleteOffer
         public async Task<CreateOrUpdateResponse> Handle(DeleteOfferCommand request, CancellationToken cancellationToken)
         {
             //czy taka oferta isntnieje
-            var offer = await _context.Offers.FirstOrDefaultAsync(x => x.Id == request.Id /*&& x.CompanyId == _currentUserService.CompanyId*/, cancellationToken)
+            var offer = await _context.Offers.FirstOrDefaultAsync(x => x.Id == request.Id && x.CompanyId == _currentUserService.CompanyId, cancellationToken)
                 ?? throw new OfferNorFoundExeption();
 
             offer.EntryStatus = EntryStatus.Deleted;
