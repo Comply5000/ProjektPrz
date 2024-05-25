@@ -14,7 +14,7 @@
               <div class="company-content">
                 <div class="company-text">
                   <div class="company-header">
-                    <span v-if="company.favorite" class="favorite-star">★</span>
+                    <span v-if="company.favourite" class="favorite-star">★</span>
                     <h3 class="company-name">{{ company.name }}</h3>
                   </div>
                   <p class="company-location">{{ company.localization }}</p>
