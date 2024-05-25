@@ -7,8 +7,7 @@ namespace API.Features.Comments.Commands.CreateComment;
 
 public sealed record CreateCommentCommand(
     string Message,
-    int Rating
-    ) : IRequest<CreateOrUpdateResponse>
+    int Rating) : IRequest<CreateOrUpdateResponse>
 {
     internal Guid OfferId {  get; set; }    
 }
