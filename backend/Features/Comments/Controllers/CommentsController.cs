@@ -27,7 +27,7 @@ public class CommentsController : ControllerBase
     [ApiAuthorize(UserRoles.User)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateComment([FromForm] CreateCommentCommand command, [FromRoute] Guid offerId)
+    public async Task<IActionResult> CreateComment([FromBody] CreateCommentCommand command, [FromRoute] Guid offerId)
     {
         command.OfferId = offerId;
         var result = await _mediator.Send(command);
