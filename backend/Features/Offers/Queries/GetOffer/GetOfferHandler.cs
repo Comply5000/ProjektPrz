@@ -22,7 +22,8 @@ namespace API.Features.Offers.Queries.GetOffer
         {
             //check data
             var query = _context.Offers.AsNoTracking()
-                .Where(x => x.DateFrom < DateTime.Today && x.DateTo > DateTime.UtcNow);
+                .Where(x => x.DateFrom < DateTime.Today && x.DateTo > DateTime.Today)
+                .Where(x => x.EntryStatus == Common.Enums.EntryStatus.Active);
 
             //check by name
             if (!string.IsNullOrEmpty(request.Search))
@@ -30,7 +31,7 @@ namespace API.Features.Offers.Queries.GetOffer
                 query = query.Where(x => x.Name.Contains(request.Search));
             }
             //check by type
-            if (request.Type != null)
+            if (request.Type != 0)
                 query = query.Where(x=>x.Type == request.Type);
 
             //check by id company

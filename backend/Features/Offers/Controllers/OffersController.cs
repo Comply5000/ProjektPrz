@@ -2,6 +2,7 @@
 using API.Features.Companies.Queries.GetCompanies;
 using API.Features.Identity.Static;
 using API.Features.Offers.Commands.CreateOffer;
+using API.Features.Offers.Commands.DeleteOffer;
 using API.Features.Offers.Commands.UpdateOffer;
 using API.Features.Offers.Queries.GetOffer;
 using MediatR;
@@ -37,6 +38,7 @@ namespace API.Features.Offers.Controllers
 
         //Update Offer
         [HttpPut("{id:guid}")]
+        [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateOffer([FromForm] UpdateOfferCommand command, [FromRoute] Guid id)
@@ -59,13 +61,18 @@ namespace API.Features.Offers.Controllers
 
 
         //Delete Offer
-        /*[HttpDelete("delete-offer")]
+        [HttpPut("{id:guid}/delete")]
+        //[HttpPut("id:guid")]
+        [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public Task<IActionResult> DeleteOffer()
+        public async Task<IActionResult> DeleteOffer(DeleteOfferCommand command, [FromRoute] Guid id)
         {
             //delete endpoint
+            command.Id = id;
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
-*/
+
     }
 }
