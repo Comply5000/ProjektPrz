@@ -34,5 +34,7 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
     public void Configure(EntityTypeBuilder<Offer> builder)
     {
         builder.HasQueryFilter(x => x.EntryStatus != EntryStatus.Deleted);
+
+       
     }
 }

@@ -5,27 +5,18 @@
     <div class="search-form">
       <input v-model="searchQuery" class="form-control" type="search" placeholder="Search" aria-label="Search">
     </div>
-    <!-- Przerwa po polu wyszukiwania -->
-    <div class="filter-separator"></div>
-    <!-- Filtr: Zakres dat -->
-    <div class="date-filter">
-      <label for="startDate">Data od:</label>
-      <input type="date" id="startDate" v-model="startDate">
-      <label for="endDate">Data do:</label>
-      <input type="date" id="endDate" v-model="endDate">
-    </div>
-    <!-- Filtr: Ulubione firmy -->
-    <div class="favorite-companies">
+    <!-- Filtr: Ulubione firmy (widoczny tylko dla zalogowanych użytkowników) -->
+    <div v-if="isLogin" class="favorite-companies">
       <label>Filtruj tylko ulubione: </label>
       <input type="checkbox" id="favoriteCompany" v-model="favoriteCompany">
       <label for="favoriteCompany"></label>
     </div>
-    <!-- Filtr: Firma konkretna -->
-    <div class="specific-company">
-      <label for="specificCompany">Firma konkretna:</label>
-      <select id="specificCompany" v-model="selectedCompany">
-        <option value="">Wybierz firmę</option>
-        <option v-for="company in companies" :value="company">{{ company }}</option>
+    <!-- Filtr: Typ oferty (zawsze widoczny) -->
+    <div class="specific-offer-type">
+      <label for="specificOfferType">Typ oferty:</label>
+      <select id="specificOfferType" v-model="selectedOfferType">
+        <option value="">Wybierz typ oferty</option>
+        <option v-for="(name, value) in offerTypes" :value="value">{{ name }}</option>
       </select>
     </div>
     <!-- Lista ofert -->
@@ -38,7 +29,8 @@
                 <div class="offer-text">
                   <h3 class="offer-name">{{ offer.offerName }}</h3>
                   <p class="company-name">{{ offer.companyName }}</p>
-                  <p>Typ: <span class="offer-type">{{ offer.companyType }}</span></p>
+                  <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.companyType) }}</span></p>
+                  <p>Ocena: {{ offer.rating }}</p>
                   <p>Data wystawienia: {{ offer.issueDate }}</p>
                   <p>Data ważności: {{ offer.expiryDate }}</p>
                 </div>
@@ -61,13 +53,13 @@
     <!-- Paginacja -->
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
-        <li class="page-item">
+        <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
           <button class="page-link" @click="changePage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
         </li>
-        <li class="page-item" v-for="page in pageCount" :key="page">
+        <li class="page-item" v-for="page in pageCount" :key="page" :class="{ 'active': currentPage === page }">
           <a class="page-link" href="#" @click="changePage(page)">{{ page }}</a>
         </li>
-        <li class="page-item">
+        <li class="page-item" :class="{ 'disabled': currentPage === pageCount }">
           <button class="page-link" @click="changePage(currentPage + 1)" :disabled="currentPage === pageCount">Next</button>
         </li>
       </ul>
@@ -88,57 +80,46 @@ export default {
       pageSize: 5,
       pageSizeOptions: [5, 10, 15],
       searchQuery: '',
-      startDate: '',
-      endDate: '',
       favoriteCompany: false,
-      selectedCompany: '',
-      companies: ['Firma A', 'Firma B', 'Firma C', 'Firma D', 'Firma E', 'Firma F'],
+      selectedOfferType: '',
+      isLogin: false,
+      offerTypes: {
+        1: 'Product',
+        2: 'Service',
+        3: 'Promotions',
+        4: 'LoyaltyProgram'
+      },
       offers: [
-        { offerName: 'Oferta A', companyName: 'Firma A', companyType: 'Gastronomia', issueDate: '2024-04-21', expiryDate: '2024-05-21', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta B', companyName: 'Firma B', companyType: 'Usługi', issueDate: '2024-04-20', expiryDate: '2024-05-20', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta C', companyName: 'Firma C', companyType: 'Wynajem', issueDate: '2024-04-19', expiryDate: '2024-05-19', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta D', companyName: 'Firma D', companyType: 'Gastronomia', issueDate: '2024-04-18', expiryDate: '2024-05-18', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta E', companyName: 'Firma E', companyType: 'Usługi', issueDate: '2024-04-17', expiryDate: '2024-05-17', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta F', companyName: 'Firma F', companyType: 'Wynajem', issueDate: '2024-04-16', expiryDate: '2024-05-16', image: "../src/views/offers/flamingo.jpg" }
+        { offerName: 'Oferta A', companyName: 'Firma A', companyType: 1, rating: 4.5, issueDate: '2024-04-21', expiryDate: '2024-05-21', image: "../src/views/offers/flamingo.jpg" },
+        { offerName: 'Oferta B', companyName: 'Firma B', companyType: 2, rating: 4.0, issueDate: '2024-04-20', expiryDate: '2024-05-20', image: "../src/views/offers/flamingo.jpg" },
+        { offerName: 'Oferta C', companyName: 'Firma C', companyType: 3, rating: 3.5, issueDate: '2024-04-19', expiryDate: '2024-05-19', image: "../src/views/offers/flamingo.jpg" },
+        { offerName: 'Oferta D', companyName: 'Firma D', companyType: 1, rating: 5.0, issueDate: '2024-04-18', expiryDate: '2024-05-18', image: "../src/views/offers/flamingo.jpg" },
+        { offerName: 'Oferta E', companyName: 'Firma E', companyType: 2, rating: 2.5, issueDate: '2024-04-17', expiryDate: '2024-05-17', image: "../src/views/offers/flamingo.jpg" },
+        { offerName: 'Oferta F', companyName: 'Firma F', companyType: 4, rating: 3.0, issueDate: '2024-04-16', expiryDate: '2024-05-16', image: "../src/views/offers/flamingo.jpg" }
       ]
     };
   },
   computed: {
+    filteredOffers() {
+      let filtered = this.offers.filter(offer =>
+        offer.offerName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+        offer.companyName.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+      
+      if (this.favoriteCompany) {
+        filtered = filtered.filter(offer => offer.favorite);
+      }
+
+      if (this.selectedOfferType) {
+        filtered = filtered.filter(offer => offer.companyType == this.selectedOfferType);
+      }
+
+      return filtered;
+    },
     paginatedOffers() {
       const startIndex = (this.currentPage - 1) * this.pageSize;
       const endIndex = startIndex + this.pageSize;
       return this.filteredOffers.slice(startIndex, endIndex);
-    },
-    filteredOffers() {
-      let filtered = this.offers.filter(offer => {
-        // Filtr: Wyszukiwanie
-        const searchMatch = 
-          offer.offerName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          offer.companyName.toLowerCase().includes(this.searchQuery.toLowerCase());
-        
-        // Filtr: Zakres dat
-        let dateMatch = true;
-        if (this.startDate && this.endDate) {
-          dateMatch = offer.issueDate >= this.startDate && offer.expiryDate <= this.endDate;
-        }
-        
-        // Filtr: Ulubione firmy
-        let favoriteMatch = true;
-        if (this.favoriteCompany) {
-          // Załóżmy, że ulubione firmy to te, których nazwa zaczyna się od "Firma"
-          favoriteMatch = offer.companyName.startsWith("Firma");
-        }
-        
-        // Filtr: Firma konkretna
-        let companyMatch = true;
-        if (this.selectedCompany) {
-          companyMatch = offer.companyName === this.selectedCompany;
-        }
-        
-        return searchMatch && dateMatch && favoriteMatch && companyMatch;
-      });
-      
-      return filtered;
     },
     pageCount() {
       return Math.ceil(this.filteredOffers.length / this.pageSize);
@@ -149,6 +130,15 @@ export default {
       if (page >= 1 && page <= this.pageCount) {
         this.currentPage = page;
       }
+    },
+    getOfferTypeName(value) {
+      return this.offerTypes[value];
+    }
+  },
+  mounted() {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      this.isLogin = true;
     }
   }
 };
@@ -171,11 +161,7 @@ export default {
   width: 30%;
 }
 
-.filter-separator {
-  height: 10px; /* Przerwa między polem wyszukiwania a filtrami */
-}
-
-.date-filter, .favorite-companies, .specific-company {
+.favorite-companies, .specific-offer-type {
   margin-bottom: 5px; /* Odstęp między filtrami */
 }
 
@@ -184,7 +170,6 @@ input[type="checkbox"] {
   width: 15px;
   height: 15px;
 }
-
 
 .offer-list-container {
   width: 100%;
@@ -253,6 +238,24 @@ input[type="checkbox"] {
 }
 
 .pagination {
- margin-bottom: 10px
+  margin-bottom: 10px;
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: transparent;
+  color: #ccc;
+  border: none;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+/* Optionally, add a hover effect for active page */
+.pagination .page-item.active .page-link:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
 }
 </style>
