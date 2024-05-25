@@ -1,0 +1,118 @@
+﻿@API_HostAddress = https://localhost:7226
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions/answer
+Content-Type: application/json
+
+{
+  //AnswerQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions/answer
+Content-Type: application/json
+
+{
+  //AnswerQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions/answer
+Content-Type: application/json
+
+{
+  //AnswerQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions
+Content-Type: application/json
+
+{
+  //CreateQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions/answer
+Content-Type: application/json
+
+{
+  //AnswerQuestionCommand
+}
+
+###
+
+POST {{API_HostAddress}}/api/questions/answer
+Content-Type: application/json
+
+{
+  //AnswerQuestionCommand
+}
+
+###

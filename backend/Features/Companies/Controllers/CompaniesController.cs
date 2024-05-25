@@ -4,12 +4,14 @@ using API.Features.Companies.Queries.GetCompanies;
 using API.Features.Companies.Queries.GetCompanyForUpdate;
 using API.Features.Identity.Static;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Features.Companies.Controllers;
 
 [ApiController]
 [Route("api/companies")]
+[Authorize]
 public class CompaniesController : ControllerBase
 {
     private readonly IMediator _mediator;
