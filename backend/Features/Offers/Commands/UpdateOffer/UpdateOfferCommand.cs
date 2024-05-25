@@ -8,6 +8,7 @@ namespace API.Features.Offers.Commands.UpdateOffer
     public sealed record UpdateOfferCommand(
         string Name,
         string Description,
+        DateTimeOffset DateFrom,
         DateTimeOffset? DateTo,
         IFormFile Image,
         OfferType Type) : IRequest<CreateOrUpdateResponse>

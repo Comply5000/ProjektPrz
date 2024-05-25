@@ -23,14 +23,13 @@ namespace API.Features.Offers.Controllers
         }
 
         //Create Offer
-        [HttpPost("create-offer")]
+        [HttpPost]
         //based on author?
         [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateOffer([FromForm] CreateOfferCommand command)
         {
-            
             var result = await _mediator.Send(command);
             return Ok(result);
         }
@@ -50,7 +49,7 @@ namespace API.Features.Offers.Controllers
 
 
         //Get Offer paginated list
-        [HttpGet("get-offers")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetPaginatedListOffers([FromQuery] GetOfferQuery query)
@@ -61,17 +60,14 @@ namespace API.Features.Offers.Controllers
 
 
         //Delete Offer
-        [HttpPut("{id:guid}/delete")]
-        //[HttpPut("id:guid")]
+        [HttpDelete("{id:guid}")]
         [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> DeleteOffer(DeleteOfferCommand command, [FromRoute] Guid id)
+        public async Task<IActionResult> DeleteOffer([FromRoute] Guid id)
         {
-            //delete endpoint
-            command.Id = id;
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            await _mediator.Send(new DeleteOfferCommand(id));
+            return Ok();
         }
 
     }

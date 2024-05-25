@@ -32,6 +32,7 @@ namespace API.Features.Offers.Commands.UpdateOffer
             offer.Name = request.Name;
             offer.Description = request.Description;
             offer.Image = null;
+            offer.DateFrom = request.DateFrom;
             offer.DateTo = request.DateTo;
             offer.Type = request.Type;
 

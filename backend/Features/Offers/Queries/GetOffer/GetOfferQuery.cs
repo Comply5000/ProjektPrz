@@ -8,7 +8,7 @@ namespace API.Features.Offers.Queries.GetOffer
 {
     public sealed record GetOfferQuery(
         string Search,
-        OfferType Type,
-        Guid CompanyId
-        ):PaginationRequest,IRequest<PaginatedList<OffersListModel>>;
+        OfferType? Type,
+        Guid? CompanyId,
+        bool isCompanyFavourite = false) : PaginationRequest, IRequest<PaginatedList<OffersListModel>>;
 }
