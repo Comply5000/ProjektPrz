@@ -11,7 +11,6 @@ namespace API.Features.Offers.Commands.DeleteOffer
 {
     public class DeleteOfferHandler : IRequestHandler<DeleteOfferCommand>
     {
-        //tworzyć repository dla ofert?
         private readonly EFContext _context;
         private readonly ICurrentUserService _currentUserService;
 
