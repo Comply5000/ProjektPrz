@@ -5,6 +5,7 @@ using API.Features.Offers.Commands.CreateOffer;
 using API.Features.Offers.Commands.DeleteOffer;
 using API.Features.Offers.Commands.UpdateOffer;
 using API.Features.Offers.Queries.GetOffer;
+using API.Features.Offers.Queries.GetOfferById;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ namespace API.Features.Offers.Controllers
 
         //Create Offer
         [HttpPost]
-        //based on author?
+        //based on author
         [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -58,7 +59,18 @@ namespace API.Features.Offers.Controllers
             return Ok(result);
         }
 
+        //Get Single Offer by id 
+        [HttpGet("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetOfferById([FromRoute] Guid id)
+        {
+            var result = await _mediator.Send(new GetOfferByIdQuery(id));
+            return Ok(result);
+        }
 
+
+        
         //Delete Offer
         [HttpDelete("{id:guid}")]
         [ApiAuthorize(UserRoles.CompanyOwner)]
