@@ -53,7 +53,7 @@ namespace API.Features.Offers.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetPaginatedListOffers([FromQuery] GetOfferQuery query)
+        public async Task<IActionResult> GetPaginatedListOffers([FromQuery] GetOffersQuery query)
         {
             var result = await _mediator.Send(query);
             return Ok(result);

@@ -6,7 +6,7 @@ using MediatR;
 
 namespace API.Features.Offers.Queries.GetOffer
 {
-    public sealed record GetOfferQuery(
+    public sealed record GetOffersQuery(
         string Search,
         OfferType? Type,
         Guid? CompanyId,

@@ -10,18 +10,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Features.Offers.Queries.GetOffer
 {
-    public class GetOfferHandler:IRequestHandler<GetOfferQuery,PaginatedList<OffersListModel>>
+    public class GetOffersHandler:IRequestHandler<GetOffersQuery,PaginatedList<OffersListModel>>
     {
         private readonly EFContext _context;
         private readonly ICurrentUserService _currentUserService;
 
-        public GetOfferHandler(EFContext context, ICurrentUserService currentUserService)
+        public GetOffersHandler(EFContext context, ICurrentUserService currentUserService)
         {
             _context = context;
             _currentUserService = currentUserService;
         }
 
-        public async Task<PaginatedList<OffersListModel>> Handle(GetOfferQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedList<OffersListModel>> Handle(GetOffersQuery request, CancellationToken cancellationToken)
         {
             //check data
             var query = _context.Offers.AsNoTracking()
@@ -59,6 +59,7 @@ namespace API.Features.Offers.Queries.GetOffer
                 .Include(x => x.Company)
                 .Select(x => new OffersListModel
                 {
+                    Id = x.Id,
                     Name = x.Name,
                     Description = x.Description,
                     Type = x.Type,

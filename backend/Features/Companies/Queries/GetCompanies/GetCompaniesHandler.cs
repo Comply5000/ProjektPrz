@@ -29,12 +29,7 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
                 EF.Functions.ILike(v.Name, $"%{request.Search}%") ||
                 EF.Functions.ILike(v.Localization, $"%{request.Search}%"));
 
-        var user = new User();
-        if (_currentUserService.UserId != Guid.Empty)
-        {
-            user = await _context.Users.FirstOrDefaultAsync(x => x.Id == _currentUserService.UserId,
-                cancellationToken);
-        }
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == _currentUserService.UserId, cancellationToken);
 
         var companies = await query
             .Include(x => x.Image)
@@ -44,7 +39,7 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
                 Localization = x.Localization,
                 Description = x.Description.Substring(0, 150),
                 ImageUrl = x.Image.Url,
-                Favourite = x.Followers.Contains(user)
+                Favourite = x.Followers.Contains(user) //sprawdzenie czy użytkownik ma firmę w polubionych
             })
             .ToPaginatedListAsync(request, cancellationToken);
 

@@ -6,6 +6,7 @@ namespace API.Features.Offers.Models
 {
     public class OffersListModel
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public OfferType Type { get; set; }

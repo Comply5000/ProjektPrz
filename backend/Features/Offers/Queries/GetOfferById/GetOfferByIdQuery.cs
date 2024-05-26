@@ -5,5 +5,5 @@ using MediatR;
 
 namespace API.Features.Offers.Queries.GetOfferById
 {
-    public sealed record GetOfferByIdQuery(Guid id) : IRequest<OffersListModel>;
+    public sealed record GetOfferByIdQuery(Guid Id) : IRequest<OfferModel>;
 }

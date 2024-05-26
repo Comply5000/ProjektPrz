@@ -68,13 +68,13 @@ public class CompaniesController : ControllerBase
     }
     
     //AddToFavourite
-    [HttpPut("add-to-favourite")]
+    [HttpPatch("{id:guid}/add-to-favourite")]
     [ApiAuthorize(UserRoles.User)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> AddAndRemove(AddAndRemoveCompanyFromFavouriteCommand command)
+    public async Task<IActionResult> AddAndRemove([FromRoute] Guid id)
     {
-        await _mediator.Send(command);
+        await _mediator.Send(new AddAndRemoveCompanyFromFavouriteCommand(id));
         return Ok();
     }
 }

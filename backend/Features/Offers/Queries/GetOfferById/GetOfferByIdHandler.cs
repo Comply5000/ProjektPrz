@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Features.Offers.Queries.GetOfferById
 {
-    public class GetOfferByIdHandler : IRequestHandler<GetOfferByIdQuery, OffersListModel>
+    public class GetOfferByIdHandler : IRequestHandler<GetOfferByIdQuery, OfferModel>
     {
         private readonly EFContext _context;
         private readonly ICurrentUserService _currentUserService;
@@ -19,26 +19,26 @@ namespace API.Features.Offers.Queries.GetOfferById
             _currentUserService = currentUserService;
         }
 
-        public async Task<OffersListModel> Handle(GetOfferByIdQuery query, CancellationToken cancellationToken)
+        public async Task<OfferModel> Handle(GetOfferByIdQuery query, CancellationToken cancellationToken)
         {
-            //check data
-            //czy taka oferta isntnieje
-            var offer = await _context.Offers.FirstOrDefaultAsync(x => x.Id == query.id, cancellationToken)
+            var offer = await _context.Offers.AsNoTracking()
+                            .Where(x => x.Id == query.Id)
+                            .Include(x => x.Image)
+                            .Select(x => new OfferModel
+                            {
+                                Id = x.Id,
+                                Name = x.Name,
+                                Description = x.Description,
+                                Type = x.Type,
+                                ImageUrl = x.Image.Url,
+                                CompanyId = x.CompanyId,
+                                CompanyName = x.Company.Name,
+                                IsUserCommented = x.Comments.Any(y => y.UserId == _currentUserService.UserId)
+                            })
+                            .FirstOrDefaultAsync(cancellationToken)
                         ?? throw new OfferNorFoundExeption();
 
-            return await _context.Offers.AsNoTracking()
-                .Where(x=>x.Id == offer.Id)
-                .Include(x => x.Image)
-                .Select(x => new OffersListModel
-                {
-                    Name = x.Name,
-                    Description = x.Description,
-                    Type = x.Type,
-                    ImageUrl = x.Image.Url,
-                    CompanyId = x.CompanyId,
-                    CompanyName = x.Company.Name,
-                })
-                .FirstOrDefaultAsync(cancellationToken);  
+            return offer;
         }
     }
     
