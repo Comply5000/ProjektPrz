@@ -6,8 +6,8 @@ public sealed class ResetPasswordValidator : AbstractValidator<ResetPasswordComm
 {
     public ResetPasswordValidator()
     {
-        RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required");
-        RuleFor(x => x.ConfirmedPassword).NotEmpty().WithMessage("Confirmed password is required");
-        RuleFor(x => x.ConfirmedPassword).Equal(x => x.Password).WithMessage("Confirmed password must by the same");
+        RuleFor(x => x.Password).NotEmpty().WithMessage("Hasło jest wymagane");
+        RuleFor(x => x.ConfirmedPassword).NotEmpty().WithMessage("Powtórzone hasło jest wymagane");
+        RuleFor(x => x.ConfirmedPassword).Equal(x => x.Password).WithMessage("Powtórzone hasło musi być takie samo");
     }
 }

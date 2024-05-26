@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using API.Attributes;
+using API.Features.Identity.Commands.ChangePassword;
 using API.Features.Identity.Commands.ConfirmEmail;
 using API.Features.Identity.Commands.ResetPassword;
 using API.Features.Identity.Commands.ResetPasswordRequest;
@@ -89,12 +90,13 @@ namespace API.Features.Identity.Controllers
         }
         
         //ResetPassword
-        [HttpPost("upload")]
+        [HttpPost("change-password")]
+        [ApiAuthorize(UserRoles.User)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> ResetPassword(IFormFile file, CancellationToken cancellationToken)
+        public async Task<IActionResult> ChangePassword(ChangePasswordCommand command, CancellationToken cancellationToken)
         {
-            await _mediator.Send(new UploadImageCommand(file), cancellationToken);
+            await _mediator.Send(command, cancellationToken);
             return Ok();
         }
     }
