@@ -22,10 +22,12 @@ namespace API.Features.Offers.Queries.GetOfferById
         public async Task<OffersListModel> Handle(GetOfferByIdQuery query, CancellationToken cancellationToken)
         {
             //check data
-            /*var query = _context.Offers.AsNoTracking()
-                .Where(x => x.Id==);*/
+            //czy taka oferta isntnieje
+            var offer = await _context.Offers.FirstOrDefaultAsync(x => x.Id == query.id, cancellationToken)
+                        ?? throw new OfferNorFoundExeption();
 
             return await _context.Offers.AsNoTracking()
+                .Where(x=>x.Id == offer.Id)
                 .Include(x => x.Image)
                 .Select(x => new OffersListModel
                 {
