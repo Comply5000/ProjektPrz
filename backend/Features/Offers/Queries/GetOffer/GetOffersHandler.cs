@@ -41,7 +41,7 @@ namespace API.Features.Offers.Queries.GetOffer
                 query = query.Where(x => x.CompanyId == request.CompanyId);
 
 
-            if (request.isCompanyFavourite && _currentUserService.UserId != Guid.Empty)
+            if (request.IsCompanyFavourite && _currentUserService.UserId != Guid.Empty)
             {
                 var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == _currentUserService.UserId,
                     cancellationToken);
@@ -65,7 +65,8 @@ namespace API.Features.Offers.Queries.GetOffer
                     Type = x.Type,
                     ImageUrl = x.Image.Url,
                     CompanyId = x.CompanyId,
-                    CompanyName = x.Company.Name
+                    CompanyName = x.Company.Name,
+                    Rating = Math.Round(x.Comments.Select(r => r.Rating).Average(), 1)
                 })
                 .ToPaginatedListAsync(request, cancellationToken);
             return offers;
