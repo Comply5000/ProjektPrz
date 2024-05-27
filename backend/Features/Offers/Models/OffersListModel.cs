@@ -13,7 +13,7 @@ namespace API.Features.Offers.Models
         public string ImageUrl { get; set; }
         public Guid CompanyId { get; set; }
         public string CompanyName { get; set; }
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
 
     }
 }
