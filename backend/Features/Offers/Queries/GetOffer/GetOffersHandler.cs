@@ -66,7 +66,7 @@ namespace API.Features.Offers.Queries.GetOffer
                     ImageUrl = x.Image.Url,
                     CompanyId = x.CompanyId,
                     CompanyName = x.Company.Name,
-                    Rating = Math.Round(x.Comments.Select(r => r.Rating).Average(), 1)
+                    Rating = x.Comments == null ? 0 : Math.Round(x.Comments.Select(r => r.Rating).Average(), 1),
                 })
                 .ToPaginatedListAsync(request, cancellationToken);
             return offers;
