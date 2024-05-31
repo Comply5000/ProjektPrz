@@ -45,6 +45,16 @@ namespace API.Extensions
                 // Email confirm
                 options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
             });
+            
+            services.Configure<CookieAuthenticationOptions>(
+                IdentityConstants.ApplicationScheme, 
+                options => options.Cookie.SameSite = SameSiteMode.None);
+            
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.Secure = CookieSecurePolicy.Always;
+            });
 
 
             //// configure DI for application services
@@ -88,10 +98,6 @@ namespace API.Extensions
                 options.OnRefreshingPrincipal = (context) => Task.CompletedTask;
             });
             
-            services.Configure<CookieAuthenticationOptions>(
-                IdentityConstants.ApplicationScheme, 
-                options => options.Cookie.SameSite = SameSiteMode.None);
-
             services.Configure<DataProtectionTokenProviderOptions>(options =>
             {
                 options.TokenLifespan = TimeSpan.FromDays(1); // Set the token lifespan to 2 days

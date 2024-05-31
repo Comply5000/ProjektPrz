@@ -30,6 +30,12 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Ciasteczka sesji są niezbędne
 });
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
+
 builder.Services.AddCorsPolicy(builder.Configuration);
 builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddFluentValidationAutoValidation();
@@ -72,9 +78,8 @@ app.UseRouting();
 
 app.UseCookiePolicy(new CookiePolicyOptions()
 {
-    HttpOnly = HttpOnlyPolicy.Always,
     Secure = CookieSecurePolicy.Always,
-    MinimumSameSitePolicy = SameSiteMode.Lax
+    MinimumSameSitePolicy = SameSiteMode.None
 });
 
 app.UseCors("CorsPolicy");
