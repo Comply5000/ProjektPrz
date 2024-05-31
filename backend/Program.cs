@@ -20,6 +20,14 @@ builder.Services
         options.Filters.Add(new ExceptionFilter());
     });
 
+builder.Services.AddDistributedMemoryCache(); // Dodaj cache pamięciowy (in-memory)
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Ustaw czas wygaśnięcia sesji
+    options.Cookie.HttpOnly = true; // Ustawienia ciasteczek
+    options.Cookie.IsEssential = true; // Ciasteczka sesji są niezbędne
+});
+
 builder.Services.AddCorsPolicy(builder.Configuration);
 builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddFluentValidationAutoValidation();
@@ -50,6 +58,7 @@ app.UseSwaggerUI(c =>
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("CorsPolicy");
+app.UseSession();
 
 app.UseAuthorization();
 

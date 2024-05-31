@@ -10,5 +10,5 @@ namespace API.Features.Offers.Queries.GetOffer
         string Search,
         OfferType? Type,
         Guid? CompanyId,
-        bool isCompanyFavourite = false) : PaginationRequest, IRequest<PaginatedList<OffersListModel>>;
+        bool IsCompanyFavourite = false) : PaginationRequest, IRequest<PaginatedList<OffersListModel>>;
 }

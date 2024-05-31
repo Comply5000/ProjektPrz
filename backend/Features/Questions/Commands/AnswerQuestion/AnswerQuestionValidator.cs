@@ -6,7 +6,6 @@ namespace API.Features.Questions.Commands.AnswerQuestion
     {
         public AnswerQuestionValidator()
         {
-            RuleFor(x => x.QuestionId).NotEmpty().WithMessage("QuestionId is required");
             RuleFor(x => x.Answer).NotEmpty().WithMessage("Answer is required");
         }
     }

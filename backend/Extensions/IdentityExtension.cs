@@ -53,6 +53,11 @@ namespace API.Extensions
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })    
+            .AddGoogle(options =>
+            {
+                options.ClientId = configuration.GetValue<string>("GoogleAuth:ClientId")!;
+                options.ClientSecret = configuration.GetValue<string>("GoogleAuth:ClientSecret")!;
+            })
             .AddJwtBearer(cfg =>
             {
                 cfg.RequireHttpsMetadata = false;

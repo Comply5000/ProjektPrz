@@ -12,4 +12,5 @@ public class OfferModel
     public Guid CompanyId { get; set; }
     public string CompanyName { get; set; }
     public bool IsUserCommented { get; set; }
+    public double? Rating { get; set; }
 }

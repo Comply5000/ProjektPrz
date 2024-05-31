@@ -33,6 +33,7 @@ namespace API.Features.Offers.Queries.GetOfferById
                                 ImageUrl = x.Image.Url,
                                 CompanyId = x.CompanyId,
                                 CompanyName = x.Company.Name,
+                                Rating =  x.Comments == null || !x.Comments.Any() ? 0 : Math.Round(x.Comments.Select(r => r.Rating).Average(), 1),
                                 IsUserCommented = x.Comments.Any(y => y.UserId == _currentUserService.UserId)
                             })
                             .FirstOrDefaultAsync(cancellationToken)

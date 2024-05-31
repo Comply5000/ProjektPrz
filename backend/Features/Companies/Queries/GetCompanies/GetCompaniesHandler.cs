@@ -22,7 +22,8 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
     
     public async Task<PaginatedList<CompanyListModel>> Handle(GetCompaniesQuery request, CancellationToken cancellationToken)
     {
-        var query = _context.Companies.AsNoTracking();
+        var query = _context.Companies.AsNoTracking()
+            .Where(x => x.User.EmailConfirmed);
         
         if(!string.IsNullOrWhiteSpace(request.Search))
             query = query.Where(v =>
