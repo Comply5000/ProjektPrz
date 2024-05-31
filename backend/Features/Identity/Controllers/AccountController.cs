@@ -113,7 +113,8 @@ namespace API.Features.Identity.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GoogleLogin()
         {
-            var redirectUrl = Url.Action("GoogleResponse", "Account");
+            //var redirectUrl = Url.Action("GoogleResponse", "Account");
+            var redirectUrl = "https://projekt-prz.comply.ovh/api/user-identity/google-response";
             var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
             return Challenge(properties, "Google");
         }
