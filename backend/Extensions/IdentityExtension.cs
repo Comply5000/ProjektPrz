@@ -57,6 +57,7 @@ namespace API.Extensions
             {
                 options.ClientId = configuration.GetValue<string>("GoogleAuth:ClientId")!;
                 options.ClientSecret = configuration.GetValue<string>("GoogleAuth:ClientSecret")!;
+                options.CallbackPath = "/api/user-identity/signin-google";
             })
             .AddCookie(options =>
             {
