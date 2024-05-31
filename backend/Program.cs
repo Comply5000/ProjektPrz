@@ -80,13 +80,7 @@ app.UseCookiePolicy(new CookiePolicyOptions()
 app.UseCors("CorsPolicy");
 app.UseSession();
 
-app.Use((context, next) =>
-{
-    context.Request.Host = new HostString("projekt-prz.comply.ovh");
-    context.Request.Scheme = "https";
-    return next();
-});
-
+app.UseAuthorization();
 app.UseAuthorization();
 
 app.MapControllers();
