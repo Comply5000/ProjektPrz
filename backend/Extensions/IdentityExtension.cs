@@ -58,7 +58,10 @@ namespace API.Extensions
                 options.ClientId = configuration.GetValue<string>("GoogleAuth:ClientId")!;
                 options.ClientSecret = configuration.GetValue<string>("GoogleAuth:ClientSecret")!;
             })
-            .AddCookie()
+            .AddCookie(options =>
+            {
+                options.Cookie.Domain = "projekt-prz.comply.ovh";
+            })
             .AddJwtBearer(cfg =>
             {
                 cfg.RequireHttpsMetadata = false;
