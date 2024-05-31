@@ -129,7 +129,8 @@ namespace API.Features.Identity.Controllers
             HttpContext.Session.SetString(sessionId, JsonConvert.SerializeObject(result));
             
             var redirectUrl = $"{Globals.ApplicationUrl}/google-response?sessionId={sessionId}";
-            return Redirect(redirectUrl);
+            //return Redirect(redirectUrl);
+            return Ok(result);
         }
         
         [HttpGet("get-session-data/{sessionId}")]
