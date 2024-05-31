@@ -58,6 +58,7 @@ namespace API.Extensions
                 options.ClientId = configuration.GetValue<string>("GoogleAuth:ClientId")!;
                 options.ClientSecret = configuration.GetValue<string>("GoogleAuth:ClientSecret")!;
             })
+            .AddCookie()
             .AddJwtBearer(cfg =>
             {
                 cfg.RequireHttpsMetadata = false;
@@ -81,6 +82,13 @@ namespace API.Extensions
                 //Configure how ofert securicy stamp should be validated
                 options.ValidationInterval = TimeSpan.FromMinutes(30);
                 options.OnRefreshingPrincipal = (context) => Task.CompletedTask;
+            });
+            
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
             });
 
             services.Configure<DataProtectionTokenProviderOptions>(options =>

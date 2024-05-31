@@ -7,6 +7,7 @@ using API.Features;
 using API.Filters;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 
@@ -68,8 +69,23 @@ app.UseSwaggerUI(c =>
 app.UseForwardedHeaders(); 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseCookiePolicy(new CookiePolicyOptions()
+{
+    HttpOnly = HttpOnlyPolicy.Always,
+    Secure = CookieSecurePolicy.Always,
+    MinimumSameSitePolicy = SameSiteMode.Lax
+});
+
 app.UseCors("CorsPolicy");
 app.UseSession();
+
+app.Use((context, next) =>
+{
+    context.Request.Host = new HostString("projekt-prz.comply.ovh");
+    context.Request.Scheme = "https";
+    return next();
+});
 
 app.UseAuthorization();
 
