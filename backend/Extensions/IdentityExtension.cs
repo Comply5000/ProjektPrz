@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace API.Extensions
 {
@@ -87,12 +88,9 @@ namespace API.Extensions
                 options.OnRefreshingPrincipal = (context) => Task.CompletedTask;
             });
             
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
-            });
+            services.Configure<CookieAuthenticationOptions>(
+                IdentityConstants.ApplicationScheme, 
+                options => options.Cookie.SameSite = SameSiteMode.None);
 
             services.Configure<DataProtectionTokenProviderOptions>(options =>
             {
