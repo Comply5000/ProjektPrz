@@ -7,6 +7,7 @@ using API.Features;
 using API.Filters;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +41,15 @@ builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddCommon(builder.Configuration);
 builder.Services.AddFeatures(builder.Configuration);
 
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders =
+        ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
+});
+
 Globals.ApplicationUrl = builder.Configuration.GetValue<string>("ApplicationConfig:ApplicationUrl");
 
 var app = builder.Build();
@@ -55,6 +65,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "api/swagger";
 });
 
+app.UseForwardedHeaders(); 
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("CorsPolicy");
