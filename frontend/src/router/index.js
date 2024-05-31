@@ -37,6 +37,14 @@ const router = createRouter({
       component: () => import('../views/auth/SignInView.vue')
     },
     {
+      path: '/google-response',
+      name: 'google-response',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/auth/GoogleLoginResponseView.vue')
+    },
+    {
       path: '/sign-up-company',
       name: 'sign-up-company',
       // route level code-splitting

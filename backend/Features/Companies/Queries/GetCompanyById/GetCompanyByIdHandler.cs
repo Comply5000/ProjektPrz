@@ -27,7 +27,7 @@ namespace API.Features.Companies.Queries.GetCompanyById
             var company = await _context.Companies
                 .Include(x => x.Image)
                 .Include(x => x.Followers)
-                .FirstOrDefaultAsync(x => x.Id == request.CompanyId, cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.CompanyId && x.User.EmailConfirmed, cancellationToken);
 
             if (company == null)
             {
