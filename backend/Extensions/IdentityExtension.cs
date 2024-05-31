@@ -57,7 +57,6 @@ namespace API.Extensions
             {
                 options.ClientId = configuration.GetValue<string>("GoogleAuth:ClientId")!;
                 options.ClientSecret = configuration.GetValue<string>("GoogleAuth:ClientSecret")!;
-                options.CallbackPath = new PathString("/api/user-identity/google-response");
             })
             .AddJwtBearer(cfg =>
             {
