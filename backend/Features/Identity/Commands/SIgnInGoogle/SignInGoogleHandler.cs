@@ -4,6 +4,7 @@ using API.Features.Identity.Exceptions;
 using API.Features.Identity.Exeptions;
 using API.Features.Identity.Models;
 using API.Features.Identity.Services;
+using API.Features.Identity.Static;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -31,52 +32,59 @@ public sealed class SignInGoogleHandler : IRequestHandler<SignInGoogleCommand, J
         
         var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
         
-        JsonWebToken token;
-        
         if (result.Succeeded)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == info.Principal.FindFirst(ClaimTypes.Email).Value, cancellationToken)
-                       ?? throw new UserNotFoundExeption();
-
-            var userRoles = await _userManager.GetRolesAsync(user);
-            var userClaims = await _userManager.GetClaimsAsync(user);
-            
-            token = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
-            
-
-            return token;
+            return await SignIn(info, cancellationToken);
         }
 
-        var createdUser = new User
+        var user = new User
         {
-            Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
-            UserName = info.Principal.FindFirst(ClaimTypes.Email).Value,
+            Email = info.Principal.FindFirst(ClaimTypes.Email)?.Value,
+            UserName = info.Principal.FindFirst(ClaimTypes.Email)?.Value,
             EmailConfirmed = true
         };
         
-        var createResult = await _userManager.CreateAsync(createdUser);
+        var createResult = await _userManager.CreateAsync(user);
         if (!createResult.Succeeded) 
-            throw new UserNotFoundExeption();
+            throw new CreateUserException(createResult.Errors);
         
-        var addEmailClaimResult = await _userManager.AddClaimAsync(createdUser, new Claim(ClaimTypes.Email, createdUser.Email));
+        var addRoleResult = await _userManager.AddToRoleAsync(user, UserRoles.User);
+        if (!addRoleResult.Succeeded)
+            throw new AddUserToRoleExeption();
+
+        var addEmailClaimResult = await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Email, user.Email));
         if (!addEmailClaimResult.Succeeded)
             throw new AddClaimException();
         
-        var addNameClaimResult = await _userManager.AddClaimAsync(createdUser, new Claim(ClaimTypes.NameIdentifier, createdUser.Id.ToString()));
+        var addNameClaimResult = await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
         if (!addNameClaimResult.Succeeded)
             throw new AddClaimException();
         
-        var addLoginResult = await _userManager.AddLoginAsync(createdUser, info);
+        var addLoginResult = await _userManager.AddLoginAsync(user, info);
         if (!addLoginResult.Succeeded)
-            throw new UserNotFoundExeption();
+            throw new CreateUserException(addLoginResult.Errors);
         
-        await _signInManager.RefreshSignInAsync(createdUser);
+        await _signInManager.RefreshSignInAsync(user);
         
-        var userRoles1 = await _userManager.GetRolesAsync(createdUser);
-        var userClaims1 = await _userManager.GetClaimsAsync(createdUser);
+        var userRoles = await _userManager.GetRolesAsync(user);
+        var userClaims = await _userManager.GetClaimsAsync(user);
             
-        token = _tokenService.GenerateAccessTokenAsync(createdUser.Id, createdUser.Email, userRoles1, userClaims1);
+        var token = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
         
+        return token;
+    }
+
+    private async Task<JsonWebToken> SignIn(ExternalLoginInfo info, CancellationToken cancellationToken)
+    {
+        var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == info.Principal.FindFirst(ClaimTypes.Email).Value, cancellationToken)
+                   ?? throw new UserNotFoundExeption();
+
+        var userRoles = await _userManager.GetRolesAsync(user);
+        var userClaims = await _userManager.GetClaimsAsync(user);
+            
+        var token = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
+            
+
         return token;
     }
 }

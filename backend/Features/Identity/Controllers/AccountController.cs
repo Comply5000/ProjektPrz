@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using API.Attributes;
+using API.Common;
 using API.Features.Identity.Commands.ChangePassword;
 using API.Features.Identity.Commands.ConfirmEmail;
 using API.Features.Identity.Commands.ResetPassword;
@@ -127,7 +128,7 @@ namespace API.Features.Identity.Controllers
             
             HttpContext.Session.SetString(sessionId, JsonConvert.SerializeObject(result));
             
-            var redirectUrl = $"http://localhost:5173/google-response?sessionId={sessionId}";
+            var redirectUrl = $"{Globals.ApplicationUrl}/google-response?sessionId={sessionId}";
             return Redirect(redirectUrl);
         }
         
