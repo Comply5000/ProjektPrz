@@ -36,6 +36,7 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
             .Include(x => x.Image)
             .Select(x => new CompanyListModel
             {
+                Id = x.Id,
                 Name = x.Name,
                 Localization = x.Localization,
                 Description = x.Description.Substring(0, 150),

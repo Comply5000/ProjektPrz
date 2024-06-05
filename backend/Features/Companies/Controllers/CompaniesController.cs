@@ -1,6 +1,7 @@
 ﻿using API.Attributes;
 using API.Features.Companies.Commands.AddAndRemoveCompanyFromFavourite;
 using API.Features.Companies.Commands.Update;
+using API.Features.Companies.Queries.GetAllCompanies;
 using API.Features.Companies.Queries.GetCompanies;
 using API.Features.Companies.Queries.GetCompanyById;
 using API.Features.Companies.Queries.GetCompanyForUpdate;
@@ -54,6 +55,16 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> GetPaginatedList([FromQuery] GetCompaniesQuery query)
     {
         var result = await _mediator.Send(query);
+        return Ok(result);
+    }
+    
+    //Get all Companies list
+    [HttpGet("all")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(new GetAllCompaniesQuery(), cancellationToken);
         return Ok(result);
     }
     

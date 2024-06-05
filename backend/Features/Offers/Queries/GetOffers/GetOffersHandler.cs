@@ -1,14 +1,12 @@
 ﻿using API.Common.Extensions;
 using API.Common.Models;
 using API.Database.Context;
-using API.Features.Companies.Models;
 using API.Features.Identity.Services;
 using API.Features.Offers.Models;
-using MassTransit.SagaStateMachine;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Features.Offers.Queries.GetOffer
+namespace API.Features.Offers.Queries.GetOffers
 {
     public class GetOffersHandler:IRequestHandler<GetOffersQuery,PaginatedList<OffersListModel>>
     {
