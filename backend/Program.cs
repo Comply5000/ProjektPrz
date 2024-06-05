@@ -30,12 +30,6 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Ciasteczka sesji są niezbędne
 });
 
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.Cookie.SameSite = SameSiteMode.None;
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-});
-
 builder.Services.AddCorsPolicy(builder.Configuration);
 builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddFluentValidationAutoValidation();
@@ -75,12 +69,6 @@ app.UseSwaggerUI(c =>
 app.UseForwardedHeaders(); 
 app.UseHttpsRedirection();
 app.UseRouting();
-
-app.UseCookiePolicy(new CookiePolicyOptions()
-{
-    Secure = CookieSecurePolicy.Always,
-    MinimumSameSitePolicy = SameSiteMode.None
-});
 
 app.UseCors("CorsPolicy");
 app.UseSession();

@@ -46,17 +46,6 @@ namespace API.Extensions
                 options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
             });
             
-            services.Configure<CookieAuthenticationOptions>(
-                IdentityConstants.ApplicationScheme, 
-                options => options.Cookie.SameSite = SameSiteMode.None);
-            
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-                options.Secure = CookieSecurePolicy.Always;
-            });
-
-
             //// configure DI for application services
             services.AddAuthentication(opt =>
             {
@@ -69,10 +58,7 @@ namespace API.Extensions
                 options.ClientId = configuration.GetValue<string>("GoogleAuth:ClientId")!;
                 options.ClientSecret = configuration.GetValue<string>("GoogleAuth:ClientSecret")!;
             })
-            .AddCookie(options =>
-            {
-                options.Cookie.Domain = "projekt-prz.comply.ovh";
-            })
+            .AddCookie()
             .AddJwtBearer(cfg =>
             {
                 cfg.RequireHttpsMetadata = false;
