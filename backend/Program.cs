@@ -73,7 +73,7 @@ app.UseRouting();
 app.UseCors("CorsPolicy");
 app.UseSession();
 
-app.UseAuthorization();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
