@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     loginWithGoogle() {
-      window.location.href = 'https://projekt-prz.comply.ovh/api/user-identity/signin-google';
+      window.location.href = 'https://api-projekt-prz.comply.ovh/api/user-identity/signin-google';
     },
     submitForm() {
       axios.post('/user-identity/sign-in', this.form)
