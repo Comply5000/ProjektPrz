@@ -124,7 +124,12 @@ namespace API.Features.Identity.Controllers
         public async Task<ActionResult<JsonWebToken>> GoogleResponse(CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new SignInGoogleCommand(), cancellationToken);
-            return Ok(result);
+            var sessionId = Guid.NewGuid().ToString();
+            
+            HttpContext.Session.SetString(sessionId, JsonConvert.SerializeObject(result));
+            
+            var redirectUrl = $"{Globals.ApplicationUrl}/google-response?sessionId={sessionId}";
+            return Redirect(redirectUrl);
         }
         
         [HttpGet("get-session-data/{sessionId}")]
