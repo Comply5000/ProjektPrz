@@ -20,7 +20,7 @@ public sealed class SignInException : BaseException
 
     }
 
-    private const string LockOutError = "Your account has been blocked.";
-    private const string NotAllowedError = "Unable to log in to unauthorized account.";
-    private const string InvalidCredentialsError = "Invalid credentials.";
+    private const string LockOutError = "Twoje konto zostało zablokowane";
+    private const string NotAllowedError = "Nie można zalogować się na nieautoryzowane konto";
+    private const string InvalidCredentialsError = "Nieprawidłowe dane";
 }

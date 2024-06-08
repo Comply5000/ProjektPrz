@@ -4,7 +4,7 @@ namespace API.Features.Identity.Exceptions
 {
     public class InvalidCredentials : BaseException
     {
-        public InvalidCredentials() : base("nieprawidłowe dane")
+        public InvalidCredentials() : base("Nieprawidłowe dane")
         {
         }
     }

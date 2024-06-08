@@ -5,7 +5,7 @@ namespace API.Features.Identity.Exceptions;
 
 public sealed class ChangePasswordException : BaseException
 {
-    public ChangePasswordException() : base("One or more erros occurred during creating user.")
+    public ChangePasswordException() : base("Podczas tworzenia użytkownika wystąpił jeden lub więcej błędów")
     {
         Errors = new Dictionary<string, string[]>();
     }
@@ -16,7 +16,7 @@ public sealed class ChangePasswordException : BaseException
             .ToDictionary(a => a.Key, a => a.ToArray());
 
         if (allErrors.ContainsKey("InvalidToken"))
-            Errors.Add("TokenError", new[] { "An error occurred while resetting your password." });
+            Errors.Add("TokenError", new[] { "Wystąpił błąd podczas resetowania hasła" });
         else
             Errors = allErrors;
     }

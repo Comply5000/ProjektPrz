@@ -5,7 +5,7 @@ namespace API.Features.Identity.Exceptions
 {
     public class CreateUserException:BaseException
     {
-        public CreateUserException() : base("One or more erros occurred during creating user.")
+        public CreateUserException() : base("Podczas tworzenia użytkownika wystąpił jeden lub więcej błędów")
         {
             Errors = new Dictionary<string, string[]>();
         }
