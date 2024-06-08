@@ -3,59 +3,63 @@
     <div class="left">
       <router-link to="/" class="offer">Oferty</router-link>
       <router-link to="/company-list" class="company element">Firmy</router-link>
-      
       <router-link to="/update-company" class="company element" v-if="isCompany()">Moja Firma</router-link>
       <span class="company" v-if="isCompany()">Moje Oferty</span>
     </div>
     <div class="right">
       <router-link to="/sign-in" class="login element" v-if="!islogin">Zaloguj</router-link>
       <router-link to="/sign-up" class="register element" v-if="!islogin">Zarejestruj</router-link>
-      <span class="profile element" v-if="islogin" @click="signOut()">{{ this.email }}</span>
+      <div class="profile element" v-if="islogin" @click="toggleDropdown">
+        {{ email }}
+        <div v-if="dropdownVisible" class="dropdown-menu">
+          <router-link to="/profile">Profil</router-link>
+          <a href="#" @click.prevent="signOut">Wyloguj</a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
-  import { CheckUserRole } from '../services/UserService.js';
+import { CheckUserRole } from '../services/UserService.js';
 
-
-  export default {
-    name: 'RegisterForm',
-    data() {
-      return {
-       islogin: false,
-       email: ''
-      };
+export default {
+  name: 'RegisterForm',
+  data() {
+    return {
+      islogin: false,
+      email: '',
+      dropdownVisible: false,
+    };
+  },
+  methods: {
+    isCompany() {
+      return CheckUserRole('CompanyOwner');
     },
-    methods: {
-      isCompany()
-      {
-        return CheckUserRole('CompanyOwner');
-      },
-      signOut()
-      {
-        localStorage.removeItem('jwt');
-        localStorage.removeItem('roles');
-        location.reload();
-      }
+    signOut() {
+      localStorage.removeItem('jwt');
+      localStorage.removeItem('roles');
+      location.reload();
     },
-    mounted()
-    {
-      this.email = localStorage.getItem('email');
+    toggleDropdown() {
+      this.dropdownVisible = !this.dropdownVisible;
+    },
+  },
+  mounted() {
+    this.email = localStorage.getItem('email');
 
-      console.log(this.islogin);
+    console.log(this.islogin);
 
-      const token = localStorage.getItem('jwt');
-      if(token==null || token=='')
-      {
-        this.islogin = false;
-      }
-      else
-      {
-        this.islogin = true;
-      }
+    const token = localStorage.getItem('jwt');
+    if (token == null || token == '') {
+      this.islogin = false;
+    } else {
+      this.islogin = true;
     }
-  };
+  },
+};
 </script>
+
 <style>
 .header {
   display: flex;
@@ -95,5 +99,31 @@
 a {
   text-decoration: none;
   color: #008000;
+}
+
+.profile {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu a,
+.dropdown-menu router-link {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu router-link:hover {
+  background-color: #f0f0f0;
 }
 </style>

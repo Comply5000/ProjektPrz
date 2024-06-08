@@ -38,11 +38,15 @@
         Załóż konto 
       <RouterLink to="/sign-up" class = "link">tutaj</RouterLink>
       </p>
-      <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
-      <div v-if="formErrors && formErrors.Password" class="error">{{ formErrors.Password[0] }}</div>
-      <div v-if="formErrors && formErrors.general" class="error">{{ formErrors.general[0] }}</div>
-      <div v-if="formErrors && formErrors.UnauthorizedAccount" class="error">{{ formErrors.UnauthorizedAccount[0] }}</div>
-      <div v-if="formErrors && formErrors['nieprawidłowe dane']" class="error">{{ formErrors['nieprawidłowe dane'][0] }}</div>
+      <div v-if="errors">
+          <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
+            <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+              <div class="error">
+                  {{ errorMsg }}
+              </div>
+            </li>
+          </ul>
+      </div>
     </div>
     </form>
   </div>
@@ -52,6 +56,7 @@
  import Space from '@/components/Space.vue';
 import axios from '../../../config.js';
 import {SaveUserRoles} from '../../services/UserService.js';
+import { handleErrors } from '../../../errorHandler.js';
 
 export default {
   name: 'RegisterForm',
@@ -65,7 +70,7 @@ export default {
         email: '',
         password: '',
       },
-      formErrors: {}
+      errors: []
     };
   },
   methods: {
@@ -73,6 +78,8 @@ export default {
       window.location.href = 'https://api-projekt-prz.comply.ovh/api/user-identity/signin-google';
     },
     submitForm() {
+      this.errors = [];
+
       axios.post('/user-identity/sign-in', this.form)
         .then(response => {
           localStorage.setItem('jwt', response.data.accessToken);
@@ -82,34 +89,9 @@ export default {
           alert('Logowanie zakończone sukcesem!');
         })
         .catch(error => {
-          if (error.response && error.response.status === 400) {
-              const responseData = error.response.data;
-
-              if (responseData.title === "user istnieje") {
-                  // Jeśli użytkownik już istnieje
-                  console.error('Użytkownik już istnieje', responseData);
-                  this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
-              } else if (
-                  responseData.errors &&
-                  (responseData.errors.PasswordTooShort ||
-                  responseData.errors.PasswordRequiresLower ||
-                  responseData.errors.PasswordRequiresUpper ||
-                  responseData.errors.ConfirmedPassword ||
-                  responseData.errors.Email)
-              ) {
-                  // Jeśli wystąpiły błędy walidacji hasła lub e-maila
-                  console.error('Błąd walidacji', responseData);
-                  this.formErrors = responseData.errors;
-              } else if (responseData.title === "Unable to log in to unauthorized account.") {
-                  // Jeśli próbowano zalogować się na nieautoryzowane konto
-                  console.error('Nieautoryzowane konto', responseData);
-                  this.formErrors = { UnauthorizedAccount: ['Nie można zalogować się na nieautoryzowane konto.'] };
-              } 
-          } else {
-              // Jeśli błąd nie jest odpowiedzią z serwera
-              console.error('Wystąpił błąd podczas rejestracji', error);
-              this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
-          }
+          const errors = [];
+          handleErrors(error, errors);
+          this.errors = this.errors.concat(errors);
       });
     }
   }

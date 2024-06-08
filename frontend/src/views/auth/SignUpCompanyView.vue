@@ -26,16 +26,15 @@
         Masz już konto? Zaloguj się  
       <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
       </p>
-
-      <div v-if="formErrors.PasswordTooShort" class="error">{{ formErrors.PasswordTooShort[0] }}</div>
-        <div v-if="formErrors.PasswordRequiresDigit" class="error">{{ formErrors.PasswordRequiresDigit[0] }}</div>
-        <div v-if="formErrors.PasswordRequiresUpper" class="error">{{ formErrors.PasswordRequiresUpper[0] }}</div>
-        <div v-if="formErrors.PasswordRequiresLower" class="error">{{ formErrors.PasswordRequiresLower[0] }}</div>
-        <div v-if="formErrors.ConfirmedPassword" class="error">{{ formErrors.ConfirmedPassword[0] }}</div>
-        <div v-if="formErrors.UserAlreadyExists" class="error">{{ formErrors.UserAlreadyExists[0] }}</div>
-        <div v-if="formErrors.CompanyAlreadyExists" class="error">{{ formErrors.CompanyAlreadyExists[0] }}</div>
-        <div v-if="formErrors && formErrors.Email" class="error">{{ formErrors.Email[0] }}</div>
-        <div v-if="formErrors && formErrors.CompanyName" class="error">{{ formErrors.CompanyName[0] }}</div>
+      <div v-if="errors">
+          <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
+            <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+              <div class="error">
+                  {{ errorMsg }}
+              </div>
+            </li>
+          </ul>
+      </div>
       </div>
       </form>
     </div>
@@ -44,6 +43,7 @@
    import axios from '../../../config.js';
    import NavBar from '@/components/NavBar.vue';
  import Space from '@/components/Space.vue';
+ import { handleErrors } from '../../../errorHandler.js';
   
   export default {
     name: 'RegisterForm',
@@ -59,11 +59,12 @@
           password: '',
           confirmedPassword: ''
         },
-        formErrors: {}
+        errors: []
       };
     },
     methods: {
       submitForm() {
+        this.errors = [];
         console.log("qwer")
 
         axios.post('/user-identity/sign-up-company', this.form)
@@ -73,58 +74,10 @@
             this.formErrors = {};
           })
           .catch(error => {
-    if (error.response && error.response.status === 400) {
-        const responseData = error.response.data;
-
-        if (
-            responseData.errors &&
-            (responseData.errors.PasswordTooShort ||
-             responseData.errors.PasswordRequiresLower ||
-             responseData.errors.PasswordRequiresUpper ||
-             responseData.errors.ConfirmedPassword)
-        ) {
-            // Jeśli wystąpiły błędy walidacji hasła
-            console.error('Błąd walidacji hasła', responseData);
-            this.formErrors = responseData.errors;
-        } else if (
-            responseData.errors &&
-            responseData.errors.Email
-        ) {
-            // Jeśli wystąpił błąd walidacji adresu email
-            console.error('Błąd walidacji adresu email', responseData);
-            this.formErrors = responseData.errors;
-        } else if (
-            responseData.title === "user istnieje"
-        ) {
-            // Jeśli użytkownik już istnieje
-            console.error('Użytkownik już istnieje', responseData);
-            this.formErrors = { UserAlreadyExists: ['Użytkownik o podanym adresie email już istnieje.'] };
-        } else if (
-            responseData.title === "firma o takiej nazwie już istnieje"
-        ) {
-            // Jeśli firma o takiej nazwie już istnieje
-            console.error('Firma o takiej nazwie już istnieje', responseData);
-            this.formErrors = { CompanyAlreadyExists: ['Firma o podanej nazwie już istnieje.'] };
-        } else if (
-            responseData.title === "One or more validation errors occurred." &&
-            responseData.errors &&
-            responseData.errors.CompanyName
-        ) {
-            // Jeśli błąd dotyczy pustego pola CompanyName
-            console.error('Pole nazwy firmy jest wymagane', responseData);
-            this.formErrors = responseData.errors;
-        } else {
-            // Tutaj możemy użyć router push do przekierowania użytkownika
-            console.error('Inny błąd podczas rejestracji', responseData);
-            this.formErrors = { general: ['Wystąpił błąd podczas rejestracji.'] };
-            this.$router.push('/sciezka/do/docelowego/okna');
-        }
-    } else {
-        // Jeśli błąd nie jest odpowiedzią z serwera
-        console.error('Wystąpił błąd podczas rejestracji', error);
-        this.formErrors = { general: ['Wystąpił nieoczekiwany błąd podczas rejestracji.'] };
-    }
-});
+            const errors = [];
+            handleErrors(error, errors);
+            this.errors = this.errors.concat(errors);
+          });
       }
     }
   };
