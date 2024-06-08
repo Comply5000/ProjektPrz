@@ -1,0 +1,5 @@
+﻿@API_HostAddress = https://localhost:8000
+
+DELETE {{API_HostAddress}}/api/questions/{id:guid}
+
+###
