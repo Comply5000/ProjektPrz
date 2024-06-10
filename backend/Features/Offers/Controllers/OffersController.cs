@@ -5,6 +5,7 @@ using API.Features.Offers.Commands.CreateOffer;
 using API.Features.Offers.Commands.DeleteOffer;
 using API.Features.Offers.Commands.UpdateOffer;
 using API.Features.Offers.Queries.GetOfferById;
+using API.Features.Offers.Queries.GetOfferForUpdate;
 using API.Features.Offers.Queries.GetOffers;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -69,7 +70,20 @@ namespace API.Features.Offers.Controllers
             return Ok(result);
         }
 
+        //UpdateCompany
+        [HttpGet("{id:guid}/update")]
+        [ApiAuthorize(UserRoles.CompanyOwner)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> SignUp([FromRoute] Guid id)
+        {
+            var result = await _mediator.Send(new GetOfferForUpdateQuery(id));
 
+            if (result is null)
+                NotFound();
+        
+            return Ok(result);
+        }
         
         //Delete Offer
         [HttpDelete("{id:guid}")]
