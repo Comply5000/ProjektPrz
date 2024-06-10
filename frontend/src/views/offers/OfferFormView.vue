@@ -56,6 +56,8 @@ import NavBar from '@/components/NavBar.vue';
 import Space from '@/components/Space.vue';
 import { Cropper } from 'vue-advanced-cropper';
 import 'vue-advanced-cropper/dist/style.css';
+import moment from 'moment';
+import 'moment-timezone';
 
 export default {
   name: 'RegisterForm',
@@ -96,10 +98,15 @@ export default {
       this.formErrors = {};
       const formData = new FormData();
 
+      const momentDateTo = moment(this.form.dateTo, 'YYYY-MM-DD');
+      const formattedDateTo = momentDateTo.isValid() ? momentDateTo.toISOString() : '';
+      const momentDateFrom = moment(this.form.dateFrom, 'YYYY-MM-DD');
+      const formattedDateFrom = momentDateFrom.isValid() ? momentDateFrom.toISOString() : '';
+
       formData.append('name', this.form.name);
       formData.append('description', this.form.description);
-      formData.append('dateTo', this.form.dateTo);
-      formData.append('dateFrom', this.form.dateFrom);
+      formData.append('dateTo', formattedDateTo);
+      formData.append('dateFrom', formattedDateFrom);
       formData.append('type', this.form.type);
 
       if (this.canvas) {
@@ -133,12 +140,12 @@ export default {
             const serverErrors = error.response.data.errors;
             const serverTitle = error.response.data.title;
 
-            if (serverErrors && serverErrors.Name) {
-                this.formErrors.name = serverErrors.Name[0];
-                this.formErrors.description = serverErrors.Description[0];
-                this.formErrors.dateTo = serverErrors.DateTo[1];
-                this.formErrors.dateFrom = serverErrors.DateFrom[1];
-                this.formErrors.type = serverErrors.Type[1];
+            if (serverErrors) {
+                this.formErrors.name = serverErrors.Name ? serverErrors.Name[0] : '';
+                this.formErrors.description = serverErrors.Description ? serverErrors.Description[0] : '';
+                this.formErrors.dateTo = serverErrors.DateTo ? serverErrors.DateTo[1] : '';
+                this.formErrors.dateFrom = serverErrors.DateFrom ? serverErrors.DateFrom[1] : '';
+                this.formErrors.type = serverErrors.DateFrom ? serverErrors.DateFrom[1] : '';
                 console.log(this.formErrors);
             } else if (serverTitle && serverTitle.includes('oferta o takiej nazwie już istnieje')) {
                 this.formErrors.name = serverTitle;
@@ -159,19 +166,23 @@ export default {
       .then(response => {
         this.formErrors = {};
         alert('Oferta utworzona pomyslnie!');
-        this.fetch(response.data.id);
+        this.$router.push({ path: `/offer/edit:${response.data.id}` }).then(() => {
+            this.$nextTick(() => {
+                this.fetch(response.data.id);
+            });
+        });
       })
       .catch(error => {
         if (error.response && error.response.data) {
           const serverErrors = error.response.data.errors;
           const serverTitle = error.response.data.title;
 
-          if (serverErrors && serverErrors.Name) {
-            this.formErrors.name = serverErrors.Name[0];
-            this.formErrors.description = serverErrors.Description[0];
-            this.formErrors.dateTo = serverErrors.DateTo[1];
-            this.formErrors.dateFrom = serverErrors.DateFrom[1];
-            this.formErrors.type = serverErrors.Type[1];
+          if (serverErrors) {
+            this.formErrors.name = serverErrors.Name ? serverErrors.Name[0] : '';
+            this.formErrors.description = serverErrors.Description ? serverErrors.Description[0] : '';
+            this.formErrors.dateTo = serverErrors.DateTo ? serverErrors.DateTo[1] : '';
+            this.formErrors.dateFrom = serverErrors.DateFrom ? serverErrors.DateFrom[1] : '';
+            this.formErrors.type = serverErrors.DateFrom ? serverErrors.DateFrom[1] : '';
             console.log(this.formErrors);
           } else if (serverTitle && serverTitle.includes('oferta o takiej nazwie już istnieje')) {
             this.formErrors.name = serverTitle;
@@ -210,9 +221,15 @@ export default {
         .then(response => {
             this.form.name = response.data.name;
             this.form.description = response.data.description ?? '';
-            this.form.dateTo = response.data.dataTo ?? '';
-            this.form.dateFrom = response.data.dataFrom ?? '';
             this.form.type = response.data.type ?? '';
+
+            const momentDateTotimeoffset = moment(response.data.dateTo);
+            const momentWarsawTimeDateTo = momentDateTotimeoffset.tz("Europe/Warsaw");
+            this.form.dateTo = momentWarsawTimeDateTo.format("YYYY-MM-DD");
+
+            const momentDateFromtimeoffset = moment(response.data.dateFrom);
+            const momentWarsawTimeDateFrom = momentDateFromtimeoffset.tz("Europe/Warsaw");
+            this.form.dateFrom = momentWarsawTimeDateFrom.format("YYYY-MM-DD");
 
             const imageUrl = response.data.imageUrl;
             if (imageUrl) {
@@ -237,7 +254,7 @@ export default {
         });
     }
   },
-  mounted() {
+  created() {
     if(this.isEditMode){
         const offerId = this.$route.params.id;
         this.fetch(offerId.slice(1));
