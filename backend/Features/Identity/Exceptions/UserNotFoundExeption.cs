@@ -4,7 +4,7 @@ namespace API.Features.Identity.Exceptions
 {
     public class UserNotFoundExeption : BaseException
     {
-        public UserNotFoundExeption():base("user not found")
+        public UserNotFoundExeption():base("Użytkownik nie istnieje")
         {
         }
     }

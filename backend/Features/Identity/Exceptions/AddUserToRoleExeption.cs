@@ -4,7 +4,7 @@ namespace API.Features.Identity.Exceptions
 {
     public class AddUserToRoleExeption:BaseException
     {
-        public AddUserToRoleExeption() : base("błąd dodania roli do uzytkownika")
+        public AddUserToRoleExeption() : base("Błąd dodania roli do uzytkownika")
         {
         }
     }

@@ -7,11 +7,11 @@ public sealed class SignUpCompanyValidator : AbstractValidator<SignUpCompanyComm
 {
     public SignUpCompanyValidator()
     {
-        RuleFor(x => x.CompanyName).NotEmpty();
-        RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required");
-        RuleFor(x => x.Email).EmailAddress().WithMessage("Invalid email address");
-        RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required");
-        RuleFor(x => x.ConfirmedPassword).NotEmpty().WithMessage("Confirmed password is required");
-        RuleFor(x => x.ConfirmedPassword).Equal(x => x.Password).WithMessage("Confirmed password must by the same");
+        RuleFor(x => x.CompanyName).NotEmpty().WithMessage("Nazwa firmy jest wymagana");
+        RuleFor(x => x.Email).NotEmpty().WithMessage("Email jest wymagany");
+        RuleFor(x => x.Email).EmailAddress().WithMessage("Nieprawidłowy adres email");
+        RuleFor(x => x.Password).NotEmpty().WithMessage("Hasło jest wymagane");
+        RuleFor(x => x.ConfirmedPassword).NotEmpty().WithMessage("Powtórzone hasło jest wymagane");
+        RuleFor(x => x.ConfirmedPassword).Equal(x => x.Password).WithMessage("Powtórzone hasło musi być takie samo");
     }
 }

@@ -66,7 +66,7 @@ public sealed class SendResetPasswordEmailConsumer : IConsumer<SendResetPassword
             </body>
             </html>";
         
-        await _emailSenderService.SendEmailAsync(context.Message.Email, "Reset password", htmlTemplate);
+        await _emailSenderService.SendEmailAsync(context.Message.Email, "Reset hasła", htmlTemplate);
     }
     
     private string SetUrl(string token, Guid userId)

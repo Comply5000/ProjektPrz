@@ -4,7 +4,7 @@ namespace API.Features.Identity.Exceptions
 {
     public class UserWithEmailExistsExaptions : BaseException
     {
-        public UserWithEmailExistsExaptions() : base("user istnieje")
+        public UserWithEmailExistsExaptions() : base("Użytkownik istnieje")
         {
         }
     }

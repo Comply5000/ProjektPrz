@@ -65,7 +65,7 @@ public sealed class SendConfirmAccountEmailConsumer : IConsumer<SendConfirmAccou
             </body>
             </html>";
         
-        await _emailSenderService.SendEmailAsync(context.Message.Email, "Activate your account", htmlTemplate);
+        await _emailSenderService.SendEmailAsync(context.Message.Email, "Aktywuj swoje konto", htmlTemplate);
     }
     
     private string SetUrl(SendConfirmAccountEmailEvent notification)
