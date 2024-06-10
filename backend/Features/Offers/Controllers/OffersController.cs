@@ -75,6 +75,7 @@ namespace API.Features.Offers.Controllers
         [ApiAuthorize(UserRoles.CompanyOwner)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> SignUp([FromRoute] Guid id)
         {
             var result = await _mediator.Send(new GetOfferForUpdateQuery(id));

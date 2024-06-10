@@ -23,7 +23,7 @@ public sealed class GetOfferForUpdateHandler : IRequestHandler<GetOfferForUpdate
     {
         return await _context.Offers.AsNoTracking()
             .Include(x => x.Image)
-            .Where(x => x.Id == _currentUserService.CompanyId && x.Id == request.Id)
+            .Where(x => x.CompanyId == _currentUserService.CompanyId && x.Id == request.Id)
             .Select(x => new OfferUpdateModel
             {
                 Id = x.Id,
