@@ -84,10 +84,10 @@ export default {
       selectedOfferType: '',
       isLogin: false,
       offerTypes: {
-        1: 'Product',
-        2: 'Service',
-        3: 'Promotions',
-        4: 'LoyaltyProgram'
+        1: 'Produkt',
+        2: 'Usługa',
+        3: 'Promocja',
+        4: 'Program lojalnościowy'
       },
       offers: [
         { offerName: 'Oferta A', companyName: 'Firma A', companyType: 1, rating: 4.5, issueDate: '2024-04-21', expiryDate: '2024-05-21', image: "../src/views/offers/flamingo.jpg" },

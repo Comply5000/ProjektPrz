@@ -80,10 +80,10 @@ export default {
       img: '',  // Początkowo puste
       canvas: null,  // Przechowuje canvas z wyciętym obrazem
       offerTypes: {
-        1: 'Product',
-        2: 'Service',
-        3: 'Promotions',
-        4: 'LoyaltyProgram'
+        1: 'Produkt',
+        2: 'Usługa',
+        3: 'Promocja',
+        4: 'Program lojalnościowy'
       },
     };
   },
