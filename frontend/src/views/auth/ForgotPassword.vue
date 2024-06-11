@@ -61,7 +61,7 @@
   <style scoped>
   /* Globalne ustawienia */
   body, html {
-  background: rgb(56, 160, 96);
+  background: rgb(40, 167, 69);
   min-height: 100vh;
   font-weight: 400;
   display: flex;
@@ -71,13 +71,13 @@
   
   /* Stylowanie formularza */
   .vue-template {
-  background: rgb(56, 160, 96);
+  background: rgb(40, 167, 69);
   min-height: 100vh;
   font-weight: 400;
   padding-top: 80px;
 }
   .link{
-    color: rgb(56, 160, 96);
+    color: rgb(40, 167, 69);
   }
   
   .card {

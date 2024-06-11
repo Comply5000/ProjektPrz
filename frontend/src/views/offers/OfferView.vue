@@ -176,8 +176,8 @@ export default {
         }
          )
         .then(response => {
+          this.fetch();
           this.fetchComments();
-          this.offer.isUserCommented = true;
         })
         .catch(error => {
         const errors = [];
@@ -224,6 +224,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin-top: 0;
+  padding-top: 40px;
 }
 
 .offer-main {

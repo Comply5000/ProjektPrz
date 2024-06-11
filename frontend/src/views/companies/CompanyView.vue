@@ -144,7 +144,7 @@ body {
 }
 
 .company-image {
-  width: 35%; /* Zwiększenie szerokości dla lepszej proporcji */
+  width: 30%; /* Zwiększenie szerokości dla lepszej proporcji */
 }
 
 .company-image img {
