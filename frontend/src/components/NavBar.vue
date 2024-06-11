@@ -4,7 +4,7 @@
       <router-link to="/" class="offer">Oferty</router-link>
       <router-link to="/company-list" class="company element">Firmy</router-link>
       <router-link to="/update-company" class="company element" v-if="isCompany()">Moja Firma</router-link>
-      <span class="company" v-if="isCompany()">Moje Oferty</span>
+      <router-link to="/company-offers-list" class="company element" v-if="isCompany()">Moje Oferty</router-link>
     </div>
     <div class="right">
       <router-link to="/sign-in" class="login element" v-if="!islogin">Zaloguj</router-link>
