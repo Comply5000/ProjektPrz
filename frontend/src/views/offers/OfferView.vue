@@ -48,7 +48,9 @@
     </div>
   </div>
 </template>
+
 <script>
+import axios from '../../../config.js';
 import NavBar from '@/components/NavBar.vue';
 
 export default {
@@ -57,43 +59,62 @@ export default {
   },
   data() {
     return {
-      offer: {
-        offerName: 'Oferta flamingowa',
-        companyName: 'Flaming sp zoo',
-        companyType: 'zoologiczny',
-        issueDate: '2002-12-27',
-        expiryDate: '2024-05-15',
-        image: "../src/views/offers/flamingo.jpg"
-      },
-      comments: [
-        { id: 2, user: 'Kacperek_PL', text: 'Polecam!' }
-      ],
+      offer: {},
+      comments: [],
+      reviews: [],
       newComment: '',
-      reviews: [
-        { id: 2, user: 'GigaMarian', text: 'Profesjonalna obsługa.', rating: 5 }
-      ],
       newReview: '',
       newRating: 1,
       currentUser: 'ZalogowanyUżytkownik'  // Przykładowy zalogowany użytkownik
     };
   },
   methods: {
+    fetchOffer() {
+      axios.get(`/offer/${offerId}`) // Adjust URL according to your API
+        .then(response => {
+          this.offer = response.data;
+          this.comments = response.data.comments;
+          this.reviews = response.data.reviews;
+        })
+        .catch(error => console.error('Error fetching offer data:', error));
+    },
     addComment() {
       if (this.newComment.trim()) {
-        this.comments.push({ id: this.comments.length + 1, user: this.currentUser, text: this.newComment });
-        this.newComment = '';
+        axios.post('/api/comments', {
+          text: this.newComment,
+          offerId: this.offer.id,
+          userId: this.currentUser
+        })
+        .then(response => {
+          this.comments.push(response.data);
+          this.newComment = '';
+        })
+        .catch(error => console.error('Error adding comment:', error));
       }
     },
     addReview() {
       if (this.newReview.trim()) {
-        this.reviews.push({ id: this.reviews.length + 1, user: this.currentUser, text: this.newReview, rating: this.newRating });
-        this.newReview = '';
-        this.newRating = 1;
+        axios.post('/api/reviews', {
+          text: this.newReview,
+          rating: this.newRating,
+          offerId: this.offer.id,
+          userId: this.currentUser
+        })
+        .then(response => {
+          this.reviews.push(response.data);
+          this.newReview = '';
+          this.newRating = 1;
+        })
+        .catch(error => console.error('Error adding review:', error));
       }
     }
+  },
+  created() {
+    this.fetchOffer(); // Pobierz dane oferty podczas inicjalizacji
   }
 };
 </script>
+
 <style scoped>
 body {
   margin: 0;

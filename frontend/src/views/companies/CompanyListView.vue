@@ -15,7 +15,7 @@
                 <div class="company-text">
                   <div class="company-header">
                     <span v-if="company.favourite" class="favorite-star">★</span>
-                    <h3 class="company-name">{{ company.name }}</h3>
+                    <h3 class="company-name" @click="goToCompany(company.id)">{{ company.name }}</h3>
                   </div>
                   <p class="company-location">{{ company.localization }}</p>
                   <p class="company-description">{{ company.description }}</p>
@@ -78,6 +78,10 @@ export default {
       this.fetchCompanies();
       console.log('Idź do strony:', page);
     }
+  },
+  goToCompany(companyid)
+  {
+    this.$router.push({ path: `/company-view:${companyid}` });
   },
   fetchCompanies() {
     const token = localStorage.getItem('jwt');
