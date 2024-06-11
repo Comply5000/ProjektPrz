@@ -79,7 +79,7 @@ public class CompaniesController : ControllerBase
     }
     
     //AddToFavourite
-    [HttpPatch("{id:guid}/add-to-favourite")]
+    [HttpPut("{id:guid}/add-to-favourite")]
     [ApiAuthorize(UserRoles.User)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
