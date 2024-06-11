@@ -93,7 +93,7 @@ const router = createRouter({
         component: () => import('../views/companies/CompanyFormView.vue')
     },
     {
-      path: '/offer',
+      path: '/offer:id',
         name: 'offer',
         // route level code-splitting
         // this generates a separate chunk (About.[hash].js) for this route
@@ -101,7 +101,7 @@ const router = createRouter({
         component: () => import('../views/offers/OfferView.vue')
     },
     {
-      path: '/CompanyView',
+      path: '/company-view:id',
         name: 'CompanyView',
         // route level code-splitting
         // this generates a separate chunk (About.[hash].js) for this route

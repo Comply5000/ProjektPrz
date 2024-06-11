@@ -1,54 +1,36 @@
 <template>
-    <NavBar />
-    <div class="company-container">
-      <div class="company-main">
-        <div class="company-details">
-          <div class="company-left">
-            <h3 class="company-name">{{ company.companyName }}</h3>
-            <p>Typ: <span class="company-type">{{ company.companyType }}</span></p>
-            <p>Data założenia: {{ company.foundingDate }}</p>
-            <p>Lokalizacja: {{ company.location }}</p>
-            <p>Ocena: 4/5</p>
-          </div>
-          <div class="company-image">
-            <img :src="company.image" :alt="'Company Image ' + (index + 1)">
-          </div>
+  <NavBar />
+  <div class="company-container">
+    <div class="company-main">
+      <div class="company-details">
+        <div class="company-left">
+          <h3 class="company-name">
+            {{ company.name }}
+            <span @click="toggleFavorite" class="favorite-star" v-if="isUser()">
+              <i :class="company.isFavorite ? 'fas fa-star' : 'far fa-star'"></i>
+            </span>
+          </h3>
+          
+          
+          <p>Lokalizacja: {{ company.localization }}</p>
+         
         </div>
-        <div class="company-description">
-          {{ company.description }}
-        </div>
-        <div class="comments-section">
-          <h4>Komentarze</h4>
-          <ul>
-            <li v-for="comment in comments" :key="comment.id">
-              <strong>{{ comment.user }}:</strong> {{ comment.text }}
-            </li>
-          </ul>
-          <input v-model="newComment" placeholder="Dodaj komentarz" />
-          <button @click="addComment">Dodaj</button>
-        </div>
-        <div class="reviews-section">
-          <h4>Opinie</h4>
-          <ul>
-            <li v-for="review in reviews" :key="review.id">
-              <strong>{{ review.user }}:</strong> {{ review.text }} <span class="stars">{{ '★'.repeat(review.rating) }}</span>
-            </li>
-          </ul>
-          <input v-model="newReview" placeholder="Dodaj opinię" />
-          <div>
-            <label for="rating">Ocena: </label>
-            <select v-model="newRating" id="rating">
-              <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-            </select>
-          </div>
-          <button @click="addReview">Dodaj</button>
+        <div class="company-image">
+          <img :src="company.imageUrl" :alt="'Company Image'">
         </div>
       </div>
+      <div class="company-description">
+        {{ company.description }}
+      </div>
     </div>
-  </template>
-<script>
-import NavBar from '@/components/NavBar.vue';
+  </div>
+</template>
 
+<script>
+import { CheckUserRole } from '../../services/UserService.js';
+import axios from '../../../config.js';
+import NavBar from '@/components/NavBar.vue';
+import Space from '@/components/Space.vue';
 export default {
   components: {
     NavBar
@@ -56,43 +38,59 @@ export default {
   data() {
     return {
       company: {
-        companyName: 'Flaming sp zoo',
-        companyType: 'zoologiczny',
-        foundingDate: '1995-08-15',
-        location: 'Rzeszów',
-        image: "../src/views/companies/flamingo.jpg",
-        description: `Flaming sp zoo to firma specjalizująca się w sprzedaży egzotycznych ptaków i akcesoriów zoologicznych. 
-                      Nasze produkty cechuje wysoka jakość i profesjonalne doradztwo.`
+        name: '',
+        localization: '',
+        imageUrl: "",
+        description: ``,
+        id: null,
+        isFavorite: true
       },
-      comments: [
-        { id: 1, user: 'marianczello', text: 'Boze kocham flamingi!' }
-      ],
-      newComment: '',
-      reviews: [
-        { id: 1, user: 'krzysztof', text: 'Super sa i w ogole.', rating: 5 }
-      ],
-      newReview: '',
-      newRating: 1,
-      currentUser: 'ZalogowanyUżytkownik'  // Przykładowy zalogowany użytkownik
+     
     };
   },
   methods: {
-    addComment() {
-      if (this.newComment.trim()) {
-        this.comments.push({ id: this.comments.length + 1, user: this.currentUser, text: this.newComment });
-        this.newComment = '';
-      }
+    toggleFavorite() {
+      const token = localStorage.getItem('jwt');
+      console.log(token);
+      axios.put(`/companies/${this.company.id}/add-to-favourite`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+          this.fetch();
+      });
+      // Tu możesz dodać logikę do zapisu stanu ulubionych, np. zapisu do lokalnej pamięci lub wysłania do serwera
     },
-    addReview() {
-      if (this.newReview.trim()) {
-        this.reviews.push({ id: this.reviews.length + 1, user: this.currentUser, text: this.newReview, rating: this.newRating });
-        this.newReview = '';
-        this.newRating = 1;
-      }
+    fetch() {
+      const companyid = this.$route.params.id;
+      const token = localStorage.getItem('jwt');
+      axios.get(`/companies/${companyid.slice(1)}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+          this.company.name = response.data.name;
+          this.company.description = response.data.description ?? '';
+          this.company.localization = response.data.localization ?? '';
+          this.company.imageUrl =  response.data.imageUrl;
+          this.company.isFavorite = response.data.favourite;
+          this.company.id = response.data.id;
+      });
+      },
+      isUser() {
+      return CheckUserRole('User');
     }
-  }
+    },
+    mounted()
+    {
+      this.fetch();
+    }
+
 };
 </script>
+
 <style scoped>
 body {
   margin: 0;
@@ -114,11 +112,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  padding: 25px;
+  width: 80%; /* Szerokość pozostaje taka sama */
+  padding: 50px; /* Zwiększony padding, aby rozciągnąć tło */
   padding-top: 55px;
   text-align: center;
   box-sizing: border-box;
+  margin-top: 20px; /* Dodatkowe przesunięcie w dół */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .company-details {
@@ -128,20 +129,21 @@ body {
   background-color: white;
   font-weight: bold;
   font-size: 20px;
-  padding: 10px;
+  padding: 20px; /* Zwiększony padding */
   box-sizing: border-box;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .company-left {
-  width: 70%;
+  width: 60%; /* Zmniejszenie szerokości dla lepszej proporcji */
   background-color: white;
   color: black;
   text-align: left;
 }
 
 .company-image {
-  width: 30%;
+  width: 35%; /* Zwiększenie szerokości dla lepszej proporcji */
 }
 
 .company-image img {
@@ -156,46 +158,20 @@ body {
   width: 100%;
   font-size: 20px;
   font-weight: bold;
-  padding: 20px;
+  padding: 40px; /* Zwiększony padding, aby rozciągnąć tło */
   box-sizing: border-box;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
-.comments-section, .reviews-section {
-  background-color: white;
-  color: black;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-}
-
-.comments-section h4, .reviews-section h4 {
-  margin-bottom: 10px;
-}
-
-.comments-section ul, .reviews-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.comments-section li, .reviews-section li {
-  margin-bottom: 10px;
-}
-
-.comments-section input, .reviews-section input {
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
-.comments-section button, .reviews-section button {
-  padding: 10px 15px;
-  background-color: #28a745;
-  color: white;
-  border: none;
+.favorite-star {
+  margin-left: 10px;
   cursor: pointer;
+  color: gold;
+}
+
+.favorite-star .fa-star {
+  font-size: 24px;
 }
 
 .company-type {
@@ -210,10 +186,11 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .stars {
   color: gold;
 }
 </style>
-  
