@@ -52,7 +52,7 @@ export default {
     toggleFavorite() {
       const token = localStorage.getItem('jwt');
       console.log(token);
-      axios.put(`/companies/${this.company.id}/add-to-favourite`, {
+      axios.put(`/companies/${this.company.id}/add-to-favourite`,{}, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -103,7 +103,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 0;
+  margin-top: 0px;
+  padding-top:40px;
 }
 
 .company-main {
