@@ -4,6 +4,7 @@ using API.Features.Identity.Static;
 using API.Features.Offers.Commands.CreateOffer;
 using API.Features.Offers.Commands.DeleteOffer;
 using API.Features.Offers.Commands.UpdateOffer;
+using API.Features.Offers.Queries.GetCompanyOffersList;
 using API.Features.Offers.Queries.GetOfferById;
 using API.Features.Offers.Queries.GetOfferForUpdate;
 using API.Features.Offers.Queries.GetOffers;
@@ -55,6 +56,17 @@ namespace API.Features.Offers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetPaginatedListOffers([FromQuery] GetOffersQuery query)
+        {
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        
+        //Get Offer paginated list
+        [HttpGet("my-offers")]
+        [ApiAuthorize(UserRoles.CompanyOwner)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetCompanyPaginatedListOffers([FromQuery] GetCompanyOffersListQuery query)
         {
             var result = await _mediator.Send(query);
             return Ok(result);
