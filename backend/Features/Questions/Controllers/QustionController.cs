@@ -8,12 +8,14 @@ using API.Attributes;
 using API.Features.Identity.Static;
 using API.Features.Questions.Commands.AnswerQuestion;
 using API.Features.Questions.Commands.Create;
+using API.Features.Questions.Commands.DeleteQuestion;
+using API.Features.Questions.Queries.GetQuestion;
 
 namespace API.Features.Questions.Controllers
 {
     [ApiController]
     [Route("api/questions")]
-    [Authorize]
+    
     public class QuestionsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -43,6 +45,26 @@ namespace API.Features.Questions.Controllers
             command.QuestionId = id;
             var response = await _mediator.Send(command);
             return Ok(response);
+        }
+
+        //Delete Question
+        [HttpDelete("{id:guid}")]
+        [ApiAuthorize(UserRoles.User)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteQuestion([FromRoute] Guid id)
+        {
+            await _mediator.Send(new DeleteQuestionCommand(id));
+            return Ok();
+        }
+        //Get Question
+        [HttpGet("{offerId:guid}")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetQuestions([FromRoute] Guid offerId)
+        {
+            var result = await _mediator.Send(new GetQuestionsQuery(offerId));
+            return Ok(result);
         }
 
     }
