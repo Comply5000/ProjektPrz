@@ -12,7 +12,7 @@
       <div class="profile element" v-if="islogin" @click="toggleDropdown">
         {{ email }}
         <div v-if="dropdownVisible" class="dropdown-menu">
-          <router-link to="/profile">Profil</router-link>
+          <router-link to="/change-password">Zmiana hasła</router-link>
           <a href="#" @click.prevent="signOut">Wyloguj</a>
         </div>
       </div>

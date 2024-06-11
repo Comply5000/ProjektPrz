@@ -72,7 +72,7 @@
     }
   };
   </script>
-  <style>
+  <style scoped>
   /* Globalne ustawienia */
   body, html {
   background: rgb(56, 160, 96);

@@ -82,7 +82,7 @@
     }
   };
   </script>
-  <style>
+  <style scoped>
 /* Globalne ustawienia */
 .vue-template {
   background: rgb(56, 160, 96);

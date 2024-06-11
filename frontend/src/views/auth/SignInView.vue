@@ -85,8 +85,8 @@ export default {
           localStorage.setItem('jwt', response.data.accessToken);
           localStorage.setItem('email', response.data.email);
           SaveUserRoles(response.data.roles);
-          this.$router.push('/');
           alert('Logowanie zakończone sukcesem!');
+          this.$router.push('/');
         })
         .catch(error => {
           const errors = [];
@@ -97,7 +97,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 /* Globalne ustawienia */
 
 /* Stylowanie formularza */
