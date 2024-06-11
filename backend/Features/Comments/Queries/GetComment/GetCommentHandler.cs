@@ -18,13 +18,15 @@ namespace API.Features.Comments.Queries.GetComment
         public async Task<List<CommentModel>> Handle(GetCommentQuery request, CancellationToken cancellationToken)
         {
             return await _context.Comments.AsNoTracking()
+                .Include(x => x.User)
                 .Where(x => x.OfferId == request.OfferId)
                 .Select(x => new CommentModel
                 {
                     Id = x.Id,
                     Message = x.Message,
                     Rating = x.Rating,
-                    CreatedAt = x.CreatedAt
+                    CreatedAt = x.CreatedAt,
+                    CreatedBy = x.User.Email
                 })
                 .ToListAsync(cancellationToken);
         }
