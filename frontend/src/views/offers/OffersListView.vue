@@ -14,29 +14,36 @@
     <!-- Filtr: Typ oferty (zawsze widoczny) -->
     <div class="specific-offer-type">
       <label for="specificOfferType">Typ oferty:</label>
-      <select id="specificOfferType" v-model="selectedOfferType">
+      <select id="specificOfferType" v-model.number="selectedOfferType">
         <option value="">Wybierz typ oferty</option>
         <option v-for="(name, value) in offerTypes" :value="value">{{ name }}</option>
+      </select>
+    </div>
+    <!-- Filtr: Nazwa firmy -->
+    <div class="company-filter">
+      <label for="companySelect">Firma:</label>
+      <select id="companySelect" v-model="selectedCompany">
+        <option value="">Wybierz firmę</option>
+        <option v-for="company in companies" :key="company.id" :value="company.id">{{ company.name }}</option>
       </select>
     </div>
     <!-- Lista ofert -->
     <div class="offer-list-container">
       <div class="offer-list">
         <ul>
-          <li v-for="(offer, index) in paginatedOffers" :key="index" class="offer-item">
+          <li v-for="(offer, index) in offers" :key="offer.id" class="offer-item">
             <div class="offer-details">
               <div class="offer-content">
                 <div class="offer-text">
-                  <h3 class="offer-name">{{ offer.offerName }}</h3>
+                  <h3 class="offer-name">{{ offer.name }}</h3>
                   <p class="company-name">{{ offer.companyName }}</p>
-                  <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.companyType) }}</span></p>
+                  <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.type) }}</span></p>
                   <p>Ocena: {{ offer.rating }}</p>
-                  <p>Data wystawienia: {{ offer.issueDate }}</p>
-                  <p>Data ważności: {{ offer.expiryDate }}</p>
+                  <p>Opis: {{ offer.description }}</p>
                 </div>
               </div>
               <div class="offer-image">
-                <img :src="offer.image" :alt="'Offer Image ' + (index + 1)">
+                <img :src="offer.imageUrl" :alt="'Offer Image ' + (index + 1)" v-if="offer.imageUrl">
               </div>
             </div>
           </li>
@@ -56,11 +63,11 @@
         <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
           <button class="page-link" @click="changePage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
         </li>
-        <li class="page-item" v-for="page in pageCount" :key="page" :class="{ 'active': currentPage === page }">
-          <a class="page-link" href="#" @click="changePage(page)">{{ page }}</a>
+        <li class="page-item" v-for="page in totalPages" :key="page" :class="{ 'active': currentPage === page }">
+          <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
         </li>
-        <li class="page-item" :class="{ 'disabled': currentPage === pageCount }">
-          <button class="page-link" @click="changePage(currentPage + 1)" :disabled="currentPage === pageCount">Next</button>
+        <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
+          <button class="page-link" @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
         </li>
       </ul>
     </nav>
@@ -68,6 +75,7 @@
 </template>
 
 <script>
+import axios from '../../../config.js';
 import NavBar from '@/components/NavBar.vue';
 
 export default {
@@ -77,11 +85,13 @@ export default {
   data() {
     return {
       currentPage: 1,
+      totalPages: 1,
       pageSize: 5,
       pageSizeOptions: [5, 10, 15],
       searchQuery: '',
       favoriteCompany: false,
       selectedOfferType: '',
+      selectedCompany: '',
       isLogin: false,
       offerTypes: {
         1: 'Produkt',
@@ -89,50 +99,68 @@ export default {
         3: 'Promocja',
         4: 'Program lojalnościowy'
       },
-      offers: [
-        { offerName: 'Oferta A', companyName: 'Firma A', companyType: 1, rating: 4.5, issueDate: '2024-04-21', expiryDate: '2024-05-21', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta B', companyName: 'Firma B', companyType: 2, rating: 4.0, issueDate: '2024-04-20', expiryDate: '2024-05-20', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta C', companyName: 'Firma C', companyType: 3, rating: 3.5, issueDate: '2024-04-19', expiryDate: '2024-05-19', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta D', companyName: 'Firma D', companyType: 1, rating: 5.0, issueDate: '2024-04-18', expiryDate: '2024-05-18', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta E', companyName: 'Firma E', companyType: 2, rating: 2.5, issueDate: '2024-04-17', expiryDate: '2024-05-17', image: "../src/views/offers/flamingo.jpg" },
-        { offerName: 'Oferta F', companyName: 'Firma F', companyType: 4, rating: 3.0, issueDate: '2024-04-16', expiryDate: '2024-05-16', image: "../src/views/offers/flamingo.jpg" }
-      ]
+      offers: [],
+      companies: []
     };
-  },
-  computed: {
-    filteredOffers() {
-      let filtered = this.offers.filter(offer =>
-        offer.offerName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        offer.companyName.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-      
-      if (this.favoriteCompany) {
-        filtered = filtered.filter(offer => offer.favorite);
-      }
-
-      if (this.selectedOfferType) {
-        filtered = filtered.filter(offer => offer.companyType == this.selectedOfferType);
-      }
-
-      return filtered;
-    },
-    paginatedOffers() {
-      const startIndex = (this.currentPage - 1) * this.pageSize;
-      const endIndex = startIndex + this.pageSize;
-      return this.filteredOffers.slice(startIndex, endIndex);
-    },
-    pageCount() {
-      return Math.ceil(this.filteredOffers.length / this.pageSize);
-    }
   },
   methods: {
     changePage(page) {
-      if (page >= 1 && page <= this.pageCount) {
+      if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
+        this.fetchOffers();
       }
+    },
+    fetchOffers() {
+      const token = localStorage.getItem('jwt');
+      const params = {
+        pageNumber: this.currentPage,
+        pageSize: this.pageSize,
+        search: this.searchQuery,
+        type: this.selectedOfferType,
+        companyId: this.selectedCompany,
+        isCompanyFavourite: this.favoriteCompany
+      };
+
+      axios.get('/offers', {
+        params: params,
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        this.offers = response.data.items;
+        this.currentPage = response.data.pageIndex;
+        this.totalPages = response.data.totalPages;
+      });
+    },
+    fetchCompanies() {
+      axios.get('/companies/all')
+      .then(response => {
+        this.companies = response.data;
+      });
     },
     getOfferTypeName(value) {
       return this.offerTypes[value];
+    }
+  },
+  watch: {
+    currentPage() {
+      this.fetchOffers();
+    },
+    searchQuery() {
+      this.fetchOffers();
+    },
+    pageSize() {
+      this.fetchOffers();
+    },
+    favoriteCompany() {
+      this.fetchOffers();
+    },
+    selectedOfferType() {
+      this.fetchOffers();
+    },
+    selectedCompany() {
+      this.fetchOffers();
     }
   },
   mounted() {
@@ -140,6 +168,8 @@ export default {
     if (token) {
       this.isLogin = true;
     }
+    this.fetchCompanies();
+    this.fetchOffers();
   }
 };
 </script>
@@ -152,7 +182,7 @@ export default {
   align-items: center;
   flex-direction: column;
   padding-top: 80px;
-  overflow: auto; /* Pozwala na przewijanie całej strony */
+  overflow: auto;
 }
 
 .search-form {
@@ -161,8 +191,8 @@ export default {
   width: 30%;
 }
 
-.favorite-companies, .specific-offer-type {
-  margin-bottom: 5px; /* Odstęp między filtrami */
+.favorite-companies, .specific-offer-type, .company-filter {
+  margin-bottom: 5px;
 }
 
 input[type="checkbox"] {
@@ -234,7 +264,7 @@ input[type="checkbox"] {
 }
 
 .offer-per-page {
-  margin: 5px 0 5px; /* Dodatkowy odstęp między elementami */
+  margin: 5px 0 5px;
 }
 
 .pagination {
@@ -253,7 +283,6 @@ input[type="checkbox"] {
   border-color: #28a745;
 }
 
-/* Optionally, add a hover effect for active page */
 .pagination .page-item.active .page-link:hover {
   background-color: #218838;
   border-color: #1e7e34;
