@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\models\\questionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\models\\questionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\commands\\create\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\create\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\queries\\getquestion\\getquestionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\queries\\getquestion\\getquestionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\queries\\getquestion\\getquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\queries\\getquestion\\getquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\commands\\deletequestion\\deletequestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\deletequestion\\deletequestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\controllers\\qustioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,12 +19,20 @@
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\create\\createquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\offers\\commands\\createoffer\\createoffervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\offers\\commands\\createoffer\\createoffervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\models\\questionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\models\\questionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\comments\\commands\\createcomment\\createcommentvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\comments\\commands\\createcomment\\createcommentvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\entities\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\entities\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\comments\\controllers\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\comments\\controllers\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\comments\\commands\\createcomment\\createcommenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,8 +43,36 @@
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\comments\\commands\\createcomment\\createcommentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\commands\\create\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\create\\createquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\offers\\commands\\createoffer\\createofferhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\offers\\commands\\createoffer\\createofferhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\offers\\controllers\\offerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\offers\\controllers\\offerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\offers\\commands\\createoffer\\createoffervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\offers\\commands\\createoffer\\createoffervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\queries\\getquestion\\getquestionshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\queries\\getquestion\\getquestionshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\queries\\getquestion\\getquestionsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\queries\\getquestion\\getquestionsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\commands\\deletequestion\\deletequestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\deletequestion\\deletequestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\comments\\models\\commentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\comments\\models\\commentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\comments\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\comments\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -53,14 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:database\\initializer\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\commands\\deletequestion\\deletequestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\deletequestion\\deletequestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\questions\\commands\\deletequestion\\deletequestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|solutionrelative:features\\questions\\commands\\deletequestion\\deletequestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05D9ACA0-445F-4DA5-A405-130F29C028EC}|API.csproj|c:\\users\\jurek\\source\\repos\\projektprz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\features\\companies\\controllers\\companiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -215,115 +239,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "QustionController.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Controllers\\QustionController.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
-              "RelativeToolTip": "Features\\Questions\\Controllers\\QustionController.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAADwvy4AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T16:52:45.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetQuestionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionHandler.cs",
-              "RelativeToolTip": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T12:30:21.776Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetQuestionQuery.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionQuery.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionQuery.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionQuery.cs",
-              "RelativeToolTip": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionQuery.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T12:29:55.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "QuestionModel.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Models\\QuestionModel.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Models\\QuestionModel.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Models\\QuestionModel.cs",
-              "RelativeToolTip": "Features\\Questions\\Models\\QuestionModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T12:31:11.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "CreateQuestionCommand.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\Create\\CreateQuestionCommand.cs",
               "RelativeDocumentMoniker": "Features\\Questions\\Commands\\Create\\CreateQuestionCommand.cs",
               "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\Create\\CreateQuestionCommand.cs",
               "RelativeToolTip": "Features\\Questions\\Commands\\Create\\CreateQuestionCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-08T13:34:39.007Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateOfferValidator.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
-              "RelativeDocumentMoniker": "Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
-              "RelativeToolTip": "Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAgAAAA",
+              "DocumentIndex": 0,
+              "Title": "CreateQuestionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
+              "RelativeToolTip": "Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAswBgAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T13:42:07.536Z",
+              "WhenOpened": "2024-06-08T12:32:15.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QustionController.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Controllers\\QustionController.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Controllers\\QustionController.cs",
+              "RelativeToolTip": "Features\\Questions\\Controllers\\QustionController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAswA8AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T16:52:45.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeleteQuestionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
+              "RelativeToolTip": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAswBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T12:28:21.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QuestionModel.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Models\\QuestionModel.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Models\\QuestionModel.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Models\\QuestionModel.cs",
+              "RelativeToolTip": "Features\\Questions\\Models\\QuestionModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T12:31:11.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "CreateCommentHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
-              "RelativeToolTip": "Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Title": "CommentsController.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Controllers\\CommentsController.cs",
+              "RelativeDocumentMoniker": "Features\\Comments\\Controllers\\CommentsController.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Controllers\\CommentsController.cs",
+              "RelativeToolTip": "Features\\Comments\\Controllers\\CommentsController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwCEAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T13:41:48.504Z",
+              "WhenOpened": "2024-06-10T17:26:07.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "CreateCommentValidator.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentValidator.cs",
               "RelativeDocumentMoniker": "Features\\Comments\\Commands\\CreateComment\\CreateCommentValidator.cs",
               "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentValidator.cs",
               "RelativeToolTip": "Features\\Comments\\Commands\\CreateComment\\CreateCommentValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-08T12:31:59.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Entities\\Question.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Entities\\Question.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Entities\\Question.cs",
+              "RelativeToolTip": "Features\\Questions\\Entities\\Question.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T10:01:24.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "CreateCommentHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
+              "RelativeToolTip": "Features\\Comments\\Commands\\CreateComment\\CreateCommentHandler.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T13:41:48.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "CreateCommentCommand.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Commands\\CreateComment\\CreateCommentCommand.cs",
               "RelativeDocumentMoniker": "Features\\Comments\\Commands\\CreateComment\\CreateCommentCommand.cs",
@@ -336,20 +373,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CreateQuestionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
-              "RelativeToolTip": "Features\\Questions\\Commands\\Create\\CreateQuestionHandler.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAswBAAAAA1AAAA",
+              "DocumentIndex": 10,
+              "Title": "CreateOfferHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Commands\\CreateOffer\\CreateOfferHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Offers\\Commands\\CreateOffer\\CreateOfferHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Commands\\CreateOffer\\CreateOfferHandler.cs",
+              "RelativeToolTip": "Features\\Offers\\Commands\\CreateOffer\\CreateOfferHandler.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T12:32:15.426Z",
+              "WhenOpened": "2024-06-10T20:27:37.736Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
+              "Title": "OffersController.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Controllers\\OffersController.cs",
+              "RelativeDocumentMoniker": "Features\\Offers\\Controllers\\OffersController.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Controllers\\OffersController.cs",
+              "RelativeToolTip": "Features\\Offers\\Controllers\\OffersController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T17:26:53.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CreateOfferValidator.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
+              "RelativeDocumentMoniker": "Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
+              "RelativeToolTip": "Features\\Offers\\Commands\\CreateOffer\\CreateOfferValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T13:42:07.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetQuestionsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionsHandler.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionsHandler.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionsHandler.cs",
+              "RelativeToolTip": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionsHandler.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T12:30:21.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GetQuestionsQuery.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionsQuery.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionsQuery.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Queries\\GetQuestion\\GetQuestionsQuery.cs",
+              "RelativeToolTip": "Features\\Questions\\Queries\\GetQuestion\\GetQuestionsQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T12:29:55.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DeleteQuestionCommand.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
+              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
+              "RelativeToolTip": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T12:28:04.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CommentModel.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Models\\CommentModel.cs",
+              "RelativeDocumentMoniker": "Features\\Comments\\Models\\CommentModel.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Models\\CommentModel.cs",
+              "RelativeToolTip": "Features\\Comments\\Models\\CommentModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T10:03:00.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Entities\\Comment.cs",
+              "RelativeDocumentMoniker": "Features\\Comments\\Entities\\Comment.cs",
+              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Comments\\Entities\\Comment.cs",
+              "RelativeToolTip": "Features\\Comments\\Entities\\Comment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T10:03:07.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -357,12 +485,11 @@
               "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-18T08:49:53.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T08:49:53.026Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "DatabaseInitializer.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Database\\Initializer\\DatabaseInitializer.cs",
               "RelativeDocumentMoniker": "Database\\Initializer\\DatabaseInitializer.cs",
@@ -370,12 +497,11 @@
               "RelativeToolTip": "Database\\Initializer\\DatabaseInitializer.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAvwBkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T18:17:15.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T18:17:15.891Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "API.http",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\API.http",
               "RelativeDocumentMoniker": "API.http",
@@ -383,38 +509,11 @@
               "RelativeToolTip": "API.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-06-08T13:07:45.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-08T13:07:45.676Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DeleteQuestionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
-              "RelativeToolTip": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAIwBMAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T12:28:21.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DeleteQuestionCommand.cs",
-              "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "RelativeDocumentMoniker": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "ToolTip": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "RelativeToolTip": "Features\\Questions\\Commands\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T12:28:04.237Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "CompaniesController.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Companies\\Controllers\\CompaniesController.cs",
               "RelativeDocumentMoniker": "Features\\Companies\\Controllers\\CompaniesController.cs",
@@ -422,12 +521,11 @@
               "RelativeToolTip": "Features\\Companies\\Controllers\\CompaniesController.cs",
               "ViewState": "AQIAACMAAAAAAAAAAAAkwDEAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T17:49:48.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T17:49:48.47Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "GetCompanyByIdHandler.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdHandler.cs",
               "RelativeDocumentMoniker": "Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdHandler.cs",
@@ -439,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "GetCompanyByIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdQuery.cs",
               "RelativeDocumentMoniker": "Features\\Companies\\Queries\\GetCompanyById\\GetCompanyByIdQuery.cs",
@@ -451,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "CompanyViewModel.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Companies\\Models\\CompanyViewModel.cs",
               "RelativeDocumentMoniker": "Features\\Companies\\Models\\CompanyViewModel.cs",
@@ -463,7 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 56,
               "Title": "ValidatorAnswerQuestion.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
               "RelativeDocumentMoniker": "..\\..\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\ValidatorAnswerQuestion.cs",
@@ -475,7 +573,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 57,
               "Title": "AnswerQuestionHandler.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
               "RelativeDocumentMoniker": "..\\..\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionHandler.cs",
@@ -487,7 +585,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 58,
               "Title": "AnswerQuestionCommand.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
               "RelativeDocumentMoniker": "..\\..\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\AnswerQuestionCommand.cs",
@@ -499,7 +597,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 59,
               "Title": "CreateQuestionHandler.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionHandler.cs",
               "RelativeDocumentMoniker": "..\\..\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionHandler.cs",
@@ -511,7 +609,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 60,
               "Title": "CreateQuestionCommand.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionCommand.cs",
               "RelativeDocumentMoniker": "..\\..\\ProjektPrz_zwracanie_firmy\\backend\\Features\\Questions\\Commands\\CreateQuestionCommand.cs",
@@ -523,7 +621,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "SingUpHandler.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpHandler.cs",
@@ -535,7 +633,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "SingUpCommand.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpCommand.cs",
@@ -547,7 +645,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 46,
               "Title": "SingOutHandler.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SignOut\\SingOutHandler.cs",
@@ -557,7 +655,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "SingInCommand.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInCommand.cs",
@@ -569,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 47,
               "Title": "SingInCommandValidator.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Commands\\SingIn\\SingInCommandValidator.cs",
@@ -579,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "SingInHandler.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingIn\\SingInHandler.cs",
@@ -591,7 +689,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 48,
               "Title": "InvalidCredentials.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\InvalidCredentials.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\InvalidCredentials.cs",
@@ -601,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "SingUpValidator.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Commands\\SingUp\\SingUpValidator.cs",
@@ -613,7 +711,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 49,
               "Title": "UserWithEmailExistsExaptions.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserWithEmailExistsExaptions.cs",
@@ -623,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 50,
               "Title": "UserPasswordExeption.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserPasswordExeption.cs",
@@ -633,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 51,
               "Title": "UserNotFoundExeption.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\UserNotFoundExeption.cs",
@@ -643,7 +741,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 52,
               "Title": "CreateUserException.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\CreateUserException.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\CreateUserException.cs",
@@ -653,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 53,
               "Title": "AddUserToRoleExeption.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddUserToRoleExeption.cs",
@@ -663,7 +761,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 54,
               "Title": "AddClaimException.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddClaimException.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Features\\Identity\\Exeptions\\AddClaimException.cs",
@@ -673,7 +771,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Services\\TokenService.cs",
@@ -685,7 +783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "ITokenService.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Services\\ITokenService.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Services\\ITokenService.cs",
@@ -697,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "Extensions.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Extensions.cs",
               "RelativeDocumentMoniker": "Features\\Extensions.cs",
@@ -709,7 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "Extensions.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Database\\Extensions.cs",
               "RelativeDocumentMoniker": "Database\\Extensions.cs",
@@ -721,7 +819,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "JsonWebToken.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Models\\JsonWebToken.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Models\\JsonWebToken.cs",
@@ -733,7 +831,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -745,7 +843,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 55,
               "Title": "IIdentityService.cs",
               "DocumentMoniker": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IIdentityService.cs",
               "ToolTip": "D:\\STUDIA\\4_SEMESTR\\!Projekt Baza-Inzynieria\\ProjektPrz\\backend\\Extensions\\IIdentityService.cs",
@@ -755,7 +853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 38,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Controllers\\AccountController.cs",
@@ -767,7 +865,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 36,
               "Title": "EFContext.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Database\\Context\\EFContext.cs",
               "RelativeDocumentMoniker": "Database\\Context\\EFContext.cs",
@@ -779,7 +877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 37,
               "Title": "IdentityExtension.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Extensions\\IdentityExtension.cs",
               "RelativeDocumentMoniker": "Extensions\\IdentityExtension.cs",
@@ -791,7 +889,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 39,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Static\\UserRoles.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Static\\UserRoles.cs",
@@ -803,7 +901,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Entities\\User.cs",
@@ -815,7 +913,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 41,
               "Title": "AuthConfig.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Features\\Identity\\Config\\AuthConfig.cs",
               "RelativeDocumentMoniker": "Features\\Identity\\Config\\AuthConfig.cs",
@@ -827,7 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "ExceptionFilter.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Filters\\ExceptionFilter.cs",
               "RelativeDocumentMoniker": "Filters\\ExceptionFilter.cs",
@@ -839,7 +937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -851,7 +949,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 44,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -863,7 +961,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 45,
               "Title": "UserRolesSeeder.cs",
               "DocumentMoniker": "C:\\Users\\jurek\\source\\repos\\ProjektPrz_poprawne_usuwanie_zwracanielisty_zapytan\\backend\\Database\\Initializer\\Roles\\UserRolesSeeder.cs",
               "RelativeDocumentMoniker": "Database\\Initializer\\Roles\\UserRolesSeeder.cs",

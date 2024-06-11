@@ -2,9 +2,12 @@
 {
     public class QuestionModel
     {
-        public Guid Id { get; set; }
         public string Message { get; set; }
-        public int Rating { get; set; }
+        public string Answer { get; set; }
+
         public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset? AnsweredAt { get; set; }
+
+        public Guid Id { get; set; }
     }
 }

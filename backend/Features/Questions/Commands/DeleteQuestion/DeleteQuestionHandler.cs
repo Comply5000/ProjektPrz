@@ -25,6 +25,12 @@ public class DeleteQuestionHandler : IRequestHandler<DeleteQuestionCommand>
         var question = await _context.Questions.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
             ?? throw new QuestionNotFoundException();
 
+
+        if (question.UserId != _currentUserService.UserId)
+        {
+            throw new UnauthorizedAccessException("You are not authorized to delete this question.");
+        }
+
         _context.Remove(question);
         await _context.SaveChangesAsync(cancellationToken);
 

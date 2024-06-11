@@ -15,7 +15,7 @@ namespace API.Features.Questions.Controllers
 {
     [ApiController]
     [Route("api/questions")]
-    [Authorize]
+    
     public class QuestionsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -49,6 +49,7 @@ namespace API.Features.Questions.Controllers
 
         //Delete Question
         [HttpDelete("{id:guid}")]
+        [ApiAuthorize(UserRoles.User)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteQuestion([FromRoute] Guid id)
@@ -62,7 +63,7 @@ namespace API.Features.Questions.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetQuestions([FromRoute] Guid offerId)
         {
-            var result = await _mediator.Send(new GetQuestionQuery(offerId));
+            var result = await _mediator.Send(new GetQuestionsQuery(offerId));
             return Ok(result);
         }
 

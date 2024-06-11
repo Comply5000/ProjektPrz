@@ -6,16 +6,16 @@ using Newtonsoft.Json.Linq;
 
 namespace API.Features.Questions.Queries.GetQuestion
 {
-    public class GetQuestionHandler : IRequestHandler<GetQuestionQuery, List<QuestionModel>>
+    public class GetQuestionsHandler : IRequestHandler<GetQuestionsQuery, List<QuestionModel>>
     {
         private readonly EFContext _context;
 
-        public GetQuestionHandler(EFContext context)
+        public GetQuestionsHandler(EFContext context)
         {
             _context = context;
         }
 
-        public async Task<List<QuestionModel>> Handle(GetQuestionQuery request, CancellationToken cancellationToken)
+        public async Task<List<QuestionModel>> Handle(GetQuestionsQuery request, CancellationToken cancellationToken)
         {
             return await _context.Questions.AsNoTracking()
                 .Where(x => x.OfferId == request.OfferId)
@@ -23,7 +23,9 @@ namespace API.Features.Questions.Queries.GetQuestion
                 {
                     Id = x.Id,
                     Message = x.Message,
-                    CreatedAt = x.CreatedAt
+                    CreatedAt = x.CreatedAt,
+                    AnsweredAt = x.AnsweredAt,
+                    Answer = x.Answer
                 })
                 .ToListAsync(cancellationToken);
         }

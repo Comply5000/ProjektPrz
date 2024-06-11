@@ -7,6 +7,6 @@ using MediatR;
 
 namespace API.Features.Questions.Queries.GetQuestion
 {
-    public sealed record GetQuestionQuery(Guid OfferId) : IRequest<List<QuestionModel>>;
+    public sealed record GetQuestionsQuery(Guid OfferId) : IRequest<List<QuestionModel>>;
 
 }
