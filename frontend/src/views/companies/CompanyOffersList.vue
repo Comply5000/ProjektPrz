@@ -22,7 +22,7 @@
             <div class="offer-details">
               <div class="offer-content">
                 <div class="offer-text">
-                  <h3 class="offer-name">{{ offer.name }}</h3>
+                  <h3 class="offer-name" @click="goToOffer(offer.id)">{{ offer.name }}</h3>
                   <p class="company-name">{{ offer.companyName }}</p>
                   <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.type) }}</span></p>
                   <p>Ocena: {{ offer.rating }}</p>
@@ -94,6 +94,10 @@ export default {
     };
   },
   methods: {
+    goToOffer(offerid)
+    {
+      this.$router.push({ path: `/offer:${offerid}`});
+    },
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
