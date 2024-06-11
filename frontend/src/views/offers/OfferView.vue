@@ -223,7 +223,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 0;
+  margin-top: 0px;
   padding-top: 40px;
 }
 
@@ -238,6 +238,9 @@ body {
   padding-top: 55px;
   text-align: center;
   box-sizing: border-box;
+  margin-top: 20px; /* Dodatkowe przesunięcie w dół */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 .favorite-star {
   margin-left: 10px;
