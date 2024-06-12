@@ -70,6 +70,7 @@ public sealed class SignInGoogleHandler : IRequestHandler<SignInGoogleCommand, J
         var userClaims = await _userManager.GetClaimsAsync(user);
             
         var token = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
+        token.IsExternal = true;
         
         return token;
     }
@@ -83,6 +84,7 @@ public sealed class SignInGoogleHandler : IRequestHandler<SignInGoogleCommand, J
         var userClaims = await _userManager.GetClaimsAsync(user);
             
         var token = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
+        token.IsExternal = true;
             
 
         return token;

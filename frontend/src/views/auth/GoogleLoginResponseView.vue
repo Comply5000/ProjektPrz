@@ -21,6 +21,7 @@
             .then(response => {
                 localStorage.setItem('jwt', response.data.accessToken);
                 localStorage.setItem('email', response.data.email);
+                localStorage.setItem('isExternal', response.data.isExternal);
                 SaveUserRoles(response.data.roles);
                 this.$router.push('/');
             });

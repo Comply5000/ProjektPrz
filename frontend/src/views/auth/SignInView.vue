@@ -84,6 +84,8 @@ export default {
         .then(response => {
           localStorage.setItem('jwt', response.data.accessToken);
           localStorage.setItem('email', response.data.email);
+          localStorage.setItem('comapnyId', response.data.companyId);
+          localStorage.setItem('isExternal', response.data.isExternal);
           SaveUserRoles(response.data.roles);
           alert('Logowanie zakończone sukcesem!');
           this.$router.push('/');

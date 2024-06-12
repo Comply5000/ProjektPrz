@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
 using Amazon.Runtime;
 using API.Features.Identity.Exceptions;
+using API.Features.Identity.Static;
 
 namespace API.Features.Identity.Commands.SingIn
 {
@@ -31,7 +32,9 @@ namespace API.Features.Identity.Commands.SingIn
         public async Task<JsonWebToken> Handle(SingInCommand request, CancellationToken cancellationToken)
         {
             //sprawdzenie uzytkownika czy jest w bazie
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == request.Email)
+            var user = await _context.Users
+                           .Include(x => x.Company)
+                           .FirstOrDefaultAsync(x => x.Email == request.Email)
                 ?? throw new InvalidCredentials(); // Rzuca wyjątek, jeśli użytkownik nie zostanie znaleziony.
             //sprawdzenie poprawności hasła
             var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, true);
@@ -44,6 +47,7 @@ namespace API.Features.Identity.Commands.SingIn
             var userClaims = await _userManager.GetClaimsAsync(user);
             // generowanie JSON Web Token dla uzytkownika
             var jwt = _tokenService.GenerateAccessTokenAsync(user.Id, user.Email, userRoles, userClaims);
+            jwt.CompanyId = user.Company?.Id;
 
             return jwt;
         }
