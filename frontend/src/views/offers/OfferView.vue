@@ -50,19 +50,33 @@
         </div>
       </div>
       
-      <!--
+     
       <div class="comments-section">
         <h4>Pytania</h4>
         <ul>
-          <li v-for="comment in comments" :key="comment.id">
-            <strong>{{ comment.createdBy }}:</strong> {{ comment.message }}
+          <li v-for="question in questions" :key="question.id">
+            <strong>{{ question.createdBy }}:</strong> {{ question.message }}
+            <div class="odpowiedz" v-if="question.answer">
+
+             Odpowiedz: {{ question.answer }}
+            </div>
+            <hr>
           </li>
         </ul>
         
-        <input v-model="newQuestion" placeholder="Dodaj pytanie" />
+        <input v-model="newQuestion.message" placeholder="Dodaj pytanie" />
+        <div v-if="errorsQuestions">
+            <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
+              <li v-for="errorMsg in errorsQuestions" :key="errorMsg" class="error-message">
+                <div class="error">
+                    {{ errorMsg }}
+                </div>
+              </li>
+            </ul>
+        </div>
         <button @click="addQuestion">Dodaj</button>
       </div>
-      -->
+      
     </div>
   </div>
 </template>
@@ -98,11 +112,17 @@ export default {
         4: 'Program lojalnościowy'
       },
       comments: [],
+      questions: [],
+      errorsQuestions: [],
       errors: [],
       newComment: {
         message: "",
         rating: 0
 
+
+      },
+      newQuestion: {
+        message: ""
 
       }
     };
@@ -141,6 +161,20 @@ export default {
          
       });
       },
+      fetchQuestions() {
+      const offerid = this.$route.params.id;
+      const token = localStorage.getItem('jwt');
+      axios.get(`/questions/${offerid.slice(1)}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+          
+          this.questions = response.data;
+         
+      });
+      },
     fetch() {
       const offerid = this.$route.params.id;
       const token = localStorage.getItem('jwt');
@@ -167,6 +201,7 @@ export default {
     
     addComment() {
       this.errors = [];
+      this.errorsQuestions = [];
       const offerid = this.$route.params.id;
       const token = localStorage.getItem('jwt');
         axios.post(`/comments/${offerid.slice(1)}`,  this.newComment, {
@@ -178,6 +213,7 @@ export default {
         .then(response => {
           this.fetch();
           this.fetchComments();
+          this.fetchQuestions();
         })
         .catch(error => {
         const errors = [];
@@ -185,28 +221,36 @@ export default {
         this.errors = this.errors.concat(errors);
       });
       
-    },/*
-    addReview() {
-      if (this.newReview.trim()) {
-        axios.post('/api/reviews', {
-          text: this.newReview,
-          rating: this.newRating,
-          offerId: this.offer.id,
-          userId: this.currentUser
-        })
+    },
+    addQuestion() { 
+      this.errorsQuestions = [];
+      this.errors = [];
+      const offerid = this.$route.params.id;
+      const token = localStorage.getItem('jwt');
+        axios.post(`/questions/${offerid.slice(1)}`,  this.newQuestion, {
+          headers: {
+          'Authorization': `Bearer ${token}`
+          }
+        }
+         )
         .then(response => {
-          this.reviews.push(response.data);
-          this.newReview = '';
-          this.newRating = 1;
+          this.fetch();
+          this.fetchQuestions();
+          this.fetchComments();
         })
-        .catch(error => console.error('Error adding review:', error));
-      }
-    }*/
+        .catch(error => {
+        const errorsQuestions = [];
+        handleErrors(error, errorsQuestions);
+        this.errorsQuestions = this.errorsQuestions.concat(errorsQuestions);
+      });
+      
+    }
   }
     ,mounted()
     {
       this.fetch();
       this.fetchComments();
+      this.fetchQuestions();
     },
 };
 </script>
@@ -274,6 +318,10 @@ body {
 
 .offer-image {
   width: 30%;
+}
+.odpowiedz {
+  margin-top: 5px; /* Adjust this value as needed to reduce the space */
+  margin-bottom: 5px; /* Add bottom margin if needed */
 }
 
 .offer-image img {
