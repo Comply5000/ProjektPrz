@@ -45,6 +45,7 @@ export default {
       localStorage.removeItem('isExternal');
       localStorage.removeItem('companyId');
       location.reload();
+      this.$router.push('/');
     },
     toggleDropdown() {
       this.dropdownVisible = !this.dropdownVisible;
