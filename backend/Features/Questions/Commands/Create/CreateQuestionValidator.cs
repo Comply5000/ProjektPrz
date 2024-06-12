@@ -8,10 +8,6 @@ namespace API.Features.Questions.Commands.Create
         {
             RuleFor(x => x.Message)
                 .NotEmpty().WithMessage("Brak treści pytania");
-               
-
-            RuleFor(x => x.OfferId)
-                .NotEmpty().WithMessage("Nie podano Id oferty");
         }
     }
 }
