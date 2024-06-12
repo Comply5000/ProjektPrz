@@ -3,11 +3,13 @@ using API.Database.Context;
 using API.Features.Identity.Services;
 using API.Features.Images.Commands;
 using Amazon.Runtime.Internal;
+using API.Common.Exceptions;
 using API.Features.Companies.Entities;
 using API.Features.Identity.Entities;
 using API.Features.Comments.Commands.CreateComment;
 using API.Features.Comments.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Features.Comments.Commands.CreateComment
 {
@@ -27,7 +29,13 @@ namespace API.Features.Comments.Commands.CreateComment
 
         public async Task<CreateOrUpdateResponse> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
         {
+            var user = await _context.Users.AsNoTracking()
+                .Include(x => x.Comments)
+                .FirstOrDefaultAsync(x => x.Id == _currentUserService.UserId, cancellationToken);
 
+            if (user.Comments.Any(x => x.OfferId == request.OfferId))
+                throw new ForbiddenException();
+            
             // Create a new Comment
             var comment = new Comment
             {

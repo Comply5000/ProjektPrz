@@ -12,7 +12,7 @@
       <div class="profile element" v-if="islogin" @click="toggleDropdown">
         {{ email }}
         <div v-if="dropdownVisible" class="dropdown-menu">
-          <router-link to="/change-password" v-if="isExternal()">Zmiana hasła</router-link>
+          <router-link to="/change-password" v-if="!isExternal()">Zmiana hasła</router-link>
           <a href="#" @click.prevent="signOut">Wyloguj</a>
         </div>
       </div>
@@ -37,7 +37,7 @@ export default {
       return CheckUserRole('CompanyOwner');
     },
     isExternal() {
-      return localStorage.getItem('isExternal');
+      return localStorage.getItem('isExternal') === 'true';
     },
     signOut() {
       localStorage.removeItem('jwt');

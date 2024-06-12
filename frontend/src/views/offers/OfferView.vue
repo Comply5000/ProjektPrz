@@ -29,7 +29,7 @@
             <strong>{{ comment.createdBy }}: </strong> {{ comment.message }} <span class="stars">{{ '★'.repeat(comment.rating) }}</span>
           </li>
         </ul>
-        <div v-if="!offer.isUserCommented && isUser()" >
+        <div v-if="!offer.isUserCommented && isUser() && !isCompany()" >
             <input v-model="newComment.message" placeholder="Dodaj opinię" />
             <div>
               <label for="rating">Ocena: </label>
@@ -57,24 +57,28 @@
           <li v-for="question in questions" :key="question.id">
             <strong>{{ question.createdBy }}:</strong> {{ question.message }}
             <div class="odpowiedz" v-if="question.answer">
-
              Odpowiedz: {{ question.answer }}
+            </div>
+            <div class="odpowiedz" v-if="isCompany()">
+              <input v-model="questionAnswer[question.id]" placeholder="Odpowiedz" />
+              <button @click="sendAnswerQuestion(question.id)">Odpowiedz</button>
             </div>
             <hr>
           </li>
         </ul>
-        
-        <input v-model="newQuestion.message" placeholder="Dodaj pytanie" />
-        <div v-if="errorsQuestions">
-            <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
-              <li v-for="errorMsg in errorsQuestions" :key="errorMsg" class="error-message">
-                <div class="error">
-                    {{ errorMsg }}
-                </div>
-              </li>
-            </ul>
+        <div v-if="isUser() && !isCompany()" >
+          <input v-model="newQuestion.message" placeholder="Dodaj pytanie" />
+          <div v-if="errorsQuestions">
+              <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
+                <li v-for="errorMsg in errorsQuestions" :key="errorMsg" class="error-message">
+                  <div class="error">
+                      {{ errorMsg }}
+                  </div>
+                </li>
+              </ul>
+          </div>
+          <button @click="addQuestion">Dodaj</button>
         </div>
-        <button @click="addQuestion">Dodaj</button>
       </div>
       
     </div>
@@ -123,11 +127,14 @@ export default {
       },
       newQuestion: {
         message: ""
-
-      }
+      },
+      questionAnswer: []
     };
   },
   methods: {
+    isCompany() {
+      return CheckUserRole('CompanyOwner') && localStorage.getItem('companyId') === this.offer.companyId;
+    },
     isUser() {
       return CheckUserRole('User');
     },
@@ -186,7 +193,7 @@ export default {
       .then(response => {
           this.offer.name = response.data.name;
           this.offer.description = response.data.description ?? '';
-          this.offer.companyId = response.data.companyId ;
+          this.offer.companyId = response.data.companyId;
           this.offer.imageUrl =  response.data.imageUrl;
           this.offer.companyName = response.data.companyName ?? '';
           this.offer.id = response.data.id;
@@ -234,6 +241,7 @@ export default {
         }
          )
         .then(response => {
+          this.newQuestion.message = '';
           this.fetch();
           this.fetchQuestions();
           this.fetchComments();
@@ -242,8 +250,23 @@ export default {
         const errorsQuestions = [];
         handleErrors(error, errorsQuestions);
         this.errorsQuestions = this.errorsQuestions.concat(errorsQuestions);
-      });
-      
+      }); 
+    },
+    sendAnswerQuestion(questionId) {
+        const token = localStorage.getItem('jwt');
+        const answerObject = { answer: this.questionAnswer[questionId] };
+        axios.post(`/questions/${questionId}`,  answerObject, {
+          headers: {
+          'Authorization': `Bearer ${token}`
+          }
+        }
+         )
+        .then(response => {
+          this.questionAnswer.answer = '';
+          this.fetch();
+          this.fetchQuestions();
+          this.fetchComments();
+        })
     }
   }
     ,mounted()
