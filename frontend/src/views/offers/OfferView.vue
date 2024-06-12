@@ -57,7 +57,7 @@
           <li v-for="question in questions" :key="question.id">
             <strong>{{ question.createdBy }}:</strong> {{ question.message }}
             <div class="odpowiedz" v-if="question.answer">
-             Odpowiedz: {{ question.answer }}
+              Odpowiedz: {{ question.answer }}
             </div>
             <div class="odpowiedz" v-if="isCompany()">
               <input v-model="questionAnswer[question.id]" placeholder="Odpowiedz" />
@@ -255,14 +255,14 @@ export default {
     sendAnswerQuestion(questionId) {
         const token = localStorage.getItem('jwt');
         const answerObject = { answer: this.questionAnswer[questionId] };
-        axios.post(`/questions/${questionId}`,  answerObject, {
+        axios.post(`/questions/${questionId}/answer`,  answerObject, {
           headers: {
           'Authorization': `Bearer ${token}`
           }
         }
          )
         .then(response => {
-          this.questionAnswer.answer = '';
+          this.questionAnswer = []
           this.fetch();
           this.fetchQuestions();
           this.fetchComments();

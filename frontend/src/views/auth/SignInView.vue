@@ -2,7 +2,7 @@
   <NavBar />
   <!-- <Space /> -->
   <div class="vue-template">
-    <form>
+    <form @submit.prevent="submitForm">
     <div class="card">
       <h3>Logowanie</h3>
       <div class="mb-3">
@@ -17,7 +17,7 @@
         Zapomniałeś hasła? Kliknij 
       <RouterLink to="/forgot-password" class = "link">tutaj</RouterLink>
       </p>
-      <button type="button" @click="submitForm">Zaloguj się</button>
+      <button type="submit">Zaloguj się</button>
       <button class="gsi-material-button" @click="loginWithGoogle">
         <div class="gsi-material-button-state"></div>
         <div class="gsi-material-button-content-wrapper">

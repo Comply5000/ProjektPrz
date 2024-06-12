@@ -1,7 +1,7 @@
 <template>
     <NavBar />
     <div class="vue-template">
-      <form>
+      <form @submit.prevent="submitForm">
       <div class="card">
         <h3>Zmiana hasła</h3>
         <div class="mb-3">
@@ -16,7 +16,7 @@
           <label for="confirmedPassword">Potwierdź hasło:</label>
           <input type="password" id="newConfirmedPassword" class="form-control form-control-lg" v-model="form.newConfirmedPassword" required>
         </div>
-        <button type="button" @click="submitForm">Zmień</button>
+        <button type="submit">Zmień</button>
 
         <div v-if="errors">
             <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">

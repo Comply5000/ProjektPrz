@@ -2,7 +2,7 @@
   <NavBar />
   <!-- <Space /> -->
     <div class="vue-template">
-      <form>
+      <form @submit.prevent="submitForm">
       <div class="card">
         <h3>Rejestracja</h3>
         <div class="mb-3">
@@ -21,7 +21,7 @@
           <label for="confirmedPassword">Potwierdź hasło:</label>
           <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
         </div>
-        <button type="button" @click="submitForm">Zarejestruj się</button>
+        <button type="submit">Zarejestruj się</button>
         <p>
         Masz już konto? Zaloguj się  
       <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
