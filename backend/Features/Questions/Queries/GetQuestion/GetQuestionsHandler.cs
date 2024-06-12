@@ -19,13 +19,15 @@ namespace API.Features.Questions.Queries.GetQuestion
         {
             return await _context.Questions.AsNoTracking()
                 .Where(x => x.OfferId == request.OfferId)
+                .Include(x => x.User)
                 .Select(x => new QuestionModel
                 {
                     Id = x.Id,
                     Message = x.Message,
                     CreatedAt = x.CreatedAt,
                     AnsweredAt = x.AnsweredAt,
-                    Answer = x.Answer
+                    Answer = x.Answer,
+                    CreatedBy = x.User.Email
                 })
                 .ToListAsync(cancellationToken);
         }
