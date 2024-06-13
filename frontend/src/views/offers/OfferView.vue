@@ -28,7 +28,7 @@
           <li v-for="comment in comments" :key="comment.id">
             <strong>{{ comment.createdBy }}: </strong> {{ comment.message }} 
             <span class="stars">{{ '★'.repeat(comment.rating) }}</span>
-            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById)">Usuń</button>
+            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById)" @click="deleteComment(comment.id)">Usuń</button>
           </li>
         </ul>
         <div v-if="!offer.isUserCommented && isUser() && !isCompany()" >
@@ -58,7 +58,7 @@
         <ul>
           <li v-for="question in questions" :key="question.id">
             <strong>{{ question.createdBy }}:</strong> {{ question.message }}
-            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById)">Usuń</button>
+            <button id="remove-button" v-if="isUserComentOrQuestion(question.createdById)" @click="deleteQuestion(question.id)">Usuń</button>
             <div class="odpowiedz" v-if="question.answer">
               Odpowiedz: {{ question.answer }}
             </div>
@@ -239,9 +239,10 @@ export default {
     addQuestion() { 
       this.errorsQuestions = [];
       this.errors = [];
+      console.log(this.newQuestion);
       const offerid = this.$route.params.id;
       const token = localStorage.getItem('jwt');
-        axios.post(`/questions/${offerid.slice(1)}`,  this.newQuestion, {
+        axios.post(`/questions/${offerid.slice(1)}`, this.newQuestion, {
           headers: {
           'Authorization': `Bearer ${token}`
           }
@@ -274,14 +275,42 @@ export default {
           this.fetchQuestions();
           this.fetchComments();
         })
-    }
-  }
-    ,mounted()
-    {
-      this.fetch();
-      this.fetchComments();
-      this.fetchQuestions();
     },
+    deleteComment(commentId){
+      const token = localStorage.getItem('jwt');
+        axios.delete(`/comments/${commentId}`, {
+          headers: {
+          'Authorization': `Bearer ${token}`
+          }
+        }
+         )
+        .then(response => {
+          this.fetch();
+          this.fetchComments();
+          this.fetchQuestions();
+        });
+    },
+    deleteQuestion(questionId){
+      const token = localStorage.getItem('jwt');
+        axios.delete(`/questions/${questionId}`, {
+          headers: {
+          'Authorization': `Bearer ${token}`
+          }
+        }
+         )
+        .then(response => {
+          this.fetch();
+          this.fetchComments();
+          this.fetchQuestions();
+        });
+    }
+  },
+  mounted()
+  {
+    this.fetch();
+    this.fetchComments();
+    this.fetchQuestions();
+  }
 };
 </script>
 
@@ -309,6 +338,7 @@ body {
     font-size: 10px;  /* Bardzo mała czcionka */
     border-radius: 8px;  /* Zaokrąglone krawędzie */
     margin-left: 5px;
+    font-weight: bold;
 }
 
 .offer-main {
