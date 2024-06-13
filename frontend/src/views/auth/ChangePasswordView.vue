@@ -30,6 +30,7 @@
       </div>
       </form>
     </div>
+    <notification-component></notification-component>
   </template>
 
 <script>
@@ -65,7 +66,7 @@ export default {
         }
       })
       .then(response => {
-        alert('Hasło zostało zmienione');
+        this.$store.dispatch('showNotification', { message: 'Hasło zostało zmienione'});
         this.$router.push('/');
       })
       .catch(error => {

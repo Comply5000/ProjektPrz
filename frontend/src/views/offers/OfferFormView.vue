@@ -48,6 +48,7 @@
             <button type="submit" class="btn btn-primary">Wyślij</button>
         </form>
     </div>
+    <notification-component></notification-component>
 </template>
 
 <script>
@@ -165,7 +166,7 @@ export default {
       })
       .then(response => {
         this.formErrors = {};
-        alert('Oferta utworzona pomyslnie!');
+        this.$store.dispatch('showNotification', { message: 'Oferta utworzona pomyslnie!'});
         this.$router.push({ path: `/offer/edit:${response.data.id}` }).then(() => {
             this.$nextTick(() => {
                 this.fetch(response.data.id);

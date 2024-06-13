@@ -26,11 +26,11 @@
             userId: userId
         })
         .then(response => {
-            alert('Konto aktywowane. Wróć do panelu logowania');
+            this.$store.dispatch('showNotification', { message: 'Konto aktywowane. Wróć do panelu logowania'});
             this.$router.push('/sign-in');
         })
         .catch(error => {
-            alert('Coś poszło nie tak.');
+            this.$store.dispatch('showNotification', { message: 'Coś poszło nie tak.'});
             this.$router.push('/sign-in');
         });
     }

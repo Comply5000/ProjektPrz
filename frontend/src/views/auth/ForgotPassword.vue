@@ -22,6 +22,7 @@
       </div>
       </form>
     </div>
+    <notification-component></notification-component>
   </template>
   <script>
   import axios from '../../../config.js';
@@ -46,7 +47,7 @@
 
         axios.post('/user-identity/reset-password-request', {email: this.email})
       .then(response => {
-        alert('Sprawdź swoją skrzynkę w celu zmiany hasła');
+        this.$store.dispatch('showNotification', { message: 'Sprawdź swoją skrzynkę w celu zmiany hasła'});
         this.$router.push('/');
       })
       .catch(error => {

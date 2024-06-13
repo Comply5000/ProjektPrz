@@ -50,6 +50,7 @@
     </div>
     </form>
   </div>
+  <notification-component></notification-component>
 </template>
 <script>
  import NavBar from '@/components/NavBar.vue';
@@ -79,7 +80,6 @@ export default {
     },
     submitForm() {
       this.errors = [];
-
       axios.post('/user-identity/sign-in', this.form)
         .then(response => {
           localStorage.setItem('jwt', response.data.accessToken);
@@ -88,7 +88,7 @@ export default {
           localStorage.setItem('isExternal', response.data.isExternal);
           localStorage.setItem('userId', response.data.userId);
           SaveUserRoles(response.data.roles);
-          alert('Logowanie zakończone sukcesem!');
+          this.$store.dispatch('showNotification', { message: 'Logowanie zakończone sukcesem!'});
           this.$router.push('/');
         })
         .catch(error => {

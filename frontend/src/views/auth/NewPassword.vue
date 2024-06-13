@@ -26,6 +26,7 @@
       </div>
       </form>
     </div>
+    <notification-component></notification-component>
   </template>
   <script>
   import axios from '../../../config.js';
@@ -60,7 +61,7 @@
             userId: userId
         })
         .then(response => {
-          alert('Hasło zostało zmienione');
+          this.$store.dispatch('showNotification', { message: 'Hasło zostało zmienione'});
           this.$router.push('/sign-in');
         })
         .catch(error => {

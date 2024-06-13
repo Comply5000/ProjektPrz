@@ -34,6 +34,7 @@
             <button type="submit" class="btn btn-primary">Wyślij</button>
         </form>
     </div>
+    <notification-component></notification-component>
 </template>
 
 <script>
@@ -92,7 +93,7 @@ export default {
       .then(response => {
         this.formErrors = {};
         this.fetch();
-        alert('Firma zaktualizowana pomyślnie!');
+        this.$store.dispatch('showNotification', { message: 'Firma zaktualizowana pomyślnie!'});
       })
       .catch(error => {
         if (error.response && error.response.data) {

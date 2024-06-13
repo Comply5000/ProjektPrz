@@ -86,6 +86,7 @@
       
     </div>
   </div>
+  <notification-component></notification-component>
 </template>
 
 <script>

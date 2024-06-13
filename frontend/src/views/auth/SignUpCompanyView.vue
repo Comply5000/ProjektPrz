@@ -38,6 +38,7 @@
       </div>
       </form>
     </div>
+    <notification-component></notification-component>
   </template>
   <script>
    import axios from '../../../config.js';
@@ -69,7 +70,7 @@
 
         axios.post('/user-identity/sign-up-company', this.form)
           .then(response => {
-            alert('Na twój adres mailowy został wysłany link aktywacyjny. Aktywuj swoje konto by móc korzystać z platformy.');
+            this.$store.dispatch('showNotification', { message: 'Na twój adres mailowy został wysłany link aktywacyjny.'});
             this.$router.push('/sign-in');
             this.formErrors = {};
           })

@@ -51,6 +51,7 @@
       </ul>
     </nav>
   </div>
+  <notification-component></notification-component>
 </template>
 
 <script>
