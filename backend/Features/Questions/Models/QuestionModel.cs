@@ -9,6 +9,7 @@
         public DateTimeOffset? AnsweredAt { get; set; }
         
         public string CreatedBy { get; set; }
+        public Guid CreatedById { get; set; }
 
         public Guid Id { get; set; }
     }

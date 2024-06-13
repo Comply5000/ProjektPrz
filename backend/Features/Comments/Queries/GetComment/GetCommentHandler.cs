@@ -26,7 +26,8 @@ namespace API.Features.Comments.Queries.GetComment
                     Message = x.Message,
                     Rating = x.Rating,
                     CreatedAt = x.CreatedAt,
-                    CreatedBy = x.User.Email
+                    CreatedBy = x.User.Email,
+                    CreatedById = x.UserId
                 })
                 .ToListAsync(cancellationToken);
         }

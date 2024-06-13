@@ -27,7 +27,8 @@ namespace API.Features.Questions.Queries.GetQuestion
                     CreatedAt = x.CreatedAt,
                     AnsweredAt = x.AnsweredAt,
                     Answer = x.Answer,
-                    CreatedBy = x.User.Email
+                    CreatedBy = x.User.Email,
+                    CreatedById = x.UserId
                 })
                 .ToListAsync(cancellationToken);
         }
