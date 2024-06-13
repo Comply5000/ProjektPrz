@@ -86,6 +86,7 @@ export default {
           localStorage.setItem('email', response.data.email);
           localStorage.setItem('companyId', response.data.companyId);
           localStorage.setItem('isExternal', response.data.isExternal);
+          localStorage.setItem('userId', response.data.userId);
           SaveUserRoles(response.data.roles);
           alert('Logowanie zakończone sukcesem!');
           this.$router.push('/');

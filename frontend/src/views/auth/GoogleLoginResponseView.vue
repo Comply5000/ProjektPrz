@@ -22,6 +22,7 @@
                 localStorage.setItem('jwt', response.data.accessToken);
                 localStorage.setItem('email', response.data.email);
                 localStorage.setItem('isExternal', response.data.isExternal);
+                localStorage.setItem('userId', response.data.userId);
                 SaveUserRoles(response.data.roles);
                 this.$router.push('/');
             });

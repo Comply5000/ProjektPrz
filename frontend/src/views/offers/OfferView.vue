@@ -26,7 +26,9 @@
         <h4>Opinie</h4>
         <ul>
           <li v-for="comment in comments" :key="comment.id">
-            <strong>{{ comment.createdBy }}: </strong> {{ comment.message }} <span class="stars">{{ '★'.repeat(comment.rating) }}</span>
+            <strong>{{ comment.createdBy }}: </strong> {{ comment.message }} 
+            <span class="stars">{{ '★'.repeat(comment.rating) }}</span>
+            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById)">Usuń</button>
           </li>
         </ul>
         <div v-if="!offer.isUserCommented && isUser() && !isCompany()" >
@@ -56,6 +58,7 @@
         <ul>
           <li v-for="question in questions" :key="question.id">
             <strong>{{ question.createdBy }}:</strong> {{ question.message }}
+            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById)">Usuń</button>
             <div class="odpowiedz" v-if="question.answer">
               Odpowiedz: {{ question.answer }}
             </div>
@@ -137,6 +140,10 @@ export default {
     },
     isUser() {
       return CheckUserRole('User');
+    },
+    isUserComentOrQuestion(userId)
+    {
+      return CheckUserRole('User') && localStorage.getItem('userId') === userId;
     },
     getOfferTypeName(value) {
       return this.offerTypes[value];
@@ -292,6 +299,16 @@ body {
   flex-direction: column;
   margin-top: 0px;
   padding-top: 40px;
+}
+
+#remove-button {
+    background-color: red;  /* Czerwone tło */
+    color: black;  /* Biały tekst */
+    border: none;  /* Brak obramowania */
+    padding: 2px 5px;  /* Bardzo małe paddingi */
+    font-size: 10px;  /* Bardzo mała czcionka */
+    border-radius: 8px;  /* Zaokrąglone krawędzie */
+    margin-left: 5px;
 }
 
 .offer-main {

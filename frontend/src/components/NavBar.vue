@@ -44,6 +44,7 @@ export default {
       localStorage.removeItem('roles');
       localStorage.removeItem('isExternal');
       localStorage.removeItem('companyId');
+      localStorage.removeItem('userId');
       location.reload();
       this.$router.push('/');
     },
