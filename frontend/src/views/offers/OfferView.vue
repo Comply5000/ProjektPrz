@@ -28,7 +28,7 @@
           <li v-for="comment in comments" :key="comment.id">
             <strong>{{ comment.createdBy }}: </strong> {{ comment.message }} 
             <span class="stars">{{ '★'.repeat(comment.rating) }}</span>
-            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById)" @click="deleteComment(comment.id)">Usuń</button>
+            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById) || isAdmin()" @click="deleteComment(comment.id)">Usuń</button>
           </li>
         </ul>
         <div v-if="!offer.isUserCommented && isUser() && !isCompany()" >
@@ -58,7 +58,7 @@
         <ul>
           <li v-for="question in questions" :key="question.id">
             <strong>{{ question.createdBy }}:</strong> {{ question.message }}
-            <button id="remove-button" v-if="isUserComentOrQuestion(question.createdById)" @click="deleteQuestion(question.id)">Usuń</button>
+            <button id="remove-button" v-if="isUserComentOrQuestion(question.createdById) || isAdmin()" @click="deleteQuestion(question.id)">Usuń</button>
             <div class="odpowiedz" v-if="question.answer">
               Odpowiedz: {{ question.answer }}
             </div>
@@ -145,6 +145,10 @@ export default {
     isUserComentOrQuestion(userId)
     {
       return CheckUserRole('User') && localStorage.getItem('userId') === userId;
+    },
+    isAdmin()
+    {
+      return CheckUserRole('Admin');
     },
     getOfferTypeName(value) {
       return this.offerTypes[value];
@@ -278,8 +282,12 @@ export default {
         })
     },
     deleteComment(commentId){
+      let endpointSuffix = '';
+      if(this.isAdmin())
+        endpointSuffix = '/admin';
+
       const token = localStorage.getItem('jwt');
-        axios.delete(`/comments/${commentId}`, {
+        axios.delete(`/comments/${commentId}${endpointSuffix}`, {
           headers: {
           'Authorization': `Bearer ${token}`
           }
@@ -292,8 +300,12 @@ export default {
         });
     },
     deleteQuestion(questionId){
+      let endpointSuffix = '';
+      if(this.isAdmin())
+        endpointSuffix = '/admin';
+
       const token = localStorage.getItem('jwt');
-        axios.delete(`/questions/${questionId}`, {
+        axios.delete(`/questions/${questionId}${endpointSuffix}`, {
           headers: {
           'Authorization': `Bearer ${token}`
           }

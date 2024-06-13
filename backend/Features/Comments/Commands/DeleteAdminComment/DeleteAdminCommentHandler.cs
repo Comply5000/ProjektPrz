@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Features.Comments.Commands.DeleteAdminComment;
 
-public class DeleteAdminCommentHandler : IRequestHandler<DeleteCommentCommand>
+public class DeleteAdminCommentHandler : IRequestHandler<DeleteAdminCommentCommand>
 {
     private readonly EFContext _context;
 
@@ -17,7 +17,7 @@ public class DeleteAdminCommentHandler : IRequestHandler<DeleteCommentCommand>
         _context = context;
     }
 
-    public async Task Handle(DeleteCommentCommand request, CancellationToken cancellationToken)
+    public async Task Handle(DeleteAdminCommentCommand request, CancellationToken cancellationToken)
     {
         var comment = await _context.Comments.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
             ?? throw new CommentNotFoundExeption();
