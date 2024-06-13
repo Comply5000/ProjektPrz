@@ -332,7 +332,7 @@ body {
 
 #remove-button {
     background-color: red;  /* Czerwone tło */
-    color: black;  /* Biały tekst */
+    color: white;  /* Biały tekst */
     border: none;  /* Brak obramowania */
     padding: 2px 5px;  /* Bardzo małe paddingi */
     font-size: 10px;  /* Bardzo mała czcionka */

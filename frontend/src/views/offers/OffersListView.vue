@@ -41,6 +41,9 @@
                   <p>Ocena: {{ offer.rating }}</p>
                   <p>Opis: {{ offer.description }}</p>
                 </div>
+                <div class="offer-actions">
+                  <button class="delete-button" @click="deleteOffer(offer.id)">Usuń</button>
+                </div>
               </div>
               <div class="offer-image">
                 <img :src="offer.imageUrl" :alt="'Offer Image ' + (index + 1)" v-if="offer.imageUrl">
@@ -245,6 +248,19 @@ input[type="checkbox"] {
   margin: -4px;
 }
 
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
 .offer-type {
   padding: 5px 10px;
   border-radius: 5px;
@@ -290,5 +306,13 @@ input[type="checkbox"] {
 .pagination .page-item.active .page-link:hover {
   background-color: #218838;
   border-color: #1e7e34;
+}
+
+.offer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
 }
 </style>
