@@ -8,6 +8,7 @@ using API.Attributes;
 using API.Features.Identity.Static;
 using API.Features.Questions.Commands.AnswerQuestion;
 using API.Features.Questions.Commands.Create;
+using API.Features.Questions.Commands.DeleteAdminQuestion;
 using API.Features.Questions.Commands.DeleteQuestion;
 using API.Features.Questions.Queries.GetQuestion;
 
@@ -57,6 +58,18 @@ namespace API.Features.Questions.Controllers
             await _mediator.Send(new DeleteQuestionCommand(id));
             return Ok();
         }
+        
+        //Delete Question
+        [HttpDelete("{id:guid}/admin")]
+        [ApiAuthorize(UserRoles.Admin)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteAdminQuestion([FromRoute] Guid id)
+        {
+            await _mediator.Send(new DeleteAdminQuestionCommand(id));
+            return Ok();
+        }
+        
         //Get Question
         [HttpGet("{offerId:guid}")]
         [ProducesResponseType(StatusCodes.Status201Created)]

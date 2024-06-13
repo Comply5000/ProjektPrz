@@ -4,6 +4,7 @@ using API.Features.Comments.Queries.GetComment;
 using Microsoft.AspNetCore.Mvc;
 using API.Features.Companies.Queries.GetCompanies;
 using API.Features.Comments.Commands.CreateComment;
+using API.Features.Comments.Commands.DeleteAdminComment;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using API.Features.Comments.Controllers;
@@ -46,11 +47,23 @@ public class CommentsController : ControllerBase
 
     //Delete Commment
     [HttpDelete("{id:guid}")]
+    [ApiAuthorize(UserRoles.User)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> DeleteComment([FromRoute] Guid id)
     {
         await _mediator.Send(new DeleteCommentCommand(id));
+        return Ok();
+    }
+    
+    //Delete Admin Commment
+    [HttpDelete("{id:guid}/admin")]
+    [ApiAuthorize(UserRoles.Admin)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteAdminComment([FromRoute] Guid id)
+    {
+        await _mediator.Send(new DeleteAdminCommentCommand(id));
         return Ok();
     }
 }

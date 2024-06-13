@@ -5,6 +5,7 @@ using API.Features.Identity.Services;
 using Microsoft.EntityFrameworkCore;
 using API.Features.Comments.Exeptions;
 using System.Threading;
+using API.Common.Exceptions;
 using MediatR;
 
 namespace API.Features.Comments.Commands.DeleteComment;
@@ -25,6 +26,11 @@ public class DeleteCommentHandler : IRequestHandler<DeleteCommentCommand>
         var comment = await _context.Comments.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
             ?? throw new CommentNotFoundExeption();
 
+        if (comment.UserId != _currentUserService.UserId)
+        {
+            throw new ForbiddenException();
+        }
+        
         _context.Remove(comment);
         await _context.SaveChangesAsync(cancellationToken);
 
