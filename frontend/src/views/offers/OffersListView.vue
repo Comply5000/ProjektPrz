@@ -42,7 +42,7 @@
                   <p>Opis: {{ offer.description }}</p>
                 </div>
                 <div class="offer-actions">
-                  <button class="delete-button" @click="deleteOffer(offer.id)">Usuń</button>
+                  <button class="delete-button" @click="deleteOffer(offer.id)" v-if="isAdmin()">Usuń</button>
                 </div>
               </div>
               <div class="offer-image">
@@ -80,6 +80,7 @@
 <script>
 import axios from '../../../config.js';
 import NavBar from '@/components/NavBar.vue';
+import { CheckUserRole } from '../../services/UserService.js';
 
 export default {
   components: {
@@ -148,6 +149,20 @@ export default {
     },
     getOfferTypeName(value) {
       return this.offerTypes[value];
+    },
+    deleteOffer(offerId) {
+      const token = localStorage.getItem('jwt');
+      axios.delete(`/offers/${offerId}/admin`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        this.fetchOffers();
+      });
+    },
+    isAdmin() {
+      return CheckUserRole('Admin');
     }
   },
   watch: {

@@ -2,6 +2,7 @@
 using API.Features.Companies.Queries.GetCompanies;
 using API.Features.Identity.Static;
 using API.Features.Offers.Commands.CreateOffer;
+using API.Features.Offers.Commands.DeleteAdminOffer;
 using API.Features.Offers.Commands.DeleteOffer;
 using API.Features.Offers.Commands.UpdateOffer;
 using API.Features.Offers.Queries.GetCompanyOffersList;
@@ -106,6 +107,17 @@ namespace API.Features.Offers.Controllers
         public async Task<IActionResult> DeleteOffer([FromRoute] Guid id)
         {
             await _mediator.Send(new DeleteOfferCommand(id));
+            return Ok();
+        }
+        
+        //Delete admin Offer
+        [HttpDelete("{id:guid}/admin")]
+        [ApiAuthorize(UserRoles.Admin)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteAdminOffer([FromRoute] Guid id)
+        {
+            await _mediator.Send(new DeleteAdminOfferCommand(id));
             return Ok();
         }
 
