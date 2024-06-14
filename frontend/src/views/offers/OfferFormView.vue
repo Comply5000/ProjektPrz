@@ -45,7 +45,7 @@
                 <input type="file" @change="onFileChange" accept="image/*" /> <br>
                 <button class="reset-image-button" type="button" @click="resetImage">Resetuj obraz</button>
             </div>
-            <button type="submit" class="btn btn-primary">Wyślij</button>
+            <button type="submit" class="btn btn-primary">Zapisz</button>
         </form>
     </div>
     <notification-component></notification-component>
@@ -134,7 +134,7 @@ export default {
         .then(response => {
             this.formErrors = {};
             this.fetch(response.data.id);
-            alert('Oferta zaktualizowana pomyslnie!');
+            this.$store.dispatch('showNotification', { message: 'Oferta zaktualizowana pomyslnie!'});
         })
         .catch(error => {
             if (error.response && error.response.data) {
