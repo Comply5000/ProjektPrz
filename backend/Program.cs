@@ -55,16 +55,18 @@ Globals.ApplicationUrl = builder.Configuration.GetValue<string>("ApplicationConf
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-app.UseSwagger(c =>
+if (app.Environment.IsDevelopment())
 {
-    c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
-});
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Projekt PRZ API V1");
-    c.RoutePrefix = "api/swagger";
-});
+    app.UseSwagger(c =>
+    {
+        c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
+    });
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Projekt PRZ API V1");
+        c.RoutePrefix = "api/swagger";
+    });
+}
 
 app.UseForwardedHeaders(); 
 app.UseHttpsRedirection();
