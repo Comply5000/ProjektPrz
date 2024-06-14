@@ -110,7 +110,6 @@ export default {
         companyName: '',
         isUserCommented: false,
         rating: 0,
-        isFavorite: false,
         type: ""
       },
       offerTypes: {
@@ -152,19 +151,6 @@ export default {
     },
     getOfferTypeName(value) {
       return this.offerTypes[value];
-    },
-    toggleFavorite() {
-      const token = localStorage.getItem('jwt');
-      console.log(token);
-      axios.put(`/offers/${this.offer.id}/add-to-favourite`,{}, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-          this.fetch();
-      });
-      // Tu możesz dodać logikę do zapisu stanu ulubionych, np. zapisu do lokalnej pamięci lub wysłania do serwera
     },
     fetchComments() {
       const offerid = this.$route.params.id;
@@ -211,7 +197,6 @@ export default {
           this.offer.id = response.data.id;
           this.offer.isUserCommented = response.data.isUserCommented;
           this.offer.rating = response.data.rating;
-          this.offer.isFavorite = response.data.favourite;
           this.offer.type = response.data.type;
       });
       },
