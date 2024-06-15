@@ -1,146 +1,146 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'offers-list',
+      path: "/",
+      name: "offers-list",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/offers/OffersListView.vue')
+      component: () => import("../views/offers/OffersListView.vue"),
     },
     {
-      path: '/about',
-      name: 'about',
+      path: "/about",
+      name: "about",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import("../views/AboutView.vue"),
     },
     {
-      path: '/sign-up',
-      name: 'sign-up',
+      path: "/sign-up",
+      name: "sign-up",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/auth/SignUpView.vue')
+      component: () => import("../views/auth/SignUpView.vue"),
     },
     {
-      path: '/sign-in',
-      name: 'sign-in',
+      path: "/sign-in",
+      name: "sign-in",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/auth/SignInView.vue')
+      component: () => import("../views/auth/SignInView.vue"),
     },
     {
-      path: '/google-response',
-      name: 'google-response',
+      path: "/google-response",
+      name: "google-response",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/auth/GoogleLoginResponseView.vue')
+      component: () => import("../views/auth/GoogleLoginResponseView.vue"),
     },
     {
-      path: '/sign-up-company',
-      name: 'sign-up-company',
+      path: "/sign-up-company",
+      name: "sign-up-company",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/auth/SignUpCompanyView.vue')
+      component: () => import("../views/auth/SignUpCompanyView.vue"),
     },
     {
-    path: '/forgot-password',
-      name: 'forgot-password',
+      path: "/forgot-password",
+      name: "forgot-password",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/auth/ForgotPassword.vue')
+      component: () => import("../views/auth/ForgotPassword.vue"),
     },
     {
-        path: '/change-password',
-        name: 'change-password',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/auth/ChangePasswordView.vue')
-    },
-    {
-      path: '/confirm-account',
-        name: 'confirm-account',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/auth/ConfirmAccountView.vue')
-      },
-    {
-      path: '/reset-password',
-      name: 'reset-password',
+      path: "/change-password",
+      name: "change-password",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/auth/NewPassword.vue')
+      component: () => import("../views/auth/ChangePasswordView.vue"),
     },
     {
-      path: '/update-company',
-        name: 'update-company',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/companies/CompanyFormView.vue')
-    },
-    {
-      path: '/offer:id',
-        name: 'offer',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/offers/OfferView.vue')
-    },
-    {
-      path: '/company-view:id',
-        name: 'CompanyView',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/companies/CompanyView.vue')
-    },
-    {
-      path: '/company-offers-list',
-        name: 'company-offers-list',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/companies/CompanyOffersList.vue')
-    },
-    {
-      path: '/company-list',
-      name: 'company-list',
+      path: "/confirm-account",
+      name: "confirm-account",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/companies/CompanyListView.vue')
+      component: () => import("../views/auth/ConfirmAccountView.vue"),
     },
     {
-      path: '/offer/new',
-        name: 'offer-new',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/offers/OfferFormView.vue')
+      path: "/reset-password",
+      name: "reset-password",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/auth/NewPassword.vue"),
     },
     {
-      path: '/offer/edit:id',
-        name: 'offer-edit',
-        // route level code-splitting
-        // this generates a separate chunk (About.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('../views/offers/OfferFormView.vue')
-    }
-  ]
-})
+      path: "/update-company",
+      name: "update-company",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/companies/CompanyFormView.vue"),
+    },
+    {
+      path: "/offer:id",
+      name: "offer",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/offers/OfferView.vue"),
+    },
+    {
+      path: "/company-view:id",
+      name: "CompanyView",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/companies/CompanyView.vue"),
+    },
+    {
+      path: "/company-offers-list",
+      name: "company-offers-list",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/companies/CompanyOffersList.vue"),
+    },
+    {
+      path: "/company-list",
+      name: "company-list",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/companies/CompanyListView.vue"),
+    },
+    {
+      path: "/offer/new",
+      name: "offer-new",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/offers/OfferFormView.vue"),
+    },
+    {
+      path: "/offer/edit:id",
+      name: "offer-edit",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/offers/OfferFormView.vue"),
+    },
+  ],
+});
 
-export default router
+export default router;

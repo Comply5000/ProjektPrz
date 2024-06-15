@@ -3,101 +3,148 @@
   <!-- <Space /> -->
   <div class="vue-template">
     <form @submit.prevent="submitForm">
-    <div class="card">
-      <h3>Logowanie</h3>
-      <div class="mb-3">
-        <label for="email">Podaj swój adres Email:</label>
-        <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required>
-      </div>
-      <div class="mb-3">
-        <label for="password"> Podaj Hasło:</label>
-        <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
-      </div>
-      <p>
-        Zapomniałeś hasła? Kliknij 
-      <RouterLink to="/forgot-password" class = "link">tutaj</RouterLink>
-      </p>
-      <button type="submit">Zaloguj się</button>
-      <button class="gsi-material-button" @click="loginWithGoogle">
-        <div class="gsi-material-button-state"></div>
-        <div class="gsi-material-button-content-wrapper">
-          <div class="gsi-material-button-icon">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
-              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-              <path fill="none" d="M0 0h48v48H0z"></path>
-            </svg>
-          </div>
-          <span class="gsi-material-button-contents">Zaloguj się przez Google</span>
-          <span style="display: none;">Zaloguj się przez Google</span>
+      <div class="card">
+        <h3>Logowanie</h3>
+        <div class="mb-3">
+          <label for="email">Podaj swój adres Email:</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control form-control-lg"
+            v-model="form.email"
+            required
+          />
         </div>
-      </button>
-      <p>
-        Załóż konto 
-      <RouterLink to="/sign-up" class = "link">tutaj</RouterLink>
-      </p>
-      <div v-if="errors">
-          <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
-            <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+        <div class="mb-3">
+          <label for="password"> Podaj Hasło:</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control form-control-lg"
+            v-model="form.password"
+            required
+          />
+        </div>
+        <p>
+          Zapomniałeś hasła? Kliknij
+          <RouterLink to="/forgot-password" class="link">tutaj</RouterLink>
+        </p>
+        <button type="submit">Zaloguj się</button>
+        <button class="gsi-material-button" @click="loginWithGoogle">
+          <div class="gsi-material-button-state"></div>
+          <div class="gsi-material-button-content-wrapper">
+            <div class="gsi-material-button-icon">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                style="display: block"
+              >
+                <path
+                  fill="#EA4335"
+                  d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+                ></path>
+                <path
+                  fill="#4285F4"
+                  d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+                ></path>
+                <path
+                  fill="#FBBC05"
+                  d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+                ></path>
+                <path
+                  fill="#34A853"
+                  d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+                ></path>
+                <path fill="none" d="M0 0h48v48H0z"></path>
+              </svg>
+            </div>
+            <span class="gsi-material-button-contents"
+              >Zaloguj się przez Google</span
+            >
+            <span style="display: none">Zaloguj się przez Google</span>
+          </div>
+        </button>
+        <p>
+          Załóż konto
+          <RouterLink to="/sign-up" class="link">tutaj</RouterLink>
+        </p>
+        <div v-if="errors">
+          <ul
+            style="
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              margin-top: 10px;
+            "
+          >
+            <li
+              v-for="errorMsg in errors"
+              :key="errorMsg"
+              class="error-message"
+            >
               <div class="error">
-                  {{ errorMsg }}
+                {{ errorMsg }}
               </div>
             </li>
           </ul>
+        </div>
       </div>
-    </div>
     </form>
   </div>
   <notification-component></notification-component>
 </template>
 <script>
- import NavBar from '@/components/NavBar.vue';
- import Space from '@/components/Space.vue';
-import axios from '../../../config.js';
-import {SaveUserRoles} from '../../services/UserService.js';
-import { handleErrors } from '../../../errorHandler.js';
+import NavBar from "@/components/NavBar.vue";
+import Space from "@/components/Space.vue";
+import axios from "../../../config.js";
+import { SaveUserRoles } from "../../services/UserService.js";
+import { handleErrors } from "../../../errorHandler.js";
 
 export default {
-  name: 'RegisterForm',
+  name: "RegisterForm",
   components: {
     NavBar,
-    Space
+    Space,
   },
   data() {
     return {
       form: {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
       },
-      errors: []
+      errors: [],
     };
   },
   methods: {
     loginWithGoogle() {
-      window.location.href = 'https://api-projekt-prz.comply.ovh/api/user-identity/signin-google';
+      window.location.href =
+        "https://api-projekt-prz.comply.ovh/api/user-identity/signin-google";
     },
     submitForm() {
       this.errors = [];
-      axios.post('/user-identity/sign-in', this.form)
-        .then(response => {
-          localStorage.setItem('jwt', response.data.accessToken);
-          localStorage.setItem('email', response.data.email);
-          localStorage.setItem('companyId', response.data.companyId);
-          localStorage.setItem('isExternal', response.data.isExternal);
-          localStorage.setItem('userId', response.data.userId);
+      axios
+        .post("/user-identity/sign-in", this.form)
+        .then((response) => {
+          localStorage.setItem("jwt", response.data.accessToken);
+          localStorage.setItem("email", response.data.email);
+          localStorage.setItem("companyId", response.data.companyId);
+          localStorage.setItem("isExternal", response.data.isExternal);
+          localStorage.setItem("userId", response.data.userId);
           SaveUserRoles(response.data.roles);
-          this.$store.dispatch('showNotification', { message: 'Logowanie zakończone sukcesem!'});
-          this.$router.push('/');
+          this.$store.dispatch("showNotification", {
+            message: "Logowanie zakończone sukcesem!",
+          });
+          this.$router.push("/");
         })
-        .catch(error => {
+        .catch((error) => {
           const errors = [];
           handleErrors(error, errors);
           this.errors = this.errors.concat(errors);
-      });
-    }
-  }
+        });
+    },
+  },
 };
 </script>
 <style scoped>
@@ -111,65 +158,66 @@ export default {
   padding-top: 80px;
 }
 
-.link{
+.link {
   color: rgb(40, 167, 69);
 }
 
 .card {
-width: 450px; /* Zdefiniowanie szerokości karty */
-background: #ffffff;
-box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-padding: 30px;
-border-radius: 15px;
-margin: auto; /* Wyśrodkowanie w kontenerze flex */
+  width: 450px; /* Zdefiniowanie szerokości karty */
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  margin: auto; /* Wyśrodkowanie w kontenerze flex */
 }
 
 .form-control {
-width: 100%; /* Pełna szerokość w kontekście rodzica */
-margin-bottom: 20px; /* Odległość między polami formularza */
+  width: 100%; /* Pełna szerokość w kontekście rodzica */
+  margin-bottom: 20px; /* Odległość między polami formularza */
 }
 
 .form-control:focus {
-border-color: #252528;
-box-shadow: none;
+  border-color: #252528;
+  box-shadow: none;
 }
 
 /* Nagłówek w formularzu */
 .card h3 {
-text-align: center;
-margin: 0 0 20px 0; /* Usunięcie marginesu dolnego */
-line-height: 1;
+  text-align: center;
+  margin: 0 0 20px 0; /* Usunięcie marginesu dolnego */
+  line-height: 1;
 }
 
 /* Etykiety */
 label {
-display: block; /* Etykiety w nowej linii */
-font-weight: 500;
-margin-bottom: 5px; /* Margines dla lepszej czytelności */
+  display: block; /* Etykiety w nowej linii */
+  font-weight: 500;
+  margin-bottom: 5px; /* Margines dla lepszej czytelności */
 }
 
 /* Przyciski i linki */
 button {
-width: 100%; /* Pełna szerokość */
-padding: 10px; /* Wygodniejsze klikanie */
-margin-top: 10px; /* Odległość od ostatniego elementu formularza */
+  width: 100%; /* Pełna szerokość */
+  padding: 10px; /* Wygodniejsze klikanie */
+  margin-top: 10px; /* Odległość od ostatniego elementu formularza */
 }
 
 .forgot-password,
 .forgot-password a {
-text-align: right;
-font-size: 13px;
-color: #7a7a7a;
-margin: 10px 0 0 0; /* Usunięcie domyślnego marginesu */
+  text-align: right;
+  font-size: 13px;
+  color: #7a7a7a;
+  margin: 10px 0 0 0; /* Usunięcie domyślnego marginesu */
 }
 
 /* Usunięcie niepotrzebnych klas */
-.vertical-center, .inner-block {
-display: none;
+.vertical-center,
+.inner-block {
+  display: none;
 }
 
 h3 {
-font-weight: bold;
+  font-weight: bold;
 }
 
 .error {
@@ -190,7 +238,7 @@ font-weight: bold;
   box-sizing: border-box;
   color: #1f1f1f;
   cursor: pointer;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   font-size: 14px;
   height: 40px;
   letter-spacing: 0.25px;
@@ -199,8 +247,9 @@ font-weight: bold;
   padding: 0 12px;
   position: relative;
   text-align: center;
-  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
-  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  -webkit-transition: background-color 0.218s, border-color 0.218s,
+    box-shadow 0.218s;
+  transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
@@ -232,7 +281,7 @@ font-weight: bold;
 .gsi-material-button .gsi-material-button-contents {
   -webkit-flex-grow: 1;
   flex-grow: 1;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -240,8 +289,8 @@ font-weight: bold;
 }
 
 .gsi-material-button .gsi-material-button-state {
-  -webkit-transition: opacity .218s;
-  transition: opacity .218s;
+  -webkit-transition: opacity 0.218s;
+  transition: opacity 0.218s;
   bottom: 0;
   left: 0;
   opacity: 0;
@@ -264,21 +313,21 @@ font-weight: bold;
   opacity: 38%;
 }
 
-.gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+.gsi-material-button:not(:disabled):active .gsi-material-button-state,
 .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
   background-color: #303030;
   opacity: 12%;
 }
 
 .gsi-material-button:not(:disabled):hover {
-  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
 }
 
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
   background-color: #303030;
   opacity: 8%;
 }
-
-
 </style>

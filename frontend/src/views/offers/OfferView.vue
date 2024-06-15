@@ -3,120 +3,158 @@
   <div class="offer-container">
     <div class="offer-main">
       <div class="offer-company">
-        <div class="offer-left"> 
-          <h3 class="offer-name">{{ offer.name }} 
+        <div class="offer-left">
+          <h3 class="offer-name">
+            {{ offer.name }}
             <!--TU ISUSER() DO ZMIANY BD-->
-           
-          
           </h3>
           <p class="company-name">{{ offer.companyName }}</p>
-          <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.type) }}</span></p>
-          
-          <p>Ocena: {{offer.rating}}</p>
-          
+          <p>
+            Typ:
+            <span class="offer-type">{{ getOfferTypeName(offer.type) }}</span>
+          </p>
+
+          <p>Ocena: {{ offer.rating }}</p>
         </div>
         <div class="offer-image">
-          <img :src="offer.imageUrl" :alt="'Offer Image'">
+          <img :src="offer.imageUrl" :alt="'Offer Image'" />
         </div>
       </div>
       <div class="offeropis">
-        {{offer.description}}
+        {{ offer.description }}
       </div>
       <div class="reviews-section">
         <h4>Opinie</h4>
         <ul>
           <li v-for="comment in comments" :key="comment.id">
-            <strong>{{ comment.createdBy }}: </strong> {{ comment.message }} 
-            <span class="stars">{{ '★'.repeat(comment.rating) }}</span>
-            <button id="remove-button" v-if="isUserComentOrQuestion(comment.createdById) || isAdmin()" @click="deleteComment(comment.id)">Usuń</button>
+            <strong>{{ comment.createdBy }}: </strong> {{ comment.message }}
+            <span class="stars">{{ "★".repeat(comment.rating) }}</span>
+            <button
+              id="remove-button"
+              v-if="isUserComentOrQuestion(comment.createdById) || isAdmin()"
+              @click="deleteComment(comment.id)"
+            >
+              Usuń
+            </button>
           </li>
         </ul>
-        <div v-if="!offer.isUserCommented && isUser() && !isCompany()" >
-            <input v-model="newComment.message" placeholder="Dodaj opinię" />
-            <div>
-              <label for="rating">Ocena: </label>
-              <select v-model="newComment.rating" id="rating">
-                <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-              </select>
-            </div>
-            <div v-if="errors">
-            <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
-              <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+        <div v-if="!offer.isUserCommented && isUser() && !isCompany()">
+          <input v-model="newComment.message" placeholder="Dodaj opinię" />
+          <div>
+            <label for="rating">Ocena: </label>
+            <select v-model="newComment.rating" id="rating">
+              <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
+            </select>
+          </div>
+          <div v-if="errors">
+            <ul
+              style="
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                margin-top: 10px;
+              "
+            >
+              <li
+                v-for="errorMsg in errors"
+                :key="errorMsg"
+                class="error-message"
+              >
                 <div class="error">
-                    {{ errorMsg }}
+                  {{ errorMsg }}
                 </div>
               </li>
             </ul>
-        </div>
-            <button @click="addComment">Dodaj</button>
+          </div>
+          <button @click="addComment">Dodaj</button>
         </div>
       </div>
-      
-     
+
       <div class="comments-section">
         <h4>Pytania</h4>
         <ul>
           <li v-for="question in questions" :key="question.id">
             <strong>{{ question.createdBy }}:</strong> {{ question.message }}
-            <button id="remove-button" v-if="isUserComentOrQuestion(question.createdById) || isAdmin()" @click="deleteQuestion(question.id)">Usuń</button>
+            <button
+              id="remove-button"
+              v-if="isUserComentOrQuestion(question.createdById) || isAdmin()"
+              @click="deleteQuestion(question.id)"
+            >
+              Usuń
+            </button>
             <div class="odpowiedz" v-if="question.answer">
               Odpowiedz: {{ question.answer }}
             </div>
             <div class="odpowiedz" v-if="isCompany()">
-              <input v-model="questionAnswer[question.id]" placeholder="Odpowiedz" />
-              <button @click="sendAnswerQuestion(question.id)">Odpowiedz</button>
+              <input
+                v-model="questionAnswer[question.id]"
+                placeholder="Odpowiedz"
+              />
+              <button @click="sendAnswerQuestion(question.id)">
+                Odpowiedz
+              </button>
             </div>
-            <hr>
+            <hr />
           </li>
         </ul>
-        <div v-if="isUser() && !isCompany()" >
+        <div v-if="isUser() && !isCompany()">
           <input v-model="newQuestion.message" placeholder="Dodaj pytanie" />
           <div v-if="errorsQuestions">
-              <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
-                <li v-for="errorMsg in errorsQuestions" :key="errorMsg" class="error-message">
-                  <div class="error">
-                      {{ errorMsg }}
-                  </div>
-                </li>
-              </ul>
+            <ul
+              style="
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                margin-top: 10px;
+              "
+            >
+              <li
+                v-for="errorMsg in errorsQuestions"
+                :key="errorMsg"
+                class="error-message"
+              >
+                <div class="error">
+                  {{ errorMsg }}
+                </div>
+              </li>
+            </ul>
           </div>
           <button @click="addQuestion">Dodaj</button>
         </div>
       </div>
-      
     </div>
   </div>
   <notification-component></notification-component>
 </template>
 
 <script>
-import { CheckUserRole } from '../../services/UserService.js';
-import axios from '../../../config.js';
-import NavBar from '@/components/NavBar.vue';
-import Space from '@/components/Space.vue';
-import { handleErrors } from '../../../errorHandler.js';
+import { CheckUserRole } from "../../services/UserService.js";
+import axios from "../../../config.js";
+import NavBar from "@/components/NavBar.vue";
+import Space from "@/components/Space.vue";
+import { handleErrors } from "../../../errorHandler.js";
 export default {
   components: {
-    NavBar
+    NavBar,
   },
   data() {
     return {
       offer: {
         id: null,
-        name: '',
+        name: "",
         description: ``,
         imageUrl: "",
         companyId: null,
-        companyName: '',
+        companyName: "",
         isUserCommented: false,
         rating: 0,
-        type: ""
+        type: "",
       },
       offerTypes: {
-        1: 'Produkt',
-        2: 'Usługa',
-        3: 'Promocja',
-        4: 'Program lojalnościowy'
+        1: "Produkt",
+        2: "Usługa",
+        3: "Promocja",
+        4: "Program lojalnościowy",
       },
       comments: [],
       questions: [],
@@ -124,191 +162,183 @@ export default {
       errors: [],
       newComment: {
         message: "",
-        rating: 0
-
-
+        rating: 0,
       },
       newQuestion: {
-        message: ""
+        message: "",
       },
-      questionAnswer: []
+      questionAnswer: [],
     };
   },
   methods: {
     isCompany() {
-      return CheckUserRole('CompanyOwner') && localStorage.getItem('companyId') === this.offer.companyId;
+      return (
+        CheckUserRole("CompanyOwner") &&
+        localStorage.getItem("companyId") === this.offer.companyId
+      );
     },
     isUser() {
-      return CheckUserRole('User');
+      return CheckUserRole("User");
     },
-    isUserComentOrQuestion(userId)
-    {
-      return CheckUserRole('User') && localStorage.getItem('userId') === userId;
+    isUserComentOrQuestion(userId) {
+      return CheckUserRole("User") && localStorage.getItem("userId") === userId;
     },
-    isAdmin()
-    {
-      return CheckUserRole('Admin');
+    isAdmin() {
+      return CheckUserRole("Admin");
     },
     getOfferTypeName(value) {
       return this.offerTypes[value];
     },
     fetchComments() {
       const offerid = this.$route.params.id;
-      const token = localStorage.getItem('jwt');
-      axios.get(`/comments/${offerid.slice(1)}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-          
+      const token = localStorage.getItem("jwt");
+      axios
+        .get(`/comments/${offerid.slice(1)}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.comments = response.data;
-         
-      });
-      },
-      fetchQuestions() {
+        });
+    },
+    fetchQuestions() {
       const offerid = this.$route.params.id;
-      const token = localStorage.getItem('jwt');
-      axios.get(`/questions/${offerid.slice(1)}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-          
+      const token = localStorage.getItem("jwt");
+      axios
+        .get(`/questions/${offerid.slice(1)}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.questions = response.data;
-         
-      });
-      },
+        });
+    },
     fetch() {
       const offerid = this.$route.params.id;
-      const token = localStorage.getItem('jwt');
-      axios.get(`/offers/${offerid.slice(1)}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
+      const token = localStorage.getItem("jwt");
+      axios
+        .get(`/offers/${offerid.slice(1)}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.offer.name = response.data.name;
-          this.offer.description = response.data.description ?? '';
+          this.offer.description = response.data.description ?? "";
           this.offer.companyId = response.data.companyId;
-          this.offer.imageUrl =  response.data.imageUrl;
-          this.offer.companyName = response.data.companyName ?? '';
+          this.offer.imageUrl = response.data.imageUrl;
+          this.offer.companyName = response.data.companyName ?? "";
           this.offer.id = response.data.id;
           this.offer.isUserCommented = response.data.isUserCommented;
           this.offer.rating = response.data.rating;
           this.offer.type = response.data.type;
-      });
-      },
-    
-      
-    
+        });
+    },
+
     addComment() {
       this.errors = [];
       this.errorsQuestions = [];
       const offerid = this.$route.params.id;
-      const token = localStorage.getItem('jwt');
-        axios.post(`/comments/${offerid.slice(1)}`,  this.newComment, {
+      const token = localStorage.getItem("jwt");
+      axios
+        .post(`/comments/${offerid.slice(1)}`, this.newComment, {
           headers: {
-          'Authorization': `Bearer ${token}`
-          }
-        }
-         )
-        .then(response => {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.fetch();
           this.fetchComments();
           this.fetchQuestions();
         })
-        .catch(error => {
-        const errors = [];
-        handleErrors(error, errors);
-        this.errors = this.errors.concat(errors);
-      });
-      
+        .catch((error) => {
+          const errors = [];
+          handleErrors(error, errors);
+          this.errors = this.errors.concat(errors);
+        });
     },
-    addQuestion() { 
+    addQuestion() {
       this.errorsQuestions = [];
       this.errors = [];
       console.log(this.newQuestion);
       const offerid = this.$route.params.id;
-      const token = localStorage.getItem('jwt');
-        axios.post(`/questions/${offerid.slice(1)}`, this.newQuestion, {
+      const token = localStorage.getItem("jwt");
+      axios
+        .post(`/questions/${offerid.slice(1)}`, this.newQuestion, {
           headers: {
-          'Authorization': `Bearer ${token}`
-          }
-        }
-         )
-        .then(response => {
-          this.newQuestion.message = '';
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          this.newQuestion.message = "";
           this.fetch();
           this.fetchQuestions();
           this.fetchComments();
         })
-        .catch(error => {
-        const errorsQuestions = [];
-        handleErrors(error, errorsQuestions);
-        this.errorsQuestions = this.errorsQuestions.concat(errorsQuestions);
-      }); 
+        .catch((error) => {
+          const errorsQuestions = [];
+          handleErrors(error, errorsQuestions);
+          this.errorsQuestions = this.errorsQuestions.concat(errorsQuestions);
+        });
     },
     sendAnswerQuestion(questionId) {
-        const token = localStorage.getItem('jwt');
-        const answerObject = { answer: this.questionAnswer[questionId] };
-        axios.post(`/questions/${questionId}/answer`,  answerObject, {
+      const token = localStorage.getItem("jwt");
+      const answerObject = { answer: this.questionAnswer[questionId] };
+      axios
+        .post(`/questions/${questionId}/answer`, answerObject, {
           headers: {
-          'Authorization': `Bearer ${token}`
-          }
-        }
-         )
-        .then(response => {
-          this.questionAnswer = []
-          this.fetch();
-          this.fetchQuestions();
-          this.fetchComments();
+            Authorization: `Bearer ${token}`,
+          },
         })
+        .then((response) => {
+          this.questionAnswer = [];
+          this.fetch();
+          this.fetchQuestions();
+          this.fetchComments();
+        });
     },
-    deleteComment(commentId){
-      let endpointSuffix = '';
-      if(this.isAdmin())
-        endpointSuffix = '/admin';
+    deleteComment(commentId) {
+      let endpointSuffix = "";
+      if (this.isAdmin()) endpointSuffix = "/admin";
 
-      const token = localStorage.getItem('jwt');
-        axios.delete(`/comments/${commentId}${endpointSuffix}`, {
+      const token = localStorage.getItem("jwt");
+      axios
+        .delete(`/comments/${commentId}${endpointSuffix}`, {
           headers: {
-          'Authorization': `Bearer ${token}`
-          }
-        }
-         )
-        .then(response => {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.fetch();
           this.fetchComments();
           this.fetchQuestions();
         });
     },
-    deleteQuestion(questionId){
-      let endpointSuffix = '';
-      if(this.isAdmin())
-        endpointSuffix = '/admin';
+    deleteQuestion(questionId) {
+      let endpointSuffix = "";
+      if (this.isAdmin()) endpointSuffix = "/admin";
 
-      const token = localStorage.getItem('jwt');
-        axios.delete(`/questions/${questionId}${endpointSuffix}`, {
+      const token = localStorage.getItem("jwt");
+      axios
+        .delete(`/questions/${questionId}${endpointSuffix}`, {
           headers: {
-          'Authorization': `Bearer ${token}`
-          }
-        }
-         )
-        .then(response => {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.fetch();
           this.fetchComments();
           this.fetchQuestions();
         });
-    }
+    },
   },
-  mounted()
-  {
+  mounted() {
     this.fetch();
     this.fetchComments();
     this.fetchQuestions();
-  }
+  },
 };
 </script>
 
@@ -329,14 +359,14 @@ body {
 }
 
 #remove-button {
-    background-color: red;  /* Czerwone tło */
-    color: white;  /* Biały tekst */
-    border: none;  /* Brak obramowania */
-    padding: 2px 5px;  /* Bardzo małe paddingi */
-    font-size: 10px;  /* Bardzo mała czcionka */
-    border-radius: 8px;  /* Zaokrąglone krawędzie */
-    margin-left: 5px;
-    font-weight: bold;
+  background-color: red; /* Czerwone tło */
+  color: white; /* Biały tekst */
+  border: none; /* Brak obramowania */
+  padding: 2px 5px; /* Bardzo małe paddingi */
+  font-size: 10px; /* Bardzo mała czcionka */
+  border-radius: 8px; /* Zaokrąglone krawędzie */
+  margin-left: 5px;
+  font-weight: bold;
 }
 
 .offer-main {
@@ -409,7 +439,8 @@ body {
   margin-bottom: 20px;
 }
 
-.comments-section, .reviews-section {
+.comments-section,
+.reviews-section {
   background-color: white;
   color: black;
   width: 100%;
@@ -418,27 +449,32 @@ body {
   margin-bottom: 20px;
 }
 
-.comments-section h4, .reviews-section h4 {
+.comments-section h4,
+.reviews-section h4 {
   margin-bottom: 10px;
 }
 
-.comments-section ul, .reviews-section ul {
+.comments-section ul,
+.reviews-section ul {
   list-style-type: none;
   padding: 0;
 }
 
-.comments-section li, .reviews-section li {
+.comments-section li,
+.reviews-section li {
   margin-bottom: 10px;
 }
 
-.comments-section input, .reviews-section input {
+.comments-section input,
+.reviews-section input {
   width: calc(100% - 22px);
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
 
-.comments-section button, .reviews-section button {
+.comments-section button,
+.reviews-section button {
   padding: 10px 15px;
   background-color: #28a745;
   color: white;

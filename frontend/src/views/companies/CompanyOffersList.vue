@@ -3,7 +3,13 @@
   <div class="offer-container">
     <!-- Formularz wyszukiwania -->
     <div class="search-form">
-      <input v-model="searchQuery" class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+      <input
+        v-model="searchQuery"
+        class="form-control search-input"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
       <button class="add-offer-button" @click="addOffer">Dodaj Ofertę</button>
     </div>
     <!-- Filtr: Typ oferty (zawsze widoczny) -->
@@ -11,30 +17,51 @@
       <label for="specificOfferType">Typ oferty:</label>
       <select id="specificOfferType" v-model.number="selectedOfferType">
         <option value="">Wybierz typ oferty</option>
-        <option v-for="(name, value) in offerTypes" :value="value">{{ name }}</option>
+        <option v-for="(name, value) in offerTypes" :value="value">
+          {{ name }}
+        </option>
       </select>
     </div>
     <!-- Lista ofert -->
     <div class="offer-list-container">
       <div class="offer-list">
         <ul>
-          <li v-for="(offer, index) in offers" :key="offer.id" class="offer-item">
+          <li
+            v-for="(offer, index) in offers"
+            :key="offer.id"
+            class="offer-item"
+          >
             <div class="offer-details">
               <div class="offer-content">
                 <div class="offer-text">
-                  <h3 class="offer-name" @click="goToOffer(offer.id)">{{ offer.name }}</h3>
+                  <h3 class="offer-name" @click="goToOffer(offer.id)">
+                    {{ offer.name }}
+                  </h3>
                   <p class="company-name">{{ offer.companyName }}</p>
-                  <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.type) }}</span></p>
+                  <p>
+                    Typ:
+                    <span class="offer-type">{{
+                      getOfferTypeName(offer.type)
+                    }}</span>
+                  </p>
                   <p>Ocena: {{ offer.rating }}</p>
                   <p>Opis: {{ offer.description }}</p>
                 </div>
                 <div class="offer-actions">
-                  <button class="edit-button" @click="editOffer(offer.id)">Edytuj</button>
-                  <button class="delete-button" @click="deleteOffer(offer.id)">Usuń</button>
+                  <button class="edit-button" @click="editOffer(offer.id)">
+                    Edytuj
+                  </button>
+                  <button class="delete-button" @click="deleteOffer(offer.id)">
+                    Usuń
+                  </button>
                 </div>
               </div>
               <div class="offer-image">
-                <img :src="offer.imageUrl" :alt="'Offer Image ' + (index + 1)" v-if="offer.imageUrl">
+                <img
+                  :src="offer.imageUrl"
+                  :alt="'Offer Image ' + (index + 1)"
+                  v-if="offer.imageUrl"
+                />
               </div>
             </div>
           </li>
@@ -45,20 +72,41 @@
     <div class="offer-per-page">
       <label for="offerPerPage">Oferty na stronie:</label>
       <select v-model="pageSize" id="offerPerPage">
-        <option v-for="option in pageSizeOptions" :value="option">{{ option }}</option>
+        <option v-for="option in pageSizeOptions" :value="option">
+          {{ option }}
+        </option>
       </select>
     </div>
     <!-- Paginacja -->
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
-        <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-          <button class="page-link" @click="changePage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
+        <li class="page-item" :class="{ disabled: currentPage === 1 }">
+          <button
+            class="page-link"
+            @click="changePage(currentPage - 1)"
+            :disabled="currentPage === 1"
+          >
+            Previous
+          </button>
         </li>
-        <li class="page-item" v-for="page in totalPages" :key="page" :class="{ 'active': currentPage === page }">
-          <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+        <li
+          class="page-item"
+          v-for="page in totalPages"
+          :key="page"
+          :class="{ active: currentPage === page }"
+        >
+          <a class="page-link" href="#" @click.prevent="changePage(page)">{{
+            page
+          }}</a>
         </li>
-        <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-          <button class="page-link" @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
+        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+          <button
+            class="page-link"
+            @click="changePage(currentPage + 1)"
+            :disabled="currentPage === totalPages"
+          >
+            Next
+          </button>
         </li>
       </ul>
     </nav>
@@ -67,12 +115,12 @@
 </template>
 
 <script>
-import axios from '../../../config.js';
-import NavBar from '@/components/NavBar.vue';
+import axios from "../../../config.js";
+import NavBar from "@/components/NavBar.vue";
 
 export default {
   components: {
-    NavBar
+    NavBar,
   },
   data() {
     return {
@@ -80,24 +128,23 @@ export default {
       totalPages: 1,
       pageSize: 5,
       pageSizeOptions: [5, 10, 15],
-      searchQuery: '',
-      selectedOfferType: '',
-      selectedCompany: '',
+      searchQuery: "",
+      selectedOfferType: "",
+      selectedCompany: "",
       isLogin: false,
       offerTypes: {
-        1: 'Produkt',
-        2: 'Usługa',
-        3: 'Promocja',
-        4: 'Program lojalnościowy'
+        1: "Produkt",
+        2: "Usługa",
+        3: "Promocja",
+        4: "Program lojalnościowy",
       },
       offers: [],
-      companies: []
+      companies: [],
     };
   },
   methods: {
-    goToOffer(offerid)
-    {
-      this.$router.push({ path: `/offer:${offerid}`});
+    goToOffer(offerid) {
+      this.$router.push({ path: `/offer:${offerid}` });
     },
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
@@ -106,29 +153,29 @@ export default {
       }
     },
     fetchOffers() {
-      const token = localStorage.getItem('jwt');
+      const token = localStorage.getItem("jwt");
       const params = {
         pageNumber: this.currentPage,
         pageSize: this.pageSize,
         search: this.searchQuery,
-        type: this.selectedOfferType
+        type: this.selectedOfferType,
       };
 
-      axios.get('/offers/my-offers', {
-        params: params,
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        this.offers = response.data.items;
-        this.currentPage = response.data.pageIndex;
-        this.totalPages = response.data.totalPages;
-      });
+      axios
+        .get("/offers/my-offers", {
+          params: params,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          this.offers = response.data.items;
+          this.currentPage = response.data.pageIndex;
+          this.totalPages = response.data.totalPages;
+        });
     },
     fetchCompanies() {
-      axios.get('/companies/all')
-      .then(response => {
+      axios.get("/companies/all").then((response) => {
         this.companies = response.data;
       });
     },
@@ -142,16 +189,17 @@ export default {
       this.$router.push({ path: `/offer/edit:${offerId}` });
     },
     deleteOffer(offerId) {
-      const token = localStorage.getItem('jwt');
-      axios.delete(`/offers/${offerId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        this.fetchOffers();
-      });
-    }
+      const token = localStorage.getItem("jwt");
+      axios
+        .delete(`/offers/${offerId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          this.fetchOffers();
+        });
+    },
   },
   watch: {
     currentPage() {
@@ -168,16 +216,16 @@ export default {
     },
     selectedCompany() {
       this.fetchOffers();
-    }
+    },
   },
   mounted() {
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem("jwt");
     if (token) {
       this.isLogin = true;
     }
     this.fetchCompanies();
     this.fetchOffers();
-  }
+  },
 };
 </script>
 
@@ -222,7 +270,8 @@ export default {
   background-color: #5a6268;
 }
 
-.specific-offer-type, .company-filter {
+.specific-offer-type,
+.company-filter {
   margin-bottom: 10px;
 }
 
@@ -269,7 +318,8 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-.offer-text h3, .offer-text p {
+.offer-text h3,
+.offer-text p {
   margin: -4px;
 }
 

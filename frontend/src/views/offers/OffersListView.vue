@@ -3,12 +3,18 @@
   <div class="offer-container">
     <!-- Formularz wyszukiwania -->
     <div class="search-form">
-      <input v-model="searchQuery" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <input
+        v-model="searchQuery"
+        class="form-control"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
     </div>
     <!-- Filtr: Ulubione firmy (widoczny tylko dla zalogowanych użytkowników) -->
     <div v-if="isLogin" class="favorite-companies">
       <label>Filtruj tylko ulubione: </label>
-      <input type="checkbox" id="favoriteCompany" v-model="favoriteCompany">
+      <input type="checkbox" id="favoriteCompany" v-model="favoriteCompany" />
       <label for="favoriteCompany"></label>
     </div>
     <!-- Filtr: Typ oferty (zawsze widoczny) -->
@@ -16,7 +22,9 @@
       <label for="specificOfferType">Typ oferty:</label>
       <select id="specificOfferType" v-model.number="selectedOfferType">
         <option value="">Wybierz typ oferty</option>
-        <option v-for="(name, value) in offerTypes" :value="value">{{ name }}</option>
+        <option v-for="(name, value) in offerTypes" :value="value">
+          {{ name }}
+        </option>
       </select>
     </div>
     <!-- Filtr: Nazwa firmy -->
@@ -24,29 +32,56 @@
       <label for="companySelect">Firma:</label>
       <select id="companySelect" v-model="selectedCompany">
         <option value="">Wybierz firmę</option>
-        <option v-for="company in companies" :key="company.id" :value="company.id">{{ company.name }}</option>
+        <option
+          v-for="company in companies"
+          :key="company.id"
+          :value="company.id"
+        >
+          {{ company.name }}
+        </option>
       </select>
     </div>
     <!-- Lista ofert -->
     <div class="offer-list-container">
       <div class="offer-list">
         <ul>
-          <li v-for="(offer, index) in offers" :key="offer.id" class="offer-item">
+          <li
+            v-for="(offer, index) in offers"
+            :key="offer.id"
+            class="offer-item"
+          >
             <div class="offer-details">
               <div class="offer-content">
                 <div class="offer-text">
-                  <h3 class="offer-name" @click="goToOffer(offer.id)">{{ offer.name }}</h3>
+                  <h3 class="offer-name" @click="goToOffer(offer.id)">
+                    {{ offer.name }}
+                  </h3>
                   <p class="company-name">{{ offer.companyName }}</p>
-                  <p>Typ: <span class="offer-type">{{ getOfferTypeName(offer.type) }}</span></p>
+                  <p>
+                    Typ:
+                    <span class="offer-type">{{
+                      getOfferTypeName(offer.type)
+                    }}</span>
+                  </p>
                   <p>Ocena: {{ offer.rating }}</p>
                   <p>Opis: {{ offer.description }}</p>
                 </div>
                 <div class="offer-actions">
-                  <button class="delete-button" @click="deleteOffer(offer.id)" v-if="isAdmin()">Usuń</button>
+                  <button
+                    class="delete-button"
+                    @click="deleteOffer(offer.id)"
+                    v-if="isAdmin()"
+                  >
+                    Usuń
+                  </button>
                 </div>
               </div>
               <div class="offer-image">
-                <img :src="offer.imageUrl" :alt="'Offer Image ' + (index + 1)" v-if="offer.imageUrl">
+                <img
+                  :src="offer.imageUrl"
+                  :alt="'Offer Image ' + (index + 1)"
+                  v-if="offer.imageUrl"
+                />
               </div>
             </div>
           </li>
@@ -57,20 +92,41 @@
     <div class="offer-per-page">
       <label for="offerPerPage">Oferty na stronie:</label>
       <select v-model="pageSize" id="offerPerPage">
-        <option v-for="option in pageSizeOptions" :value="option">{{ option }}</option>
+        <option v-for="option in pageSizeOptions" :value="option">
+          {{ option }}
+        </option>
       </select>
     </div>
     <!-- Paginacja -->
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
-        <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-          <button class="page-link" @click="changePage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
+        <li class="page-item" :class="{ disabled: currentPage === 1 }">
+          <button
+            class="page-link"
+            @click="changePage(currentPage - 1)"
+            :disabled="currentPage === 1"
+          >
+            Previous
+          </button>
         </li>
-        <li class="page-item" v-for="page in totalPages" :key="page" :class="{ 'active': currentPage === page }">
-          <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+        <li
+          class="page-item"
+          v-for="page in totalPages"
+          :key="page"
+          :class="{ active: currentPage === page }"
+        >
+          <a class="page-link" href="#" @click.prevent="changePage(page)">{{
+            page
+          }}</a>
         </li>
-        <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-          <button class="page-link" @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
+        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+          <button
+            class="page-link"
+            @click="changePage(currentPage + 1)"
+            :disabled="currentPage === totalPages"
+          >
+            Next
+          </button>
         </li>
       </ul>
     </nav>
@@ -79,13 +135,13 @@
 </template>
 
 <script>
-import axios from '../../../config.js';
-import NavBar from '@/components/NavBar.vue';
-import { CheckUserRole } from '../../services/UserService.js';
+import axios from "../../../config.js";
+import NavBar from "@/components/NavBar.vue";
+import { CheckUserRole } from "../../services/UserService.js";
 
 export default {
   components: {
-    NavBar
+    NavBar,
   },
   data() {
     return {
@@ -93,19 +149,19 @@ export default {
       totalPages: 1,
       pageSize: 5,
       pageSizeOptions: [5, 10, 15],
-      searchQuery: '',
+      searchQuery: "",
       favoriteCompany: false,
-      selectedOfferType: '',
-      selectedCompany: '',
+      selectedOfferType: "",
+      selectedCompany: "",
       isLogin: false,
       offerTypes: {
-        1: 'Produkt',
-        2: 'Usługa',
-        3: 'Promocja',
-        4: 'Program lojalnościowy'
+        1: "Produkt",
+        2: "Usługa",
+        3: "Promocja",
+        4: "Program lojalnościowy",
       },
       offers: [],
-      companies: []
+      companies: [],
     };
   },
   methods: {
@@ -115,36 +171,35 @@ export default {
         this.fetchOffers();
       }
     },
-    goToOffer(offerid)
-    {
-      this.$router.push({ path: `/offer:${offerid}`});
+    goToOffer(offerid) {
+      this.$router.push({ path: `/offer:${offerid}` });
     },
     fetchOffers() {
-      const token = localStorage.getItem('jwt');
+      const token = localStorage.getItem("jwt");
       const params = {
         pageNumber: this.currentPage,
         pageSize: this.pageSize,
         search: this.searchQuery,
         type: this.selectedOfferType,
         companyId: this.selectedCompany,
-        isCompanyFavourite: this.favoriteCompany
+        isCompanyFavourite: this.favoriteCompany,
       };
 
-      axios.get('/offers', {
-        params: params,
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        this.offers = response.data.items;
-        this.currentPage = response.data.pageIndex;
-        this.totalPages = response.data.totalPages;
-      });
+      axios
+        .get("/offers", {
+          params: params,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          this.offers = response.data.items;
+          this.currentPage = response.data.pageIndex;
+          this.totalPages = response.data.totalPages;
+        });
     },
     fetchCompanies() {
-      axios.get('/companies/all')
-      .then(response => {
+      axios.get("/companies/all").then((response) => {
         this.companies = response.data;
       });
     },
@@ -152,19 +207,20 @@ export default {
       return this.offerTypes[value];
     },
     deleteOffer(offerId) {
-      const token = localStorage.getItem('jwt');
-      axios.delete(`/offers/${offerId}/admin`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        this.fetchOffers();
-      });
+      const token = localStorage.getItem("jwt");
+      axios
+        .delete(`/offers/${offerId}/admin`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          this.fetchOffers();
+        });
     },
     isAdmin() {
-      return CheckUserRole('Admin');
-    }
+      return CheckUserRole("Admin");
+    },
   },
   watch: {
     currentPage() {
@@ -184,16 +240,16 @@ export default {
     },
     selectedCompany() {
       this.fetchOffers();
-    }
+    },
   },
   mounted() {
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem("jwt");
     if (token) {
       this.isLogin = true;
     }
     this.fetchCompanies();
     this.fetchOffers();
-  }
+  },
 };
 </script>
 
@@ -214,7 +270,9 @@ export default {
   width: 30%;
 }
 
-.favorite-companies, .specific-offer-type, .company-filter {
+.favorite-companies,
+.specific-offer-type,
+.company-filter {
   margin-bottom: 5px;
 }
 
@@ -260,7 +318,8 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-.offer-text h3, .offer-text p {
+.offer-text h3,
+.offer-text p {
   margin: -4px;
 }
 

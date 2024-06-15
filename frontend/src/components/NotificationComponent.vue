@@ -7,23 +7,23 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(['showBox', 'message', 'messageDuration'])
+    ...mapState(["showBox", "message", "messageDuration"]),
   },
 
   watch: {
     showBox(newValue) {
       if (newValue) {
         setTimeout(() => {
-          this.$store.commit('setShowBox', false);
-          this.$store.commit('setMessage', ''); // Wyczyść komunikat po ukryciu
+          this.$store.commit("setShowBox", false);
+          this.$store.commit("setMessage", ""); // Wyczyść komunikat po ukryciu
         }, this.messageDuration);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

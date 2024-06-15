@@ -1,89 +1,127 @@
 <template>
   <NavBar />
   <!-- <Space /> -->
-    <div class="vue-template">
-      <form @submit.prevent="submitForm">
+  <div class="vue-template">
+    <form @submit.prevent="submitForm">
       <div class="card">
         <h3>Rejestracja</h3>
         <div class="mb-3">
           <label for="email">Podaj swój adres Email:</label>
-          <input type="email" id="email" class="form-control form-control-lg" v-model="form.email" required>
+          <input
+            type="email"
+            id="email"
+            class="form-control form-control-lg"
+            v-model="form.email"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="companyName"> Podaj nazwę swojej firmy:</label>
-          <input type="companyName" id="companyName" class="form-control form-control-lg" v-model="form.companyName" required>
+          <input
+            type="companyName"
+            id="companyName"
+            class="form-control form-control-lg"
+            v-model="form.companyName"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="password"> Podaj Hasło:</label>
-          <input type="password" id="password" class="form-control form-control-lg" v-model="form.password" required>
+          <input
+            type="password"
+            id="password"
+            class="form-control form-control-lg"
+            v-model="form.password"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="confirmedPassword">Potwierdź hasło:</label>
-          <input type="password" id="confirmedPassword" class="form-control form-control-lg" v-model="form.confirmedPassword" required>
+          <input
+            type="password"
+            id="confirmedPassword"
+            class="form-control form-control-lg"
+            v-model="form.confirmedPassword"
+            required
+          />
         </div>
         <button type="submit">Zarejestruj się</button>
         <p>
-        Masz już konto? Zaloguj się  
-      <RouterLink to="/sign-in" class = "link">tutaj</RouterLink>
-      </p>
-      <div v-if="errors">
-          <ul style="list-style-type: none; margin: 0; padding: 0; margin-top: 10px;">
-            <li v-for="errorMsg in errors" :key="errorMsg" class="error-message">
+          Masz już konto? Zaloguj się
+          <RouterLink to="/sign-in" class="link">tutaj</RouterLink>
+        </p>
+        <div v-if="errors">
+          <ul
+            style="
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              margin-top: 10px;
+            "
+          >
+            <li
+              v-for="errorMsg in errors"
+              :key="errorMsg"
+              class="error-message"
+            >
               <div class="error">
-                  {{ errorMsg }}
+                {{ errorMsg }}
               </div>
             </li>
           </ul>
+        </div>
       </div>
-      </div>
-      </form>
-    </div>
-    <notification-component></notification-component>
-  </template>
-  <script>
-   import axios from '../../../config.js';
-   import NavBar from '@/components/NavBar.vue';
- import Space from '@/components/Space.vue';
- import { handleErrors } from '../../../errorHandler.js';
-  
-  export default {
-    name: 'RegisterForm',
-    components: {
-      NavBar,
-      Space
-    },
-    data() {
-      return {
-        form: {
-          email: '',
-          companyName: '',
-          password: '',
-          confirmedPassword: ''
-        },
-        errors: []
-      };
-    },
-    methods: {
-      submitForm() {
-        this.errors = [];
-        console.log("qwer")
+    </form>
+  </div>
+  <notification-component></notification-component>
+</template>
+<script>
+import axios from "../../../config.js";
+import NavBar from "@/components/NavBar.vue";
+import Space from "@/components/Space.vue";
+import { handleErrors } from "../../../errorHandler.js";
 
-        axios.post('/user-identity/sign-up-company', this.form)
-          .then(response => {
-            this.$store.dispatch('showNotification', { message: 'Na twój adres mailowy został wysłany link aktywacyjny.'});
-            this.$router.push('/sign-in');
-            this.formErrors = {};
-          })
-          .catch(error => {
-            const errors = [];
-            handleErrors(error, errors);
-            this.errors = this.errors.concat(errors);
+export default {
+  name: "RegisterForm",
+  components: {
+    NavBar,
+    Space,
+  },
+  data() {
+    return {
+      form: {
+        email: "",
+        companyName: "",
+        password: "",
+        confirmedPassword: "",
+      },
+      errors: [],
+    };
+  },
+  methods: {
+    submitForm() {
+      this.errors = [];
+      console.log("qwer");
+
+      axios
+        .post("/user-identity/sign-up-company", this.form)
+        .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Na twój adres mailowy został wysłany link aktywacyjny.",
           });
-      }
-    }
-  };
-  </script>
-  <style scoped>
+          this.$router.push("/sign-in");
+          this.formErrors = {};
+        })
+        .catch((error) => {
+          const errors = [];
+          handleErrors(error, errors);
+          this.errors = this.errors.concat(errors);
+        });
+    },
+  },
+};
+</script>
+<style scoped>
 /* Globalne ustawienia */
 .vue-template {
   background: rgb(40, 167, 69);
@@ -92,10 +130,9 @@
   padding-top: 80px;
 }
 
-.link{
+.link {
   color: rgb(40, 167, 69);
 }
-
 
 .card {
   width: 450px; /* Zdefiniowanie szerokości karty */
@@ -146,7 +183,8 @@ button {
 }
 
 /* Usunięcie niepotrzebnych klas */
-.vertical-center, .inner-block {
+.vertical-center,
+.inner-block {
   display: none;
 }
 
@@ -157,6 +195,4 @@ h3 {
 .error {
   color: red;
 }
-
 </style>
-  

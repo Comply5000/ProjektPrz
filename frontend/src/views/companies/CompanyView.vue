@@ -7,16 +7,16 @@
           <h3 class="company-name">
             {{ company.name }}
             <span @click="toggleFavorite" class="favorite-star" v-if="isUser()">
-              <i :class="company.isFavorite ? 'fas fa-star' : 'far fa-star'"></i>
+              <i
+                :class="company.isFavorite ? 'fas fa-star' : 'far fa-star'"
+              ></i>
             </span>
           </h3>
-          
-          
+
           <p>Lokalizacja: {{ company.localization }}</p>
-         
         </div>
         <div class="company-image">
-          <img :src="company.imageUrl" :alt="'Company Image'">
+          <img :src="company.imageUrl" :alt="'Company Image'" />
         </div>
       </div>
       <div class="company-description">
@@ -28,67 +28,70 @@
 </template>
 
 <script>
-import { CheckUserRole } from '../../services/UserService.js';
-import axios from '../../../config.js';
-import NavBar from '@/components/NavBar.vue';
-import Space from '@/components/Space.vue';
+import { CheckUserRole } from "../../services/UserService.js";
+import axios from "../../../config.js";
+import NavBar from "@/components/NavBar.vue";
+import Space from "@/components/Space.vue";
 export default {
   components: {
-    NavBar
+    NavBar,
   },
   data() {
     return {
       company: {
-        name: '',
-        localization: '',
+        name: "",
+        localization: "",
         imageUrl: "",
         description: ``,
         id: null,
-        isFavorite: true
+        isFavorite: true,
       },
-     
     };
   },
   methods: {
     toggleFavorite() {
-      const token = localStorage.getItem('jwt');
+      const token = localStorage.getItem("jwt");
       console.log(token);
-      axios.put(`/companies/${this.company.id}/add-to-favourite`,{}, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
+      axios
+        .put(
+          `/companies/${this.company.id}/add-to-favourite`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
           this.fetch();
-      });
+        });
       // Tu możesz dodać logikę do zapisu stanu ulubionych, np. zapisu do lokalnej pamięci lub wysłania do serwera
     },
     fetch() {
       const companyid = this.$route.params.id;
-      const token = localStorage.getItem('jwt');
-      axios.get(`/companies/${companyid.slice(1)}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => {
+      const token = localStorage.getItem("jwt");
+      axios
+        .get(`/companies/${companyid.slice(1)}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           this.company.name = response.data.name;
-          this.company.description = response.data.description ?? '';
-          this.company.localization = response.data.localization ?? '';
-          this.company.imageUrl =  response.data.imageUrl;
+          this.company.description = response.data.description ?? "";
+          this.company.localization = response.data.localization ?? "";
+          this.company.imageUrl = response.data.imageUrl;
           this.company.isFavorite = response.data.favourite;
           this.company.id = response.data.id;
-      });
-      },
-      isUser() {
-      return CheckUserRole('User');
-    }
+        });
     },
-    mounted()
-    {
-      this.fetch();
-    }
-
+    isUser() {
+      return CheckUserRole("User");
+    },
+  },
+  mounted() {
+    this.fetch();
+  },
 };
 </script>
 
@@ -105,7 +108,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin-top: 0px;
-  padding-top:40px;
+  padding-top: 40px;
 }
 
 .company-main {
