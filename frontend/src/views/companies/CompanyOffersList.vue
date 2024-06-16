@@ -197,6 +197,9 @@ export default {
           },
         })
         .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Oferta została usunięta pomyślnie",
+          });
           this.fetchOffers();
         });
     },

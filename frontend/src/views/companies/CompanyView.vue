@@ -63,6 +63,14 @@ export default {
           }
         )
         .then((response) => {
+          let message = "";
+          if (this.company.isFavorite === false)
+            message = "Firma została dodana do ulubionych";
+          else message = "Firma została usunięta z ulubionych";
+
+          this.$store.dispatch("showNotification", {
+            message: message,
+          });
           this.fetch();
         });
       // Tu możesz dodać logikę do zapisu stanu ulubionych, np. zapisu do lokalnej pamięci lub wysłania do serwera

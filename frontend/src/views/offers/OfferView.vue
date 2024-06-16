@@ -249,6 +249,9 @@ export default {
           },
         })
         .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Komentarz dodany pomyslnie!",
+          });
           this.fetch();
           this.fetchComments();
           this.fetchQuestions();
@@ -272,6 +275,9 @@ export default {
           },
         })
         .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Pytanie dodane pomyslnie!",
+          });
           this.newQuestion.message = "";
           this.fetch();
           this.fetchQuestions();
@@ -293,6 +299,9 @@ export default {
           },
         })
         .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Odpowiedz dodana pomyslnie!",
+          });
           this.questionAnswer = [];
           this.fetch();
           this.fetchQuestions();
@@ -311,6 +320,9 @@ export default {
           },
         })
         .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Komentarz utworzonięty pomyslnie!",
+          });
           this.fetch();
           this.fetchComments();
           this.fetchQuestions();
@@ -328,6 +340,9 @@ export default {
           },
         })
         .then((response) => {
+          this.$store.dispatch("showNotification", {
+            message: "Pytanie usunięte pomyslnie!",
+          });
           this.fetch();
           this.fetchComments();
           this.fetchQuestions();
