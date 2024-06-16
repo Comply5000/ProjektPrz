@@ -250,7 +250,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("showNotification", {
-            message: "Komentarz dodany pomyslnie!",
+            message: "Komentarz dodany pomyślnie!",
           });
           this.fetch();
           this.fetchComments();
@@ -276,7 +276,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("showNotification", {
-            message: "Pytanie dodane pomyslnie!",
+            message: "Pytanie dodane pomyślnie!",
           });
           this.newQuestion.message = "";
           this.fetch();
@@ -300,7 +300,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("showNotification", {
-            message: "Odpowiedz dodana pomyslnie!",
+            message: "Odpowiedz dodana pomyślnie!",
           });
           this.questionAnswer = [];
           this.fetch();
@@ -321,7 +321,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("showNotification", {
-            message: "Komentarz utworzonięty pomyslnie!",
+            message: "Komentarz utworzonięty pomyślnie!",
           });
           this.fetch();
           this.fetchComments();
@@ -341,7 +341,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("showNotification", {
-            message: "Pytanie usunięte pomyslnie!",
+            message: "Pytanie usunięte pomyślnie!",
           });
           this.fetch();
           this.fetchComments();

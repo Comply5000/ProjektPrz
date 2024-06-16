@@ -178,7 +178,7 @@ export default {
             this.formErrors = {};
             this.fetch(response.data.id);
             this.$store.dispatch("showNotification", {
-              message: "Oferta zaktualizowana pomyslnie!",
+              message: "Oferta zaktualizowana pomyślnie!",
             });
           })
           .catch((error) => {
@@ -224,7 +224,7 @@ export default {
           .then((response) => {
             this.formErrors = {};
             this.$store.dispatch("showNotification", {
-              message: "Oferta utworzona pomyslnie!",
+              message: "Oferta utworzona pomyślnie!",
             });
             this.$router
               .push({ path: `/offer/edit:${response.data.id}` })

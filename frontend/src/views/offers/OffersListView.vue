@@ -216,7 +216,7 @@ export default {
         })
         .then((response) => {
           this.$store.dispatch("showNotification", {
-            message: "Oferta usunięta pomyslnie!",
+            message: "Oferta usunięta pomyślnie!",
           });
           this.fetchOffers();
         });
