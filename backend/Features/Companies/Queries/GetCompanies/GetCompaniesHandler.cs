@@ -39,7 +39,7 @@ public sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, Pag
                 Id = x.Id,
                 Name = x.Name,
                 Localization = x.Localization,
-                Description = x.Description.Substring(0, 150),
+                Description = x.Description.Substring(0, 150) + "...",
                 ImageUrl = x.Image.Url,
                 Favourite = x.Followers.Contains(user) //sprawdzenie czy użytkownik ma firmę w polubionych
             })

@@ -59,7 +59,7 @@ namespace API.Features.Offers.Queries.GetOffers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    Description = x.Description,
+                    Description = x.Description.Substring(0, 150) + "...",
                     Type = x.Type,
                     ImageUrl = x.Image.Url,
                     CompanyId = x.CompanyId,
